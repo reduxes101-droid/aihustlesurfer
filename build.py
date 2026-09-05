@@ -148,6 +148,34 @@ def label_tables(html_body: str) -> str:
 def rail(inner: str) -> str:
     return f'<div class="rail" data-rail aria-label="Reading position">{inner}</div>'
 
+
+SHOTS = ROOT / "assets" / "img" / "screenshots"
+try:
+    SHOT_DATES = json.loads((SHOTS / "captures.json").read_text("utf-8"))
+except FileNotFoundError:
+    SHOT_DATES = {}
+
+
+def screenshot_for(t: dict):
+    """Return (url, date or None) if a vendor-page capture exists for this tool, else None."""
+    f = SHOTS / f"{t['slug']}.webp"
+    if not f.exists():
+        return None
+    return f"/assets/img/screenshots/{t['slug']}.webp", SHOT_DATES.get(t["slug"])
+
+
+def screenshot_figure(t: dict) -> str:
+    shot = screenshot_for(t)
+    if not shot:
+        return ""
+    url, date = shot
+    when = f", captured {fmt_date(date)}" if date else ""
+    alt = f"Screenshot of {t['name']}'s public website{when}. It shows the vendor's marketing page, not the product in use."
+    cap = (f"{esc(t['name'])}'s own website{esc(when)}. This is the vendor's public page, reproduced for identification; "
+           "it is not a view of the product in use and it was not produced by us.")
+    return (f'<figure class="shot"><img src="{url}" width="1280" height="720" alt="{esc(alt)}" loading="lazy" decoding="async">'
+            f'<figcaption>{cap}</figcaption></figure>')
+
 # --------------------------------------------------------------------------
 # Chrome: head, header, footer
 # --------------------------------------------------------------------------
@@ -277,10 +305,14 @@ def review_node(t: dict) -> dict:
     offers = offers_for(t)
     if offers:
         product["offers"] = offers
+    shot = screenshot_for(t)
+    if shot:
+        product["image"] = BASE + shot[0]
     return {"@type": "Review", "@id": canonical + "#review", "url": canonical,
             "name": f"{t['name']} review", "reviewBody": t["dek"], "datePublished": t["date"],
             "itemReviewed": product,
             "reviewRating": {"@type": "Rating", "ratingValue": t["score"], "bestRating": 10, "worstRating": 0},
+            **({"image": BASE + shot[0]} if shot else {}),
             "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID}}
 
 
@@ -559,6 +591,7 @@ def page_tool(t: dict) -> str:
   <div class="review-layout">
     {rail(f'<span class="rail__score score-badge"><b>{t["score"]:.1f}</b><small>/10</small></span><span class="rail__section" aria-live="polite">{esc(t["name"])}</span><a href="#pricing">Pricing</a><a href="{go_href(t["slug"])}" rel="sponsored nofollow noopener" target="_blank">Visit</a>')}
     <div class="prose" data-article>
+      {screenshot_figure(t)}
       <div class="proscons">
         <div class="pros"><h3>What works</h3><ul>{pros}</ul></div>
         <div class="cons"><h3>What doesn't</h3><ul>{cons}</ul></div>

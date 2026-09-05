@@ -846,3 +846,8 @@ main { flex: 1 0 auto; }
 /* Grid layouts must never let an item's min-content width widen the page on phones */
 @media (max-width: 63.99rem) { .review-layout, .guide-layout { grid-template-columns: minmax(0, 1fr); } }
 .review-layout > *, .guide-layout > * { min-width: 0; }
+
+/* Vendor-page screenshot on reviews */
+.prose .shot { margin: 0 0 1.75em; }
+.prose .shot img { width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--line-light); background: var(--cream-2); }
+.prose .shot figcaption { font-size: 0.8rem; line-height: 1.45; color: var(--ink-2); margin-top: 0.6rem; }
