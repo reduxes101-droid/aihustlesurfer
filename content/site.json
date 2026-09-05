@@ -6,6 +6,7 @@
   "byline": "AIHustleSurfer Editorial",
   "contactEmail": "team@aihustlesurfer.com",
   "newsletterAction": "",
+  "videos": false,
   "categories": {
     "writing": "Writing",
     "image": "Image",

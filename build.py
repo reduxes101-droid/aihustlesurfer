@@ -34,6 +34,7 @@ TOOLS = sorted(
 )
 TOOL_BY_SLUG = {t["slug"]: t for t in TOOLS}
 VIDEOS = sorted(json.loads((CONTENT / "videos.json").read_text("utf-8")), key=lambda v: v["date"], reverse=True)
+SHOW_VIDEOS = bool(SITE.get("videos", True))
 
 
 def load_guides() -> list[dict]:
@@ -115,7 +116,7 @@ def score_badge(score: float) -> str:
 
 
 def latest_update() -> str:
-    dates = [t["date"] for t in TOOLS] + [g["date"] for g in GUIDES] + [v["date"] for v in VIDEOS]
+    dates = [t["date"] for t in TOOLS] + [g["date"] for g in GUIDES] + ([v["date"] for v in VIDEOS] if SHOW_VIDEOS else [])
     return fmt_date(max(dates))
 
 
@@ -151,7 +152,10 @@ def rail(inner: str) -> str:
 # Chrome: head, header, footer
 # --------------------------------------------------------------------------
 def header(current: str) -> str:
-    items = [("/tools/", "tools", "Tools"), ("/videos/", "videos", "Videos"), ("/guides/", "guides", "Guides"), ("/about/", "about", "About")]
+    items = [("/tools/", "tools", "Tools")]
+    if SHOW_VIDEOS:
+        items.append(("/videos/", "videos", "Videos"))
+    items += [("/guides/", "guides", "Guides"), ("/about/", "about", "About")]
     nav = "".join(
         f'<a href="{href}"{" aria-current=\"page\"" if key == current else ""}>{label}</a>' for href, key, label in items
     )
@@ -207,7 +211,7 @@ def footer() -> str:
       </div>
       <div>
         <h2>Sections</h2>
-        <ul><li><a href="/tools/">Tool reviews</a></li><li><a href="/videos/">Videos</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About &amp; how we work</a></li></ul>
+        <ul><li><a href="/tools/">Tool reviews</a></li>{'<li><a href="/videos/">Videos</a></li>' if SHOW_VIDEOS else ''}<li><a href="/guides/">Guides</a></li><li><a href="/about/">About &amp; how we work</a></li></ul>
       </div>
       <div>
         <h2>Site</h2>
@@ -220,8 +224,83 @@ def footer() -> str:
 </footer>'''
 
 
+
+# --------------------------------------------------------------------------
+# Structured data (schema.org JSON-LD)
+# --------------------------------------------------------------------------
+BASE = SITE["url"].rstrip("/")
+ORG_ID = f"{BASE}/#organization"
+SITE_ID = f"{BASE}/#website"
+OG_IMAGE = f"{BASE}/assets/img/og-image.png"
+PRICE_RE = re.compile(r"\$\s?([0-9]+(?:\.[0-9]{1,2})?)")
+
+
+def ld(*nodes: dict) -> str:
+    graph = {"@context": "https://schema.org", "@graph": [n for n in nodes if n]}
+    return '<script type="application/ld+json">' + json.dumps(graph, ensure_ascii=False, separators=(",", ":")) + "</script>\n"
+
+
+def org_node() -> dict:
+    return {"@type": "Organization", "@id": ORG_ID, "name": SITE["name"], "url": BASE + "/",
+            "description": SITE["description"], "email": SITE["contactEmail"],
+            "logo": {"@type": "ImageObject", "url": OG_IMAGE, "width": 1200, "height": 630}}
+
+
+def website_node() -> dict:
+    return {"@type": "WebSite", "@id": SITE_ID, "url": BASE + "/", "name": SITE["name"],
+            "inLanguage": "en", "publisher": {"@id": ORG_ID}}
+
+
+def breadcrumbs(*crumbs) -> dict:
+    return {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i, "name": name, "item": BASE + path}
+        for i, (name, path) in enumerate(crumbs, 1)]}
+
+
+def offers_for(t: dict) -> list:
+    out = []
+    for p in t.get("pricing", []):
+        raw = str(p.get("price", ""))
+        m = PRICE_RE.search(raw)
+        if m:
+            out.append({"@type": "Offer", "name": p["plan"], "price": float(m.group(1)), "priceCurrency": "USD"})
+        elif re.search(r"free", raw, re.I):
+            out.append({"@type": "Offer", "name": p["plan"], "price": 0, "priceCurrency": "USD"})
+    return out
+
+
+def review_node(t: dict) -> dict:
+    canonical = f"{BASE}/tools/{t['slug']}/"
+    product = {"@type": "SoftwareApplication", "name": t["name"],
+               "applicationCategory": CATS[t["category"]], "operatingSystem": "Web",
+               "description": t["tagline"]}
+    offers = offers_for(t)
+    if offers:
+        product["offers"] = offers
+    return {"@type": "Review", "@id": canonical + "#review", "url": canonical,
+            "name": f"{t['name']} review", "reviewBody": t["dek"], "datePublished": t["date"],
+            "itemReviewed": product,
+            "reviewRating": {"@type": "Rating", "ratingValue": t["score"], "bestRating": 10, "worstRating": 0},
+            "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID}}
+
+
+def article_node(g: dict) -> dict:
+    canonical = f"{BASE}/guides/{g['slug']}/"
+    return {"@type": "Article", "@id": canonical + "#article", "headline": g["title"],
+            "description": g["dek"], "datePublished": g["date"], "dateModified": g["date"],
+            "mainEntityOfPage": canonical, "image": OG_IMAGE, "inLanguage": "en",
+            "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID}}
+
+
+def tool_list_node() -> dict:
+    return {"@type": "ItemList", "name": "AI tool reviews", "itemListElement": [
+        {"@type": "ListItem", "position": i, "name": t["name"], "url": f"{BASE}/tools/{t['slug']}/"}
+        for i, t in enumerate(TOOLS, 1)]}
+
+
 def layout(*, title: str, description: str, path: str, body: str, theme: str, current: str = "",
-           affiliate: bool = False, article: bool = False, og_type: str = "website", extra_head: str = "") -> str:
+           affiliate: bool = False, article: bool = False, og_type: str = "website", extra_head: str = "",
+           jsonld: str = "") -> str:
     canonical = SITE["url"].rstrip("/") + path
     full_title = f"{title} | {SITE['name']}" if path != "/" else f"{SITE['name']} — {title}"
     progress = '<div class="progress" aria-hidden="true"></div>' if article else ""
@@ -254,7 +333,7 @@ def layout(*, title: str, description: str, path: str, body: str, theme: str, cu
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
 <link rel="stylesheet" href="/assets/css/site.css">
-{extra_head}<script>document.documentElement.classList.add('js')</script>
+{jsonld}{extra_head}<script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="theme-{theme}">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -354,7 +433,13 @@ def page_home() -> str:
         story_row(g["kicker"], f"/guides/{g['slug']}/", g["title"], g["dek"], f"{esc(fmt_date(g['date']))} · {read_time(g['body'])} min read")
         for g in [g for g in GUIDES if g["type"] != "roundup"][:4]
     )
-    videos_html = "".join(video_card(v) for v in VIDEOS[:3])
+    videos_html = "".join(video_card(v) for v in VIDEOS[:3]) if SHOW_VIDEOS else ""
+    videos_section = f'''
+<section class="section section--tight container">
+  <div class="section-head"><h2>Videos</h2><a href="/videos/">All videos</a></div>
+  <div class="grid grid--3 reveal-group">{videos_html}</div>
+</section>
+''' if SHOW_VIDEOS else ""
 
     body = f'''
 <div class="aurora">
@@ -394,11 +479,7 @@ def page_home() -> str:
   <div class="grid grid--2 reveal-group">{roundup_html}</div>
 </section>
 
-<section class="section section--tight container">
-  <div class="section-head"><h2>Videos</h2><a href="/videos/">All videos</a></div>
-  <div class="grid grid--3 reveal-group">{videos_html}</div>
-</section>
-
+{videos_section}
 <section class="section section--tight container">
   <div class="section-head"><h2>Guides</h2><a href="/guides/">All guides</a></div>
   <div class="story-list reveal">{guides_html}</div>
@@ -407,7 +488,8 @@ def page_home() -> str:
 <section class="section container">{newsletter()}</section>
 '''
     preload = '<link rel="preload" as="image" href="/assets/img/hero-wave.webp" type="image/webp" media="(min-width: 60rem)" fetchpriority="high">\n'
-    return layout(title=SITE["tagline"], description=SITE["description"], path="/", body=body, theme="dark", current="home", extra_head=preload)
+    return layout(title=SITE["tagline"], description=SITE["description"], path="/", body=body, theme="dark", current="home", extra_head=preload,
+                  jsonld=ld(org_node(), website_node()))
 
 
 def page_tools_index() -> str:
@@ -439,7 +521,8 @@ def page_tools_index() -> str:
   <section class="section">{newsletter()}</section>
 </div>'''
     return layout(title="AI tool reviews and ratings", description="A filterable directory of AI tools with honest scores, real pricing, and pros and cons from weeks of use.",
-                  path="/tools/", body=body, theme="dark", current="tools")
+                  path="/tools/", body=body, theme="dark", current="tools",
+                  jsonld=ld(breadcrumbs(("Home", "/"), ("Tools", "/tools/")), tool_list_node()))
 
 
 def page_tool(t: dict) -> str:
@@ -456,7 +539,7 @@ def page_tool(t: dict) -> str:
         f'<a href="/tools/{a}/">{score_badge(TOOL_BY_SLUG[a]["score"])}<div><b>{esc(TOOL_BY_SLUG[a]["name"])}</b><span>{esc(TOOL_BY_SLUG[a]["tagline"])}</span></div></a>'
         for a in t.get("alternatives", []) if a in TOOL_BY_SLUG
     )
-    vids = [v for v in VIDEOS if t["slug"] in v["tools"]]
+    vids = [v for v in VIDEOS if t["slug"] in v["tools"]] if SHOW_VIDEOS else []
     vids_html = ""
     if vids:
         vids_html = f'<div><span class="kicker">Videos featuring {esc(t["name"])}</span><div class="grid grid--2">{"".join(video_card(v) for v in vids[:2])}</div></div>'
@@ -509,7 +592,8 @@ def page_tool(t: dict) -> str:
   </div>
 </div>'''
     return layout(title=f"{t['name']} review", description=t["dek"], path=f"/tools/{t['slug']}/",
-                  body=body, theme="light", current="tools", affiliate=True, article=True, og_type="article")
+                  body=body, theme="light", current="tools", affiliate=True, article=True, og_type="article",
+                  jsonld=ld(breadcrumbs(("Home", "/"), ("Tools", "/tools/"), (t["name"], f"/tools/{t['slug']}/")), review_node(t)))
 
 
 def page_videos_index() -> str:
@@ -628,6 +712,7 @@ def page_guide(g: dict) -> str:
   </div>
 </div>'''
     return layout(title=g["title"], description=g["dek"], path=f"/guides/{g['slug']}/", body=body,
+                  jsonld=ld(breadcrumbs(("Home", "/"), ("Guides", "/guides/"), (g["title"], f"/guides/{g['slug']}/")), article_node(g)),
                   theme="light", current="guides", affiliate=bool(g["tools"]), article=True, og_type="article")
 
 
@@ -776,9 +861,10 @@ def main() -> None:
     write("tools/index.html", page_tools_index()); pages.append("/tools/")
     for t in TOOLS:
         write(f"tools/{t['slug']}/index.html", page_tool(t)); pages.append(f"/tools/{t['slug']}/")
-    write("videos/index.html", page_videos_index()); pages.append("/videos/")
-    for v in VIDEOS:
-        write(f"videos/{v['slug']}/index.html", page_video(v)); pages.append(f"/videos/{v['slug']}/")
+    if SHOW_VIDEOS:
+        write("videos/index.html", page_videos_index()); pages.append("/videos/")
+        for v in VIDEOS:
+            write(f"videos/{v['slug']}/index.html", page_video(v)); pages.append(f"/videos/{v['slug']}/")
     write("guides/index.html", page_guides_index()); pages.append("/guides/")
     for g in GUIDES:
         write(f"guides/{g['slug']}/index.html", page_guide(g)); pages.append(f"/guides/{g['slug']}/")
@@ -791,7 +877,10 @@ def main() -> None:
         write(f"go/{slug}/index.html", page_go(slug, link["url"], name))
 
     clean_generated("tools", {t["slug"] for t in TOOLS})
-    clean_generated("videos", {v["slug"] for v in VIDEOS})
+    if SHOW_VIDEOS:
+        clean_generated("videos", {v["slug"] for v in VIDEOS})
+    else:
+        shutil.rmtree(ROOT / "videos", ignore_errors=True)
     clean_generated("guides", {g["slug"] for g in GUIDES})
     clean_generated("go", set(LINKS))
 
