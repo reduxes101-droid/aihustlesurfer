@@ -64,9 +64,24 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "Unlimited standard searches, a small daily allowance of Pro searches and Deep Research. Enough for most weekly writers." },
-    { "plan": "Pro", "price": "$20/mo, $17/mo yearly", "notes": "Hundreds of Pro searches a day, unlimited file uploads, choice of models, more Deep Research." },
-    { "plan": "Max", "price": "$200/mo", "notes": "Early access to new features and the heaviest models. Not relevant to content work." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "Unlimited standard searches, a small daily allowance of Pro searches and Deep Research. Enough for most weekly writers."
+    },
+    {
+      "plan": "Pro",
+      "price": "$20/mo, $17/mo billed yearly",
+      "notes": "Hundreds of Pro searches a day, unlimited file uploads, choice of models, more Deep Research. Perplexity's page displays the yearly rate; the monthly rate is $20."
+    },
+    {
+      "plan": "Max",
+      "price": "$200/mo, $167/mo billed yearly",
+      "notes": "Early access to new features and the heaviest models. Not relevant to content work."
+    }
   ],
-  "alternatives": ["chatgpt", "claude"]
+  "alternatives": [
+    "chatgpt",
+    "claude"
+  ]
 }

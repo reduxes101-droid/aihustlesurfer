@@ -59,14 +59,35 @@
       "h": "Who it suits",
       "p": [
         "Almost everyone doing visual content for money. Pro at $15 is one of the easiest subscriptions on this site to justify.",
-        "The only people who should skip Pro are those who already own a full design suite and are comfortable in it. Even then, the free tier is a good hand-off point for client templates."
+        "The only people who should skip Pro are those who already own a full design suite and are comfortable in it. Even then, the free tier is a good hand-off point for client templates. Small teams that used to buy Teams now get Business, which is priced per person."
       ]
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "Full editor, huge template library, limited AI credits, no background remover or Brand Kit. Genuinely usable." },
-    { "plan": "Pro", "price": "$15/mo, $120/yr", "notes": "Background remover, Magic Resize, Brand Kit, premium content, scheduler, more AI credits. The creator plan." },
-    { "plan": "Teams", "price": "From $10/person/mo, minimum three", "notes": "Everything in Pro plus shared brand controls and approvals. Agencies." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "Full editor, huge template library, limited AI credits, no background remover or Brand Kit. Genuinely usable."
+    },
+    {
+      "plan": "Pro",
+      "price": "$15/mo, $120/yr (US)",
+      "notes": "Background remover, Magic Resize, Brand Kit, premium content, scheduler, more AI credits. Canva localises prices by country, so the figure you see may differ. An AI Pass add-on buys a larger AI allowance."
+    },
+    {
+      "plan": "Business",
+      "price": "Per person; varies by region",
+      "notes": "Replaces the old Teams plan. Adds brand management, ad performance insights and a bigger AI allowance for small teams. The US per-person price was not verifiable at time of checking."
+    },
+    {
+      "plan": "Enterprise",
+      "price": "Custom",
+      "notes": "Organisation-wide controls, SSO, dedicated support."
+    }
   ],
-  "alternatives": ["midjourney", "chatgpt", "descript"]
+  "alternatives": [
+    "midjourney",
+    "chatgpt",
+    "descript"
+  ]
 }

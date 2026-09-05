@@ -7,7 +7,7 @@
   "dek": "ElevenLabs is the text-to-speech service creators point to when they want a voice audiences will not comment on. The recurring caveat is the quota: character-based credits go quickly once you factor in regenerations, so weekly publishers usually need the Creator tier.",
   "score": 8.8,
   "bestFor": "Faceless YouTube, audiobooks, podcast intros, course narration",
-  "priceFrom": "Free · Starter $5/mo",
+  "priceFrom": "Free · Starter from $5/mo",
   "freeTier": "Yes, about ten minutes of audio a month, non-commercial",
   "worthPaying": "Yes. For video income it is the closest thing to essential on this site.",
   "date": "2026-08-31",
@@ -64,10 +64,39 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "About ten minutes a month, non-commercial licence only. For sampling voices." },
-    { "plan": "Starter", "price": "$5/mo", "notes": "Around 30 minutes, commercial licence, instant voice cloning. One short video a week." },
-    { "plan": "Creator", "price": "$22/mo, often discounted the first month", "notes": "Around 100 minutes on paper, less after regenerations. Professional cloning, higher-quality audio." },
-    { "plan": "Pro", "price": "$99/mo", "notes": "Around 500 minutes, audio API access. Daily publishing or client work at volume." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "About ten minutes a month, non-commercial licence only. For sampling voices."
+    },
+    {
+      "plan": "Starter",
+      "price": "$6/mo, $5/mo billed yearly",
+      "notes": "Around 30 minutes, commercial licence, instant voice cloning. One short video a week."
+    },
+    {
+      "plan": "Creator",
+      "price": "$22/mo, often discounted the first month",
+      "notes": "Around 100 minutes on paper, less after regenerations. Professional cloning, higher-quality audio."
+    },
+    {
+      "plan": "Pro",
+      "price": "$99/mo",
+      "notes": "Around 500 minutes, audio API access. Daily publishing or client work at volume."
+    },
+    {
+      "plan": "Scale",
+      "price": "$299/mo",
+      "notes": "Higher credit allowance and multiple seats. Agencies and studios."
+    },
+    {
+      "plan": "Business",
+      "price": "$990/mo",
+      "notes": "Top self-serve tier with the largest allowance. Beyond this, pricing is custom."
+    }
   ],
-  "alternatives": ["descript", "heygen"]
+  "alternatives": [
+    "descript",
+    "heygen"
+  ]
 }

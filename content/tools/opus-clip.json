@@ -22,14 +22,14 @@
     "Its \"virality score\" is widely described as unreliable",
     "A large share of clips start or end mid-sentence",
     "In-app editing is basic; real fixes need another editor",
-    "The free plan's watermark is large and the minutes are tight"
+    "The free plan's credits are tight and its clips expire after three days"
   ],
   "sections": [
     {
       "h": "What it is",
       "p": [
         "Opus Clip takes a long video, usually a podcast episode or YouTube upload, and cuts it into short vertical clips with captions. It picks the segments, reframes to 9:16, adds captions and emoji, scores each clip, and can post them to your accounts on a schedule.",
-        "Plans are priced by minutes of source video processed per month."
+        "Plans are priced in credits, which correspond roughly to minutes of source video processed. Starter is billed monthly only; Pro is where the annual discount lives."
       ]
     },
     {
@@ -64,9 +64,29 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "Sixty minutes of processing a month, watermarked, limited features. For seeing whether your content clips well." },
-    { "plan": "Starter", "price": "$15/mo, $9/mo yearly", "notes": "150 minutes a month, no watermark, 1080p, basic brand kit. One weekly show." },
-    { "plan": "Pro", "price": "$29/mo, $15/mo yearly", "notes": "3,600 minutes, team seats, scheduling, more caption styles. Agencies and daily publishers." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "60 credits a month, watermarked, no editing, clips stop being exportable after three days. For seeing whether your content clips well."
+    },
+    {
+      "plan": "Starter",
+      "price": "$15/mo, monthly billing only",
+      "notes": "150 credits a month, no watermark, one brand template, auto-posting to Shorts, TikTok and Reels. One weekly show."
+    },
+    {
+      "plan": "Pro",
+      "price": "$29/mo, $14.50/mo billed yearly ($174/yr)",
+      "notes": "3,600 credits a year, available up front on the annual plan. Two seats, B-roll, scheduler, multiple aspect ratios, Premiere and Resolve export. Agencies and daily publishers."
+    },
+    {
+      "plan": "Business",
+      "price": "Custom",
+      "notes": "Custom credits and seats, API access, priority processing, MSA."
+    }
   ],
-  "alternatives": ["descript", "canva"]
+  "alternatives": [
+    "descript",
+    "canva"
+  ]
 }

@@ -64,10 +64,35 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "Current model, capped messages per session. Enough to evaluate, not to run a workload on." },
-    { "plan": "Pro", "price": "$20/mo, $17/mo billed yearly", "notes": "Roughly five times the free usage, Projects, file uploads, priority access." },
-    { "plan": "Max", "price": "From $100/mo", "notes": "Five to twenty times Pro usage. Only sensible for daily heavy use." },
-    { "plan": "Team", "price": "From $25/user/mo", "notes": "Shared Projects and admin controls. Minimum seats apply." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "Current model, capped messages per session. Enough to evaluate, not to run a workload on."
+    },
+    {
+      "plan": "Pro",
+      "price": "$20/mo, $17/mo billed yearly",
+      "notes": "Roughly five times the free usage, Projects, file uploads, priority access."
+    },
+    {
+      "plan": "Max",
+      "price": "From $100/mo",
+      "notes": "Five or twenty times Pro usage. Only sensible for daily heavy use."
+    },
+    {
+      "plan": "Team, standard seat",
+      "price": "$20/seat/mo yearly, $25 monthly",
+      "notes": "More usage than Pro, shared Projects, admin controls, SSO. Two to 150 seats."
+    },
+    {
+      "plan": "Team, premium seat",
+      "price": "$100/seat/mo yearly, $125 monthly",
+      "notes": "Five times the usage of a standard seat, for the heaviest users on a team."
+    }
   ],
-  "alternatives": ["chatgpt", "perplexity", "jasper"]
+  "alternatives": [
+    "chatgpt",
+    "perplexity",
+    "jasper"
+  ]
 }

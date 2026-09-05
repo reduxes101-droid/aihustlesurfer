@@ -64,10 +64,29 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "100 tasks a month, two-step Zaps only, 15-minute polling. Enough to prove an idea." },
-    { "plan": "Professional", "price": "From $19.99/mo yearly, $29.99 monthly", "notes": "750 tasks, unlimited multi-step Zaps, premium apps, webhooks. Scales up in task tiers. The solo plan." },
-    { "plan": "Team", "price": "From $69/mo yearly", "notes": "2,000 tasks, 25 users, shared workspace. Small agencies." },
-    { "plan": "Enterprise", "price": "Custom", "notes": "Advanced admin, SSO, higher limits." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "100 tasks a month, two-step Zaps only, 15-minute polling. Enough to prove an idea."
+    },
+    {
+      "plan": "Professional",
+      "price": "From $19.99/mo yearly, $29.99 monthly",
+      "notes": "750 tasks, unlimited multi-step Zaps, premium apps, webhooks. Scales up in task tiers. The solo plan."
+    },
+    {
+      "plan": "Team",
+      "price": "$69/mo yearly, $103.50 monthly",
+      "notes": "2,000 tasks, 25 users, shared workspace. Small agencies."
+    },
+    {
+      "plan": "Enterprise",
+      "price": "Custom",
+      "notes": "Advanced admin, SSO, higher limits."
+    }
   ],
-  "alternatives": ["perplexity", "chatgpt"]
+  "alternatives": [
+    "perplexity",
+    "chatgpt"
+  ]
 }

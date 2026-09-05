@@ -22,14 +22,14 @@
     "A meaningful share of generations are unusable and still cost credits",
     "Credits do not roll over, so quiet months are wasted money",
     "Hands, text and fast motion remain weak points",
-    "The Unlimited plan is $95 a month, a lot for B-roll"
+    "The top Max plan is $95 a month, a lot for B-roll"
   ],
   "sections": [
     {
       "h": "What it is",
       "p": [
         "Runway is a generative video platform. Give it a text prompt or a still image and it produces a short clip. It also offers editing tools, background removal and lip sync, but video generation is what people pay for.",
-        "Everything runs on credits. Each second of generated video costs a set number, plans include a monthly allowance, and more can be bought. The Unlimited plan removes the cap in a slower relaxed mode."
+        "Everything runs on credits. Each second of generated video costs a set number, plans include a monthly allowance, and more can be bought. Monthly plan credits expire; purchased top-up credits do not. The former Unlimited plan has been replaced by a credit-capped Max plan."
       ]
     },
     {
@@ -50,7 +50,7 @@
       "h": "Where it falls short",
       "p": [
         "The hit rate. Warped limbs, motion that drifts into nonsense in the final seconds, and unusable outputs are common enough that users routinely describe a real cost per usable clip of two to three times the sticker price. On Standard, careless use can exhaust the allowance in a few weeks.",
-        "Credit expiry. Miss a month of publishing and the credits are gone. Unlimited fixes the anxiety at $95, which only makes sense at a daily cadence.",
+        "Credit expiry. Miss a month of publishing and the plan credits are gone; only purchased top-ups carry over. The Max plan's 9,500 credits at $95 only make sense at a daily cadence, and there is no longer an unlimited relaxed mode to fall back on.",
         "Detail. Hands, on-screen text and fast action still break. Keep prompts to slow, simple motion."
       ]
     },
@@ -63,10 +63,30 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "One-time credit bundle, watermarked, no commercial use. Enough to gauge the hit rate." },
-    { "plan": "Standard", "price": "$15/mo, $12/mo yearly", "notes": "Monthly credits for roughly 60 to 100 seconds of video, no watermark, commercial use." },
-    { "plan": "Pro", "price": "$35/mo, $28/mo yearly", "notes": "Around three times the credits plus more storage and export options." },
-    { "plan": "Unlimited", "price": "$95/mo, $76/mo yearly", "notes": "Unlimited generations in relaxed mode. Daily publishing only." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "125 one-time credits, watermarked, no commercial use. Enough to gauge the hit rate."
+    },
+    {
+      "plan": "Standard",
+      "price": "$15/mo, $12/mo yearly",
+      "notes": "625 credits a month, no watermark, commercial use. Where most people should start."
+    },
+    {
+      "plan": "Pro",
+      "price": "$35/mo, $28/mo yearly",
+      "notes": "2,250 credits a month plus more storage and export options."
+    },
+    {
+      "plan": "Max",
+      "price": "$95/mo, $76/mo yearly",
+      "notes": "9,500 credits a month. Replaces the old Unlimited plan. Daily publishing only."
+    }
   ],
-  "alternatives": ["heygen", "midjourney", "descript"]
+  "alternatives": [
+    "heygen",
+    "midjourney",
+    "descript"
+  ]
 }

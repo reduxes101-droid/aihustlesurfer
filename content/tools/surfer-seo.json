@@ -4,10 +4,10 @@
   "category": "seo",
   "headline": "Surfer SEO review: useful guardrails at a price that assumes you rank already",
   "tagline": "The content editor keeps articles on target. At $99 a month it only makes sense once the site earns.",
-  "dek": "Surfer shows which terms and headings the pages ranking for a keyword share, then scores your draft against them. That is a real signal. It is also a $99-a-month signal, and for a new site the money is usually better spent on publishing more.",
+  "dek": "Surfer shows which terms and headings the pages ranking for a keyword share, then scores your draft against them. That is a real signal. It is also a $99-a-month signal on the plan a solo publisher would realistically pick, and for a new site the money is usually better spent on publishing more.",
   "score": 6.8,
   "bestFor": "Content sites past the first few thousand monthly visits, agencies writing for clients",
-  "priceFrom": "From $79/mo billed yearly",
+  "priceFrom": "From $49/mo billed yearly",
   "freeTier": "No. Seven-day money-back guarantee",
   "worthPaying": "Not for a new site. Yes, once search income covers it comfortably.",
   "date": "2026-07-02",
@@ -28,7 +28,7 @@
     {
       "h": "What it is",
       "p": [
-        "Surfer is an on-page SEO tool. Give it a keyword and it analyses the top-ranking pages to produce guidelines: word count range, terms to include and how often, headings that appear, questions to answer. Its Content Editor scores a draft against those guidelines as you write. There is also a site audit, keyword research and a one-click AI article writer.",
+        "Surfer is an on-page SEO tool. Give it a keyword and it analyses the top-ranking pages to produce guidelines: word count range, terms to include and how often, headings that appear, questions to answer. Its Content Editor scores a draft against those guidelines as you write. There is also a site audit, keyword research and a one-click AI article writer. In 2026 Surfer repositioned around AI search visibility, so every plan now bundles tracking of how often a brand is mentioned in ChatGPT, Gemini and Google AI Overviews, and plans are sized by documents optimised per month rather than by article.",
         "It is sold on the promise that writing to the guidelines helps you rank. The more defensible claim from user reports is that it helps you not miss things."
       ]
     },
@@ -58,15 +58,46 @@
     {
       "h": "Who it suits",
       "p": [
-        "Sites already earning from search that want to update and defend rankings, and agencies briefing writers at volume. Essential at $79 on an annual plan covers one site.",
+        "Sites already earning from search that want to update and defend rankings, and agencies briefing writers at volume. Discovery at $49 is enough to test it; Standard at $99, billed yearly, is the realistic solo plan. Surfer only displays yearly-billed rates, so budget for the annual commitment.",
         "New publishers should skip it, use <a href=\"/tools/perplexity/\">Perplexity</a> to read what ranks, and put the money into content. Come back when the site pays for it."
       ]
     }
   ],
   "pricing": [
-    { "plan": "Essential", "price": "$79/mo yearly, $99 monthly", "notes": "Around 30 Content Editor articles a month, audits, one site. The solo plan, and a stretch for a solo budget." },
-    { "plan": "Scale", "price": "$175/mo yearly, $219 monthly", "notes": "Around 100 articles, more users and sites, keyword clustering. Agency territory." },
-    { "plan": "Enterprise", "price": "Custom", "notes": "API, white label, dedicated support." }
+    {
+      "plan": "Discovery",
+      "price": "$49/mo billed yearly",
+      "notes": "120 documents, 10 tracked pages, AI guidelines and the Surfy assistant. The entry plan for testing whether Surfer changes anything for you."
+    },
+    {
+      "plan": "Standard",
+      "price": "$99/mo billed yearly",
+      "notes": "360 documents, AI visibility tracking of 25 prompts refreshed weekly, integrations, plagiarism checker, rank-drop detection. The solo publisher plan."
+    },
+    {
+      "plan": "Pro",
+      "price": "$182/mo billed yearly",
+      "notes": "360 documents, 50 AI prompts refreshed daily, five brand spaces, internal linking, cannibalisation report, custom voices. Agencies."
+    },
+    {
+      "plan": "Peace of Mind",
+      "price": "$299/mo billed yearly",
+      "notes": "Unlimited documents under fair use, 100 AI prompts daily, API access, dedicated success manager."
+    },
+    {
+      "plan": "AI Search Analytics",
+      "price": "$158/mo billed yearly",
+      "notes": "Tracking only: 100 AI prompts refreshed daily across the major AI models, no content editor."
+    },
+    {
+      "plan": "Enterprise",
+      "price": "From $999/mo",
+      "notes": "SSO, white label, advisory programme, custom limits."
+    }
   ],
-  "alternatives": ["perplexity", "claude", "jasper"]
+  "alternatives": [
+    "perplexity",
+    "claude",
+    "jasper"
+  ]
 }

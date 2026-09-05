@@ -20,7 +20,7 @@
   ],
   "cons": [
     "Avatars still read as synthetic in the hands, shoulders and eyes",
-    "Credit-based minutes run out fast on longer videos",
+    "Credits run out fast on longer videos",
     "Stock avatars appear on many other channels and get recognised",
     "Personal-avatar quality depends heavily on your source lighting"
   ],
@@ -29,7 +29,7 @@
       "h": "What it is",
       "p": [
         "HeyGen produces videos of a person speaking your script. Choose a stock avatar or build one from footage of yourself, paste text, pick a voice, and it renders a talking video. It also translates existing videos into other languages, cloning the speaker's voice and re-animating the mouth.",
-        "Plans are priced by minutes of rendered video per month, with add-ons for more."
+        "Plans are priced in monthly credits that convert to minutes of rendered video, with higher credit tiers available on the Pro plan."
       ]
     },
     {
@@ -52,7 +52,7 @@
       "p": [
         "The uncanny gap. The face is good; the body is not. Shoulders bob on a loop, hands repeat the same gesture, and the eyes do a thing. Viewers who watch a lot of video pick it up, and on content asking them to trust you, that costs.",
         "Stock avatars are shared. Your presenter is on hundreds of other channels. For a channel with a recurring host, that undermines the point.",
-        "Minutes go quickly. A ten-minute module is a large slice of the Creator allowance. Anyone producing a full course should price the Team plan or an add-on first."
+        "Credits go quickly. A ten-minute module is a large slice of the Creator allowance. Anyone producing a full course should price the Pro or Business plan first."
       ]
     },
     {
@@ -64,10 +64,35 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "A handful of short videos a month, watermarked, limited avatars. Enough to see whether an audience accepts it." },
-    { "plan": "Creator", "price": "$24/mo yearly, $29 monthly", "notes": "Unlimited short videos with a monthly length limit, 1080p, personal avatar, no watermark. The freelancer plan." },
-    { "plan": "Team", "price": "From $69/seat/mo", "notes": "Longer videos, 4K, brand kit, collaboration. Agencies producing at volume." },
-    { "plan": "Enterprise", "price": "Custom", "notes": "API, studio-quality custom avatars, SSO." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "Three videos a month, one minute each, watermarked. Enough to see whether an audience accepts an avatar."
+    },
+    {
+      "plan": "Creator",
+      "price": "$29/mo, $24/mo yearly",
+      "notes": "600 credits a month, videos up to 30 minutes, personal avatar, no watermark. The freelancer plan."
+    },
+    {
+      "plan": "Pro",
+      "price": "From $49/mo",
+      "notes": "1,000 credits a month at the base tier, videos up to 30 minutes. Credit tiers scale well beyond this for volume producers."
+    },
+    {
+      "plan": "Business",
+      "price": "$149/mo plus $20 per extra seat",
+      "notes": "1,500 credits a month, videos up to 60 minutes, team seats and brand controls. Replaces the old Team plan."
+    },
+    {
+      "plan": "Enterprise",
+      "price": "Custom",
+      "notes": "No video length cap, dedicated success manager, custom terms."
+    }
   ],
-  "alternatives": ["elevenlabs", "runway", "descript"]
+  "alternatives": [
+    "elevenlabs",
+    "runway",
+    "descript"
+  ]
 }

@@ -4,10 +4,10 @@
   "category": "writing",
   "headline": "Jasper review: a marketing layer most solo creators overpay for",
   "tagline": "Polished templates and brand-voice tools on top of models you can rent directly for a third of the price.",
-  "dek": "Jasper was the AI writing tool before ChatGPT existed and it is still well built. But at $49 a month, a solo creator is paying for a workflow wrapper that Claude Projects or ChatGPT custom instructions can replicate for far less.",
+  "dek": "Jasper was the AI writing tool before ChatGPT existed and it is still well built. But at $59 a month and up, a solo creator is paying for a workflow wrapper that Claude Projects or ChatGPT custom instructions can replicate for far less.",
   "score": 6.4,
   "bestFor": "Small marketing teams that need shared brand voice and campaign templates",
-  "priceFrom": "From $39/mo billed yearly",
+  "priceFrom": "Pro from $59/mo billed yearly",
   "freeTier": "No. Seven-day trial, card required",
   "worthPaying": "Not as a solo operator. Possibly for a small agency with several brands.",
   "date": "2026-08-14",
@@ -49,7 +49,7 @@
     {
       "h": "Where it falls short",
       "p": [
-        "Price against output. Independent comparisons that run the same brief through Jasper and through Claude with the brand voice pasted into a Project find output of similar quality at a third of the cost. Jasper's version tends to carry a little more marketing polish. It is not $39 a month more polish.",
+        "Price against output. Independent comparisons that run the same brief through Jasper and through Claude with the brand voice pasted into a Project find output of similar quality at a third of the cost. Jasper's version tends to carry a little more marketing polish. It is not $40 a month more polish.",
         "It does not solve editing. Long posts come out with the same predictable structure and need the same human pass as any other tool. Templates make starting easier, not finishing.",
         "The trial. It needs a card, and the annual plan bills in full if you forget to cancel. Several reviews mention this. Set a reminder."
       ]
@@ -63,9 +63,25 @@
     }
   ],
   "pricing": [
-    { "plan": "Creator", "price": "$39/mo yearly, $49 monthly", "notes": "One seat, one Brand Voice, browser extension. The solo plan, and the one that is hard to justify." },
-    { "plan": "Pro", "price": "$59/mo yearly, $69 monthly", "notes": "Up to five seats, multiple Brand Voices, campaigns, image tools. Where it starts making sense for teams." },
-    { "plan": "Business", "price": "Custom", "notes": "SSO, API access, dedicated support." }
+    {
+      "plan": "Creator",
+      "price": "$39/mo yearly, $49 monthly (unconfirmed)",
+      "notes": "Reported by third-party sources but not shown on Jasper's own pricing page when checked. Treat as unverified; Jasper may only sell it through sales or have retired it."
+    },
+    {
+      "plan": "Pro",
+      "price": "$59/mo yearly, $69 monthly",
+      "notes": "The entry plan on Jasper's pricing page. Up to five seats, multiple Brand Voices, campaigns, image tools."
+    },
+    {
+      "plan": "Business",
+      "price": "Custom",
+      "notes": "SSO, API access, dedicated support."
+    }
   ],
-  "alternatives": ["claude", "chatgpt", "canva"]
+  "alternatives": [
+    "claude",
+    "chatgpt",
+    "canva"
+  ]
 }

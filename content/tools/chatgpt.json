@@ -7,8 +7,8 @@
   "dek": "ChatGPT Plus is the closest thing to one subscription that handles writing, images, voice and research. That breadth is the reason to buy it. It is also why the writing tends to need a heavier edit, according to most published comparisons.",
   "score": 8.4,
   "bestFor": "People who want one tool for text, images, voice and research",
-  "priceFrom": "Free · Plus $20/mo",
-  "freeTier": "Yes, generous, with limits on the newest models and image generation",
+  "priceFrom": "Free · Go $8/mo · Plus $20/mo",
+  "freeTier": "Yes, generous, with limits on the newest models and image generation. Free and Go have shown ads since February 2026.",
   "worthPaying": "Yes, if it is your only AI subscription. Less so if you already pay for Claude.",
   "date": "2026-08-26",
   "featured": false,
@@ -21,14 +21,14 @@
   "cons": [
     "Drafts run long and lean on recognisable phrasing unless constrained",
     "Formatting instructions are followed less reliably than in Claude",
-    "Image generation slows noticeably at peak hours, per widespread reports",
-    "The $200 Pro tier is aimed at technical users, not content work"
+    "Free and Go tiers have carried ads since February 2026",
+    "The $100 and $200 Pro tiers are aimed at technical users, not content work"
   ],
   "sections": [
     {
       "h": "What it is",
       "p": [
-        "ChatGPT is OpenAI's assistant and the product most people mean when they say \"AI\". It writes, codes, generates images, talks in voice mode, searches the web and reads uploaded files. The free tier includes most of that with caps. Plus lifts the caps and unlocks the stronger models. Pro is a $200 tier built for heavy reasoning and technical workloads.",
+        "ChatGPT is OpenAI's assistant and the product most people mean when they say \"AI\". It writes, codes, generates images, talks in voice mode, searches the web and reads uploaded files. The free tier includes most of that with caps and, since February 2026, ads. Go is a cheap ad-supported step up. Plus lifts the caps, removes ads and unlocks the stronger models. The Pro tiers at $100 and $200 are built for heavy reasoning and technical workloads.",
         "This overview looks at it for one purpose: earning with it. That means writing, images for pins and thumbnails, research, and the admin tasks that fill a freelancer's day."
       ]
     },
@@ -64,10 +64,40 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "Main model with usage caps, limited image generation, web search. Enough to earn small money with." },
-    { "plan": "Plus", "price": "$20/mo", "notes": "Higher limits, best models, more image generation, voice with video. The plan most creators should be on." },
-    { "plan": "Pro", "price": "$200/mo", "notes": "Unlimited access and the heaviest reasoning models. Built for engineers and researchers." },
-    { "plan": "Team", "price": "From $25/user/mo", "notes": "Shared workspace and admin. Only relevant for a small team." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "Main model with usage caps, limited image generation, web search. Shows ads since February 2026. Enough to earn small money with."
+    },
+    {
+      "plan": "Go",
+      "price": "$8/mo",
+      "notes": "Higher limits than Free at a low price. Also ad-supported since February 2026."
+    },
+    {
+      "plan": "Plus",
+      "price": "$20/mo",
+      "notes": "Higher limits, best models, more image generation, voice with video, no ads. The plan most creators should be on."
+    },
+    {
+      "plan": "Pro",
+      "price": "$100/mo",
+      "notes": "Expanded access and the heavier reasoning models. Built for engineers and researchers."
+    },
+    {
+      "plan": "Pro (top tier)",
+      "price": "$200/mo",
+      "notes": "The largest allowances. Not relevant to content work."
+    },
+    {
+      "plan": "Team",
+      "price": "From $25/user/mo",
+      "notes": "Shared workspace and admin. Only relevant for a small team."
+    }
   ],
-  "alternatives": ["claude", "perplexity", "canva"]
+  "alternatives": [
+    "claude",
+    "perplexity",
+    "canva"
+  ]
 }

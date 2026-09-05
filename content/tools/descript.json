@@ -64,10 +64,35 @@
     }
   ],
   "pricing": [
-    { "plan": "Free", "price": "$0", "notes": "One hour of transcription a month, 720p watermarked export. Learn the tool, do not ship from it." },
-    { "plan": "Hobbyist", "price": "$16/mo yearly, $19 monthly", "notes": "Ten hours of transcription, 1080p export, no watermark. Two or three videos a month." },
-    { "plan": "Creator", "price": "$24/mo yearly, $35 monthly", "notes": "Thirty hours, 4K export, more AI features and storage. Weekly publishing." },
-    { "plan": "Business", "price": "$50/mo yearly, $65 monthly", "notes": "Unlimited transcription, team features. Agencies and studios." }
+    {
+      "plan": "Free",
+      "price": "$0",
+      "notes": "60 media minutes a month, 720p watermarked export, a one-time 100 AI credits. Learn the tool, do not ship from it."
+    },
+    {
+      "plan": "Hobbyist",
+      "price": "$16/mo yearly, $24 monthly",
+      "notes": "Ten media hours and 400 AI credits a month, 1080p export, no watermark. Two or three videos a month."
+    },
+    {
+      "plan": "Creator",
+      "price": "$24/mo yearly, $35 monthly",
+      "notes": "Thirty media hours and 800 AI credits a month, 4K export, full AI toolset, up to three seats. Weekly publishing."
+    },
+    {
+      "plan": "Business",
+      "price": "$50/mo yearly, $65 monthly",
+      "notes": "Forty media hours and 1,500 AI credits a month, Brand Studio, dubbing in 30+ languages, priority support, up to five seats."
+    },
+    {
+      "plan": "Enterprise",
+      "price": "Custom",
+      "notes": "Custom media hours and credits, SSO and SCIM, custom terms."
+    }
   ],
-  "alternatives": ["opus-clip", "elevenlabs", "canva"]
+  "alternatives": [
+    "opus-clip",
+    "elevenlabs",
+    "canva"
+  ]
 }

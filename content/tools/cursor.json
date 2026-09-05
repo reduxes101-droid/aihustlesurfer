@@ -19,7 +19,7 @@
     "Tab completions are fast and usually right"
   ],
   "cons": [
-    "Pro's request allowance runs out in a heavy week",
+    "Pro's monthly credit pool runs out in a heavy week",
     "Confidently wrong at times; you must be able to review its output",
     "Costs stack if you also pay for model usage beyond the plan",
     "Pricing and plan names have changed several times"
@@ -50,7 +50,7 @@
     {
       "h": "Where it falls short",
       "p": [
-        "Limits. Pro includes a monthly allowance of requests to the stronger models, and a busy week of agent work can use most of it. After that you are on slower models or paying per use. Pro+ and Ultra exist for this and they are not cheap. Track usage in the first month before committing.",
+        "Limits. Every paid plan comes with a monthly pool of usage credits equal to the plan price, and each model request draws from that pool at the model's own rate. It is not a fixed count of requests, so a busy week of agent work on expensive models can drain Pro's $20 pool quickly. After that you are on slower access or paying per use. Pro+ and Ultra are the same mechanism with bigger pools, and they are not cheap. Track usage in the first month before committing.",
         "Confidence. It writes code that looks right, passes a glance, and fails on an edge case. Anyone who cannot review it will ship it. That is the main risk for people learning to code through it.",
         "Pricing churn. The plan structure has changed several times in the past year. What is listed below was accurate on the date at the top; check before subscribing."
       ]
@@ -64,10 +64,39 @@
     }
   ],
   "pricing": [
-    { "plan": "Hobby", "price": "$0", "notes": "Limited completions and a small allowance of requests. For evaluation." },
-    { "plan": "Pro", "price": "$20/mo", "notes": "Unlimited completions and a monthly allowance of requests to premium models, extended in slower mode afterwards. Most freelancers." },
-    { "plan": "Pro+", "price": "$60/mo", "notes": "Roughly three times the Pro allowance. Daily agent-heavy work." },
-    { "plan": "Ultra", "price": "$200/mo", "notes": "Around twenty times Pro. Full-time engineers shipping constantly." }
+    {
+      "plan": "Hobby",
+      "price": "$0",
+      "notes": "Limited completions and a small usage allowance. For evaluation."
+    },
+    {
+      "plan": "Pro",
+      "price": "$20/mo",
+      "notes": "Unlimited completions plus a monthly usage-credit pool worth the plan price, spent across models at their rates. Slower access continues after the pool is used. Most freelancers."
+    },
+    {
+      "plan": "Pro+",
+      "price": "$60/mo",
+      "notes": "The same model with a $60 monthly credit pool. Daily agent-heavy work."
+    },
+    {
+      "plan": "Ultra",
+      "price": "$200/mo",
+      "notes": "A $200 monthly credit pool. Full-time engineers shipping constantly."
+    },
+    {
+      "plan": "Teams Standard",
+      "price": "$40/user/mo",
+      "notes": "Team billing, admin and pooled usage. Teams split into Standard and Premium in June 2026."
+    },
+    {
+      "plan": "Teams Premium",
+      "price": "$120/user/mo",
+      "notes": "Larger per-seat usage pool and priority access for heavy users."
+    }
   ],
-  "alternatives": ["claude", "chatgpt"]
+  "alternatives": [
+    "claude",
+    "chatgpt"
+  ]
 }
