@@ -1,0 +1,73 @@
+{
+  "slug": "chatgpt",
+  "name": "ChatGPT",
+  "category": "writing",
+  "headline": "ChatGPT review: the safest all-rounder, not the best writer",
+  "tagline": "Covers more jobs than any other single subscription. Writers consistently rate its drafts a step behind Claude.",
+  "dek": "ChatGPT Plus is the closest thing to one subscription that handles writing, images, voice and research. That breadth is the reason to buy it. It is also why the writing tends to need a heavier edit, according to most published comparisons.",
+  "score": 8.4,
+  "bestFor": "People who want one tool for text, images, voice and research",
+  "priceFrom": "Free · Plus $20/mo",
+  "freeTier": "Yes, generous, with limits on the newest models and image generation",
+  "worthPaying": "Yes, if it is your only AI subscription. Less so if you already pay for Claude.",
+  "date": "2026-08-26",
+  "featured": false,
+  "pros": [
+    "Image generation, voice, web search and file analysis in one place",
+    "The free tier is genuinely usable for light work",
+    "Memory across chats removes repeated setup",
+    "Custom GPTs package repeat tasks for a team or assistant"
+  ],
+  "cons": [
+    "Drafts run long and lean on recognisable phrasing unless constrained",
+    "Formatting instructions are followed less reliably than in Claude",
+    "Image generation slows noticeably at peak hours, per widespread reports",
+    "The $200 Pro tier is aimed at technical users, not content work"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "ChatGPT is OpenAI's assistant and the product most people mean when they say \"AI\". It writes, codes, generates images, talks in voice mode, searches the web and reads uploaded files. The free tier includes most of that with caps. Plus lifts the caps and unlocks the stronger models. Pro is a $200 tier built for heavy reasoning and technical workloads.",
+        "This overview looks at it for one purpose: earning with it. That means writing, images for pins and thumbnails, research, and the admin tasks that fill a freelancer's day."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Everything, which is the point. Client blog drafts, email sequences, thumbnail concepts, video descriptions, turning rough notes into something sendable. Voice mode for dictating outlines gets more use than people expect.",
+        "Image generation is the surprise workhorse for creators. For Pinterest backgrounds and thumbnails that need legible text, it is more practical than <a href=\"/tools/midjourney/\">Midjourney</a> because it can spell. The images are less beautiful, which matters less at thumbnail size."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Breadth. No other single subscription covers this much. For someone starting out who can pay for one thing, it is the defensible choice.",
+        "Research with current examples. Asking for recent case studies returns them with links. <a href=\"/tools/claude/\">Claude</a> can search now too, but ChatGPT is generally reported as faster and more willing to pull in specifics.",
+        "Memory. It retains your niche, tone and clients across chats, so the preamble disappears after a few weeks."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Writing. It is good, and closing the gap, but published side-by-sides on real briefs keep finding the same things: drafts longer than requested, a rhetorical question to open, a summary to close after being told not to. Each is fixable with a prompt. Each costs time on every job.",
+        "Cadence. Three-item lists, \"it's not just X, it's Y\", tidy conclusions. Clients recognise it. A banned-phrases list in custom instructions helps; users of Claude report needing it less.",
+        "Image queue times. Ten-minute waits at busy hours are widely reported. If pins are the business, that is a real cost."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Beginners, generalists, and anyone who wants images and text under one login. Plus at $20 is good value for that person.",
+        "Someone who already pays for Claude for writing probably does not need this as well. The free tier covers occasional images and second opinions."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "Main model with usage caps, limited image generation, web search. Enough to earn small money with." },
+    { "plan": "Plus", "price": "$20/mo", "notes": "Higher limits, best models, more image generation, voice with video. The plan most creators should be on." },
+    { "plan": "Pro", "price": "$200/mo", "notes": "Unlimited access and the heaviest reasoning models. Built for engineers and researchers." },
+    { "plan": "Team", "price": "From $25/user/mo", "notes": "Shared workspace and admin. Only relevant for a small team." }
+  ],
+  "alternatives": ["claude", "perplexity", "canva"]
+}

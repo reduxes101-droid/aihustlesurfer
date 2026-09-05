@@ -1,0 +1,27 @@
+{
+  "name": "AIHustleSurfer",
+  "url": "https://aihustlesurfer.com",
+  "tagline": "Independent reviews of AI tools, for people who want to earn with them.",
+  "description": "AIHustleSurfer researches AI tools for the work freelancers, creators and small operators actually do, then tells you plainly what is worth paying for.",
+  "byline": "AIHustleSurfer Editorial",
+  "contactEmail": "hello@aihustlesurfer.com",
+  "newsletterAction": "",
+  "categories": {
+    "writing": "Writing",
+    "image": "Image",
+    "video": "Video",
+    "voice": "Voice & audio",
+    "research": "Research",
+    "automation": "Automation",
+    "design": "Design",
+    "seo": "SEO",
+    "coding": "Coding"
+  },
+  "scoreLabels": [
+    [9.0, "Exceptional"],
+    [8.0, "Recommended"],
+    [7.0, "Good, with caveats"],
+    [6.0, "Mixed"],
+    [0, "Hard to recommend"]
+  ]
+}

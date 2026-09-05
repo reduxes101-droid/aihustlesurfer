@@ -1,0 +1,71 @@
+{
+  "slug": "jasper",
+  "name": "Jasper",
+  "category": "writing",
+  "headline": "Jasper review: a marketing layer most solo creators overpay for",
+  "tagline": "Polished templates and brand-voice tools on top of models you can rent directly for a third of the price.",
+  "dek": "Jasper was the AI writing tool before ChatGPT existed and it is still well built. But at $49 a month, a solo creator is paying for a workflow wrapper that Claude Projects or ChatGPT custom instructions can replicate for far less.",
+  "score": 6.4,
+  "bestFor": "Small marketing teams that need shared brand voice and campaign templates",
+  "priceFrom": "From $39/mo billed yearly",
+  "freeTier": "No. Seven-day trial, card required",
+  "worthPaying": "Not as a solo operator. Possibly for a small agency with several brands.",
+  "date": "2026-08-14",
+  "featured": false,
+  "pros": [
+    "Brand Voice and Knowledge features are well designed for consistency",
+    "Campaign templates cover the whole funnel, not just blog posts",
+    "Browser extension writes inside Google Docs, Gmail and LinkedIn",
+    "Team features (roles, shared assets) beat the chat tools"
+  ],
+  "cons": [
+    "Two to three times the price of Claude or ChatGPT for comparable output",
+    "Runs on the same underlying models you can use directly",
+    "Long-form output needs the same editing pass as everything else",
+    "Trial requires a card, and reviewers note the cancel flow is not obvious"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Jasper is a marketing-focused writing platform. Instead of a blank chat box it offers templates: product descriptions, ad copy, blog outlines, email sequences. You define a Brand Voice, upload a Knowledge Base about the company, and every template draws on both. Under the hood it routes to the major models.",
+        "The pitch is consistency. If five people write for one brand, Jasper keeps them sounding like one writer. That is a real problem for agencies and a rare one for solo creators."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Product descriptions at volume, ad variations, launch email sequences, and social posts through the browser extension. The documented sweet spot is a batch job with a fixed voice: set the Brand Voice once, paste in specs, and generate dozens of consistent descriptions in an hour.",
+        "Agencies also use it as the shared workspace that lets a junior pick up a client without a long handover."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Structure for non-prompters. The templates ask the right questions, so someone with no AI experience can produce a usable email sequence on a first attempt. That onboarding is a genuine advantage over a blank chat.",
+        "Team hygiene. Shared Brand Voices, Knowledge and campaign folders are more mature than anything in <a href=\"/tools/claude/\">Claude</a> or <a href=\"/tools/chatgpt/\">ChatGPT</a>, which are solo tools at heart."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Price against output. Independent comparisons that run the same brief through Jasper and through Claude with the brand voice pasted into a Project find output of similar quality at a third of the cost. Jasper's version tends to carry a little more marketing polish. It is not $39 a month more polish.",
+        "It does not solve editing. Long posts come out with the same predictable structure and need the same human pass as any other tool. Templates make starting easier, not finishing.",
+        "The trial. It needs a card, and the annual plan bills in full if you forget to cancel. Several reviews mention this. Set a reminder."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "A small agency or in-house team with several writers and several brands. The consistency and admin tools earn their keep there.",
+        "A solo freelancer or creator should build a Project in Claude with the client's voice and samples, and put the difference towards <a href=\"/tools/elevenlabs/\">ElevenLabs</a> or <a href=\"/tools/midjourney/\">Midjourney</a>."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Creator", "price": "$39/mo yearly, $49 monthly", "notes": "One seat, one Brand Voice, browser extension. The solo plan, and the one that is hard to justify." },
+    { "plan": "Pro", "price": "$59/mo yearly, $69 monthly", "notes": "Up to five seats, multiple Brand Voices, campaigns, image tools. Where it starts making sense for teams." },
+    { "plan": "Business", "price": "Custom", "notes": "SSO, API access, dedicated support." }
+  ],
+  "alternatives": ["claude", "chatgpt", "canva"]
+}

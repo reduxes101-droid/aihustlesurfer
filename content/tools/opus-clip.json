@@ -1,0 +1,72 @@
+{
+  "slug": "opus-clip",
+  "name": "Opus Clip",
+  "category": "video",
+  "headline": "Opus Clip review: finds the moments, doesn't know which ones are good",
+  "tagline": "Turns a long video into a pile of captioned shorts fast. Users typically post about a third of them.",
+  "dek": "Opus Clip does the tedious part of short-form repurposing well: it locates segments, reframes to vertical and captions them. Choosing which clips to post and rewriting the hooks is still the operator's job, and by most accounts it is most of the job.",
+  "score": 7.7,
+  "bestFor": "Podcasters and long-form YouTubers repurposing to Shorts, Reels and TikTok",
+  "priceFrom": "Free · Starter $15/mo",
+  "freeTier": "Yes, an hour of processing a month with a watermark",
+  "worthPaying": "Yes, if you already publish long-form. Not as a standalone strategy.",
+  "date": "2026-07-28",
+  "featured": false,
+  "pros": [
+    "Auto-reframing keeps the active speaker centred across camera changes",
+    "Captions are accurate, well styled and easy to brand",
+    "Scheduling and direct posting remove a step",
+    "Processes an hour of video in around ten minutes"
+  ],
+  "cons": [
+    "Its \"virality score\" is widely described as unreliable",
+    "A large share of clips start or end mid-sentence",
+    "In-app editing is basic; real fixes need another editor",
+    "The free plan's watermark is large and the minutes are tight"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Opus Clip takes a long video, usually a podcast episode or YouTube upload, and cuts it into short vertical clips with captions. It picks the segments, reframes to 9:16, adds captions and emoji, scores each clip, and can post them to your accounts on a schedule.",
+        "Plans are priced by minutes of source video processed per month."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Repurposing. A weekly podcast or long video becomes a week of Shorts, Reels and TikToks without a second production process. Agencies use it to service several clients' channels from one recording each.",
+        "The pattern reported by frequent users is consistent: the tool produces the shortlist fast, and the clips that perform are the ones a person picked and re-hooked, not the ones the tool scored highest."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Reframing. When a podcast switches between two cameras, it follows the active speaker and keeps them framed. Doing that by hand in <a href=\"/tools/descript/\">Descript</a> or a timeline editor is slow. This is the feature that saves the most time.",
+        "Captions. Accurate, animated, brandable, clean export. On short-form, captions are half the retention.",
+        "Throughput. An hour-long episode yields twenty candidate clips in about ten minutes. Even discarding two-thirds, that is a week of posts."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Clip boundaries. Clips that start a beat late or end before the payoff are common. The in-app trimmer handles simple cases; anything more means exporting to another editor, and the round trip is clunky.",
+        "The scores. The virality number looks authoritative, and users who have tracked it against real performance mostly report no correlation. Watch the clips instead.",
+        "Hooks. The first line decides everything, and the auto-generated hook text is generic. Rewriting it per clip is the largest single time cost in the workflow."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Anyone already producing long-form video or podcasts who wants a short-form presence. Starter at $15 handles a weekly show.",
+        "Without long-form content, the tool has nothing to work with. Make the long-form first. Pair it with Descript for the fixes it cannot make."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "Sixty minutes of processing a month, watermarked, limited features. For seeing whether your content clips well." },
+    { "plan": "Starter", "price": "$15/mo, $9/mo yearly", "notes": "150 minutes a month, no watermark, 1080p, basic brand kit. One weekly show." },
+    { "plan": "Pro", "price": "$29/mo, $15/mo yearly", "notes": "3,600 minutes, team seats, scheduling, more caption styles. Agencies and daily publishers." }
+  ],
+  "alternatives": ["descript", "canva"]
+}

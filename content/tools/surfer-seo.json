@@ -1,0 +1,72 @@
+{
+  "slug": "surfer-seo",
+  "name": "Surfer SEO",
+  "category": "seo",
+  "headline": "Surfer SEO review: useful guardrails at a price that assumes you rank already",
+  "tagline": "The content editor keeps articles on target. At $99 a month it only makes sense once the site earns.",
+  "dek": "Surfer shows which terms and headings the pages ranking for a keyword share, then scores your draft against them. That is a real signal. It is also a $99-a-month signal, and for a new site the money is usually better spent on publishing more.",
+  "score": 6.8,
+  "bestFor": "Content sites past the first few thousand monthly visits, agencies writing for clients",
+  "priceFrom": "From $79/mo billed yearly",
+  "freeTier": "No. Seven-day money-back guarantee",
+  "worthPaying": "Not for a new site. Yes, once search income covers it comfortably.",
+  "date": "2026-07-02",
+  "featured": false,
+  "pros": [
+    "Content Editor is the clearest picture of what a ranking page looks like",
+    "Audit finds real gaps in existing articles",
+    "Google Docs and WordPress extensions fit a normal writing workflow",
+    "Keyword clustering is fast and mostly sensible"
+  ],
+  "cons": [
+    "Price is high for a solo publisher with a young site",
+    "Content Score encourages keyword stuffing if chased",
+    "AI-written articles from Surfer read like AI-written articles",
+    "Search volume data lags and misses long-tail terms"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Surfer is an on-page SEO tool. Give it a keyword and it analyses the top-ranking pages to produce guidelines: word count range, terms to include and how often, headings that appear, questions to answer. Its Content Editor scores a draft against those guidelines as you write. There is also a site audit, keyword research and a one-click AI article writer.",
+        "It is sold on the promise that writing to the guidelines helps you rank. The more defensible claim from user reports is that it helps you not miss things."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Briefing writers at agencies, updating old articles on established sites, and drafting new content against a term list. Publishers who refresh existing pages using the audit commonly report position gains over the following weeks, with the usual caveats about small samples and confounders.",
+        "The AI writer exists, and most reviews suggest using it for outlines rather than publishable text."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "The Content Editor's terms list. Seeing that every page ranking for your keyword covers three subtopics you had not planned is useful. It replaces an hour of reading competitors with a checklist.",
+        "The audit. Pointing it at an old article and getting missing terms, thin sections and internal-link opportunities is a productive morning on a site that already has content.",
+        "Integration. The Google Docs extension means writers see the score without leaving the draft, which matters for agencies briefing freelancers."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Price against stage. On a site with a few hundred visits a month, $99 is a large share of potential earnings, and the marginal gain from optimisation is smaller than from publishing four more articles. Surfer is a scaling tool marketed to beginners.",
+        "The score. It rewards including terms. Chase a 90 and you write sentences no human needs. Experienced users generally aim for the 60s or 70s with natural writing, which raises the question of what the number is for.",
+        "The AI writer. Grammatical, structured, keyword-complete, and not something most publishers would put their name on. <a href=\"/tools/claude/\">Claude</a> with Surfer's terms list pasted in is the common substitute."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Sites already earning from search that want to update and defend rankings, and agencies briefing writers at volume. Essential at $79 on an annual plan covers one site.",
+        "New publishers should skip it, use <a href=\"/tools/perplexity/\">Perplexity</a> to read what ranks, and put the money into content. Come back when the site pays for it."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Essential", "price": "$79/mo yearly, $99 monthly", "notes": "Around 30 Content Editor articles a month, audits, one site. The solo plan, and a stretch for a solo budget." },
+    { "plan": "Scale", "price": "$175/mo yearly, $219 monthly", "notes": "Around 100 articles, more users and sites, keyword clustering. Agency territory." },
+    { "plan": "Enterprise", "price": "Custom", "notes": "API, white label, dedicated support." }
+  ],
+  "alternatives": ["perplexity", "claude", "jasper"]
+}

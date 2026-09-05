@@ -1,0 +1,72 @@
+{
+  "slug": "runway",
+  "name": "Runway",
+  "category": "video",
+  "headline": "Runway review: impressive clips, expensive minutes",
+  "tagline": "Among the strongest generative video tools for short B-roll. Credit pricing makes every failed generation feel like burning cash.",
+  "dek": "Runway produces five-to-ten-second clips that can pass as stock footage, which is a real asset for a faceless channel. Users consistently report needing several attempts per usable clip, and every attempt costs credits. Whether that is worth it depends on how much B-roll you need.",
+  "score": 7.6,
+  "bestFor": "Short B-roll and motion backgrounds for video channels",
+  "priceFrom": "From $12/mo billed yearly",
+  "freeTier": "Yes, a one-time bundle of credits, watermarked",
+  "worthPaying": "Only at a weekly publishing cadence. For occasional use, stock footage is cheaper.",
+  "date": "2026-08-06",
+  "featured": false,
+  "pros": [
+    "Image-to-video output is stable enough to use as real B-roll",
+    "Camera controls and motion brush give actual direction over the shot",
+    "Clips are commercially usable on paid plans",
+    "Fast turnaround, typically a couple of minutes per clip"
+  ],
+  "cons": [
+    "A meaningful share of generations are unusable and still cost credits",
+    "Credits do not roll over, so quiet months are wasted money",
+    "Hands, text and fast motion remain weak points",
+    "The Unlimited plan is $95 a month, a lot for B-roll"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Runway is a generative video platform. Give it a text prompt or a still image and it produces a short clip. It also offers editing tools, background removal and lip sync, but video generation is what people pay for.",
+        "Everything runs on credits. Each second of generated video costs a set number, plans include a monthly allowance, and more can be bought. The Unlimited plan removes the cap in a slower relaxed mode."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "B-roll for narrated channels: money changing hands, skylines, people at laptops, abstract motion behind talking points. The most recommended approach is to animate a still from <a href=\"/tools/midjourney/\">Midjourney</a> rather than prompt video from scratch, because image-to-video is markedly more stable.",
+        "Agencies use it for social clips and concept previews. Filmmakers use it for previsualisation."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Control. Camera movement settings and the motion brush, which lets you paint which parts of a still should move, mean you can direct a shot instead of hoping. That is the difference between a tool and a slot machine, and it is where Runway is usually rated above cheaper rivals.",
+        "Image-to-video quality. A well-lit still with a gentle push-in or pan comes out looking like licensed stock. For a channel needing many clips per video, that can replace a stock subscription."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "The hit rate. Warped limbs, motion that drifts into nonsense in the final seconds, and unusable outputs are common enough that users routinely describe a real cost per usable clip of two to three times the sticker price. On Standard, careless use can exhaust the allowance in a few weeks.",
+        "Credit expiry. Miss a month of publishing and the credits are gone. Unlimited fixes the anxiety at $95, which only makes sense at a daily cadence.",
+        "Detail. Hands, on-screen text and fast action still break. Keep prompts to slow, simple motion."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Channel operators publishing at least weekly who want B-roll that does not look like everyone else's stock library. Start on Standard, animate stills, and track your usable-clip rate before upgrading.",
+        "Occasional publishers are better served by a stock footage subscription. For a presenter rather than B-roll, see <a href=\"/tools/heygen/\">HeyGen</a>."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "One-time credit bundle, watermarked, no commercial use. Enough to gauge the hit rate." },
+    { "plan": "Standard", "price": "$15/mo, $12/mo yearly", "notes": "Monthly credits for roughly 60 to 100 seconds of video, no watermark, commercial use." },
+    { "plan": "Pro", "price": "$35/mo, $28/mo yearly", "notes": "Around three times the credits plus more storage and export options." },
+    { "plan": "Unlimited", "price": "$95/mo, $76/mo yearly", "notes": "Unlimited generations in relaxed mode. Daily publishing only." }
+  ],
+  "alternatives": ["heygen", "midjourney", "descript"]
+}

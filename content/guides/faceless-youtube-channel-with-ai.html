@@ -1,0 +1,80 @@
+<!--meta
+{
+  "slug": "faceless-youtube-channel-with-ai",
+  "title": "Starting a faceless YouTube channel with AI: the full workflow",
+  "dek": "The tools, the time per video, the costs, and the mistakes that operators say cost them their first months. Built from what channel owners report and what YouTube's own rules require.",
+  "date": "2026-08-24",
+  "type": "guide"
+}
+-->
+<p>A faceless channel is a YouTube channel where nobody appears on camera. Narration over footage, text, or animation. AI made the format cheap: a synthetic voice, a drafted script, a fast edit. It also made it crowded. This guide is the workflow that channel operators most consistently describe as working, with the parts that do not work left in.</p>
+
+<h2>The numbers first</h2>
+<ul>
+  <li><strong>Monetisation threshold:</strong> YouTube's Partner Program requires 1,000 subscribers plus either 4,000 valid public watch hours in the past 12 months or 10 million Shorts views in 90 days. That is the published rule; check it, because it changes.</li>
+  <li><strong>Time to get there:</strong> operators who share timelines typically report six months to more than a year, publishing several times a week throughout.</li>
+  <li><strong>Cadence:</strong> the schedule most often cited by channels that got there is two to three videos a week, eight to twelve minutes each.</li>
+  <li><strong>Time per video:</strong> commonly reported as around three hours at the start, falling to roughly ninety minutes once templates exist.</li>
+  <li><strong>Monthly tool cost:</strong> roughly $60 for the stack below. <a href="/tools/elevenlabs/">ElevenLabs</a> Creator, <a href="/tools/descript/">Descript</a> Creator, <a href="/tools/claude/">Claude</a> Pro. <a href="/tools/runway/">Runway</a> Standard is optional.</li>
+  <li><strong>Early earnings:</strong> enough to cover the tools, not a salary. Channels that earn a living have usually been at it for years and have someone behind them who knows the subject.</li>
+</ul>
+<p>If that is disappointing, good. It is the honest shape of it.</p>
+
+<h2>Step 1: pick a niche you can sustain</h2>
+<p>The most common failure story in creator post-mortems is a niche chosen because a keyword tool rated it low competition. It was low competition because nobody cared. Twenty videos later, a few hundred views, and two months gone.</p>
+<p>A better order of filters:</p>
+<ol>
+  <li>Could you write about this every week for a year without running dry? If you do not know the subject, the scripts will be generic and the audience will feel it.</li>
+  <li>Do advertisers pay for this audience? Finance, software, business, health and education carry high ad rates. Entertainment niches need far more views for the same money.</li>
+  <li>Are there channels in it with under 50,000 subscribers getting tens of thousands of views? That means the audience exists and the field is open.</li>
+</ol>
+
+<h2>Step 2: the script</h2>
+<p>Scripts are where AI helps most and where most channels go wrong. The failure mode is a script that sounds like a summary of a summary: correct, structured, forgettable.</p>
+<p>A process that experienced operators describe, using Claude:</p>
+<ol>
+  <li>A Project with the channel's voice notes, three scripts you like, and a list of banned phrases.</li>
+  <li>An outline from a specific angle you choose yourself. Not "how to budget" but "the budgeting mistake that cost me a year of savings". The angle is human work.</li>
+  <li>A draft, then a pass with the instruction: "cut every sentence a viewer could predict".</li>
+  <li>A human rewrite of the first thirty seconds. The hook decides retention, and no tool has a reputation for writing good ones.</li>
+</ol>
+<p>Budget forty minutes per script once the Project is set up. Longer at first.</p>
+
+<h2>Step 3: the voice</h2>
+<p>Built-in voices in editing tools are fine for a rough cut. Channel operators consistently report that switching to an ElevenLabs voice, especially a cloned one, is the change that stops "robot voice" comments and lifts watch time. It is the most frequently cited upgrade in the format.</p>
+<p>Two practical notes from ElevenLabs users. Split scripts into sections of about 2,000 characters and generate each separately; long scripts drift in tone. And add recurring terms to the pronunciation dictionary once. The <a href="/tools/elevenlabs/">ElevenLabs review</a> covers the quota, which you will hit.</p>
+
+<h2>Step 4: the edit</h2>
+<p>Voice into Descript. It transcribes, and you edit against the transcript. B-roll goes against the words, captions come from a saved template, then export. The <a href="/videos/faceless-youtube-elevenlabs-descript/">video walkthrough</a> shows the order.</p>
+<p>The mistake most often admitted: long clips. Stock footage held for eight seconds under a voice reads as lazy. Cutting every clip under four seconds and putting key numbers on screen is the editing change operators credit most for improving first-minute retention. It does more than any tool.</p>
+<p>Footage sources: stock libraries at first, then a mix of stock and <a href="/tools/runway/">Runway</a> clips animated from <a href="/tools/midjourney/">Midjourney</a> stills. Runway clips look less like everyone else's channel. They also cost more per usable clip than the sticker price suggests; the review has the maths.</p>
+
+<h2>Step 5: thumbnails and titles</h2>
+<p>Spend more time on the title and thumbnail than anything except the hook. Thumbnail backgrounds from Midjourney or ChatGPT, text in <a href="/tools/canva/">Canva</a>, three versions per video, swapped if click-through is low after 48 hours. YouTube's own thumbnail testing feature now supports this directly.</p>
+<p>Titles are written by a person. AI-suggested titles are consistently described as either clickbait or flat. The good ones come from asking: what would make me click this if I were the viewer?</p>
+
+<h2>Step 6: publish on a schedule and do not judge it for a month</h2>
+<p>Same days, same times. The first month is silent for almost everyone. The recommendation system needs a body of videos to work out who to show you to. A common story is the first video taking off around the twentieth upload and lifting everything before it. Operators who quit in week five never find out.</p>
+
+<h2>Costs, honestly</h2>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Item</th><th>Monthly</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>ElevenLabs Creator</td><td>$22</td><td>Around 100 minutes on paper, less after regenerations</td></tr>
+    <tr><td>Descript Creator</td><td>$24</td><td>Annual price. Thirty hours of transcription is plenty</td></tr>
+    <tr><td>Claude Pro</td><td>$20</td><td>Also covers everything else you write</td></tr>
+    <tr><td>Runway Standard</td><td>$12</td><td>Optional. Stock footage is cheaper for occasional use</td></tr>
+    <tr><td>Stock footage</td><td>$0 to $30</td><td>Free libraries work at the start</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>What to take from all this</h2>
+<ul>
+  <li>Choose the niche by whether you can sustain it, then by advertiser demand. Competition last.</li>
+  <li>Use the free tiers for the first ten videos. Pay for the voice first, the editor second.</li>
+  <li>Write the hook yourself. Cut clips short. Put numbers on screen.</li>
+  <li>Commit to a schedule for six months before judging it.</li>
+  <li>Do not buy a course. Everything in the course is in this guide and the videos.</li>
+</ul>

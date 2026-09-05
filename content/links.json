@@ -1,0 +1,18 @@
+{
+  "_readme": "One place for every outbound tool link. Replace each url with your affiliate destination. Set affiliate to true once you do; it only changes the label in the fine print. Run build.py afterwards.",
+
+  "chatgpt":    { "url": "https://chatgpt.com/", "affiliate": false },
+  "claude":     { "url": "https://claude.ai/", "affiliate": false },
+  "jasper":     { "url": "https://www.jasper.ai/", "affiliate": false },
+  "midjourney": { "url": "https://www.midjourney.com/", "affiliate": false },
+  "runway":     { "url": "https://runwayml.com/", "affiliate": false },
+  "descript":   { "url": "https://www.descript.com/", "affiliate": false },
+  "heygen":     { "url": "https://www.heygen.com/", "affiliate": false },
+  "opus-clip":  { "url": "https://www.opus.pro/", "affiliate": false },
+  "elevenlabs": { "url": "https://elevenlabs.io/", "affiliate": false },
+  "perplexity": { "url": "https://www.perplexity.ai/", "affiliate": false },
+  "zapier":     { "url": "https://zapier.com/", "affiliate": false },
+  "canva":      { "url": "https://www.canva.com/", "affiliate": false },
+  "surfer-seo": { "url": "https://surferseo.com/", "affiliate": false },
+  "cursor":     { "url": "https://cursor.com/", "affiliate": false }
+}

@@ -1,0 +1,72 @@
+{
+  "slug": "perplexity",
+  "name": "Perplexity",
+  "category": "research",
+  "headline": "Perplexity review: the research tool that shows its work",
+  "tagline": "Sourced answers fast enough to replace a tab of Google searches. Check the sources before you publish.",
+  "dek": "Perplexity is the tool writers reach for when a piece needs facts with citations. It is quicker than searching and more transparent about sources than the chat assistants. The free tier covers most people; Pro is for daily research.",
+  "score": 8.0,
+  "bestFor": "Research for articles, fact-checking, comparison content",
+  "priceFrom": "Free · Pro $20/mo",
+  "freeTier": "Yes, unlimited basic searches, limited deep research",
+  "worthPaying": "Only if research is a daily task. The free tier covers weekly writers.",
+  "date": "2026-07-18",
+  "featured": false,
+  "pros": [
+    "Every claim is linked to a source you can open",
+    "Deep Research produces a structured brief with dozens of sources in minutes",
+    "Follow-up questions keep context, like a conversation with a librarian",
+    "Unusually generous free tier"
+  ],
+  "cons": [
+    "Sources can be low quality: content farms, forum posts, stale pages",
+    "Summaries occasionally add a nuance the source does not support",
+    "Writing output is flat; use it for notes, not drafts",
+    "Pro's model selection is a feature most non-technical users never touch"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Perplexity is an answer engine. Ask a question and it searches the web, reads the results, and writes an answer with numbered citations. You can follow up, narrow to academic or news sources, and on Pro run a Deep Research job that reads many pages and returns a report.",
+        "Think of it as the research step that sits before the writing step."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Background research for articles, pricing and feature checks for comparison content, and automated newsletter pipelines where a Zap sends links for a sourced summary. Deep Research is used for first-pass briefs on broad topics.",
+        "The workflow most writers describe: research in Perplexity, copy the answer with sources into a doc, open every source behind a claim you will actually make, then hand verified notes to <a href=\"/tools/claude/\">Claude</a> for the draft. The verification step is the one that matters."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Transparency. <a href=\"/tools/chatgpt/\">ChatGPT</a> and Claude can search now, but Perplexity was built around citations and it shows. Every sentence traces to a numbered link. For paid writing, being able to check is the feature.",
+        "Speed. A comparison question that would take a dozen searches comes back as one answer with the sources listed.",
+        "Deep Research. A ten-minute job returns a sectioned report with dozens of sources. A strong starting brief; not a publishable article."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Source quality. It does not distinguish a good source from a bad one. Citations pointing at content-farm articles or pages that no longer say what the summary claims are a well-documented problem. It is faster than Google; it is not more trustworthy than Google.",
+        "Nuance drift. The summary sometimes adds a small claim the source does not make, typically a plausible number or a causal link. This is the dangerous kind of error because it reads correctly. Verify anything numeric.",
+        "Writing. Competent and lifeless. Research here; draft elsewhere."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Writers and creators who research daily: comparison content, affiliate roundups, newsletters, anything with numbers. Pro at $20 pays for itself quickly for that person.",
+        "Everyone else should use the free tier and pay for nothing. It is one of the few free tiers here that covers a working writer's weekly needs."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "Unlimited standard searches, a small daily allowance of Pro searches and Deep Research. Enough for most weekly writers." },
+    { "plan": "Pro", "price": "$20/mo, $17/mo yearly", "notes": "Hundreds of Pro searches a day, unlimited file uploads, choice of models, more Deep Research." },
+    { "plan": "Max", "price": "$200/mo", "notes": "Early access to new features and the heaviest models. Not relevant to content work." }
+  ],
+  "alternatives": ["chatgpt", "claude"]
+}

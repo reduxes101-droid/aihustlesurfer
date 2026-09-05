@@ -1,0 +1,73 @@
+{
+  "slug": "midjourney",
+  "name": "Midjourney",
+  "category": "image",
+  "headline": "Midjourney review: still the best-looking images, still awkward to run a business on",
+  "tagline": "The reference point for aesthetic quality in pins, covers and thumbnails, with a workflow that fights you on text and consistency.",
+  "dek": "Midjourney remains the generator other image tools are compared against. The web app has removed most of the old Discord friction. Text inside images and consistent characters across a set are still where users report losing time and credits.",
+  "score": 8.5,
+  "bestFor": "Pinterest pins, book and podcast covers, stock-style visuals",
+  "priceFrom": "From $10/mo",
+  "freeTier": "No",
+  "worthPaying": "Yes. Standard for most creators; Pro if client images must stay private.",
+  "date": "2026-08-20",
+  "featured": false,
+  "pros": [
+    "Image quality that most comparisons still rank first for aesthetic work",
+    "Style references keep a whole board or brand visually coherent",
+    "Web editor with inpainting, pan and zoom is now mature",
+    "Relaxed mode on Standard and up is effectively unlimited generations"
+  ],
+  "cons": [
+    "Text inside images is unreliable; most users add text elsewhere",
+    "Consistent characters across images take effort and wasted credits",
+    "No free tier, and the $10 plan's fast hours run out quickly",
+    "Images are public unless you pay for Pro's stealth mode"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Midjourney is an image generator. Describe a picture, receive four options, refine. It began as a Discord bot and now has a full web app with an editor, a personal gallery and organisation tools. Everything is subscription-based; the free trial ended some time ago.",
+        "It is the tool people are usually thinking of when an AI image looks like it cost money."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Pinterest pin backgrounds, YouTube thumbnails, book and podcast covers, and stock-style images for blog posts that would otherwise come from a paid library. The widely shared pin workflow is: generate at 2:3, lock a style reference per board, then add text in <a href=\"/tools/canva/\">Canva</a>.",
+        "Self-publishers and print-on-demand sellers are another large user group, for the same reason: the output looks finished."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Look. In blind comparisons published by designers and marketers, Midjourney's output is usually preferred over <a href=\"/tools/chatgpt/\">ChatGPT</a>'s image generation for pins and covers. Lighting, composition and colour land with less prompt engineering.",
+        "Style and character references. Supplying one image lets subsequent generations match its palette and texture. That is what makes a board look like it belongs to one person rather than a template library.",
+        "Relaxed mode. On Standard and above, once fast hours are spent you keep generating at a slower pace. For batch work that is effectively unlimited images for $30."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Text. It has improved and will often get a single short word right. Headlines still come back misspelled often enough that the standard advice is to add text in another tool. For thumbnails with big words, ChatGPT's image generation is more practical, if plainer.",
+        "Consistency of people. Character references help, but a recurring mascot or host still drifts between generations. Expect to spend time finding a reliable seed and reference.",
+        "Privacy costs money. On Basic and Standard, images appear in the public gallery. Client work that needs exclusivity requires Pro."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Anyone whose income depends on images looking good: Pinterest operators, self-publishers, thumbnail designers, sellers of printables and digital art. Standard at $30 is the plan most of them settle on.",
+        "Skip it if you mostly need images with text, or only generate a handful a month. ChatGPT's included image tool covers that."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Basic", "price": "$10/mo, $8/mo yearly", "notes": "About 200 images a month in fast mode, no relaxed mode. Fine for evaluation, tight for pin work." },
+    { "plan": "Standard", "price": "$30/mo, $24/mo yearly", "notes": "15 fast hours plus unlimited relaxed generations. The plan for most creators." },
+    { "plan": "Pro", "price": "$60/mo, $48/mo yearly", "notes": "30 fast hours, stealth mode so images stay private, more concurrent jobs. For client work." },
+    { "plan": "Mega", "price": "$120/mo, $96/mo yearly", "notes": "60 fast hours. Studio volume only." }
+  ],
+  "alternatives": ["canva", "chatgpt", "runway"]
+}

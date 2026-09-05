@@ -1,0 +1,73 @@
+{
+  "slug": "claude",
+  "name": "Claude",
+  "category": "writing",
+  "headline": "Claude review: the writing assistant with the best reputation for prose",
+  "tagline": "Consistently rated the strongest drafter and editor among the chat assistants, with usage limits on Pro that users complain about most.",
+  "dek": "Claude is the assistant most often recommended by writers for drafts that need little cleanup. The trade-off, according to the same users, is a Pro usage cap that can interrupt long sessions. No image generation either, so it is usually one of two tools.",
+  "score": 8.7,
+  "bestFor": "Client writing, long documents, editing in a defined voice",
+  "priceFrom": "Free · Pro $20/mo",
+  "freeTier": "Yes, with a message cap that resets every few hours",
+  "worthPaying": "Yes, for anyone earning from writing. Pro is the plan most writers land on.",
+  "date": "2026-09-02",
+  "featured": true,
+  "pros": [
+    "Widely rated the most natural-sounding drafter, with less filler than rivals",
+    "Large context window handles book-length documents in one go",
+    "Projects keep a style guide and samples attached to every chat",
+    "Reliably follows negative instructions such as \"no bullet points\""
+  ],
+  "cons": [
+    "Pro usage limits are the most common complaint in user reviews",
+    "No image generation, so it does not replace an all-in-one tool",
+    "Web search is newer and less citation-focused than Perplexity",
+    "Tends to hedge unless instructed to answer directly"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Claude is Anthropic's chat assistant. It writes, edits, summarises and reasons through problems in a browser, in desktop and mobile apps, and it accepts uploaded files. The free tier includes the current model with a message cap. Pro raises the cap and adds Projects, which store instructions and reference documents so every new chat starts with that context.",
+        "There is no image generation and no full voice mode. Anyone who wants a single subscription that covers text, images and voice will need to pair it with something else."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Among freelancers and content operators, Claude shows up most often for long-form drafting, editing existing copy, summarising documents and writing scripts. The Projects feature is the reason: a Project per client with a style guide, sample pieces and a banned-phrases list produces drafts that already sound like the client. That setup is a recurring recommendation in writer communities.",
+        "The large context window is the other draw. Uploading a long report or a batch of transcripts and asking for themes with quotes is a documented, common use."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Restraint. In comparisons published by writers, Claude's drafts tend to land nearer the requested length, avoid rhetorical questions in intros, and skip the unrequested summary paragraph that <a href=\"/tools/chatgpt/\">ChatGPT</a> is known for. The gap has narrowed, but the pattern is consistent across many side-by-sides.",
+        "Editing. Users report that when asked to tighten a draft without changing the argument, it does that rather than quietly substituting a safer point. That distinction matters more than it sounds for client work.",
+        "Instruction following. Telling it not to use a phrase generally works. That saves a pass on every job."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Usage limits. Pro's cap is generous for short sessions and tight for long ones. Reports of hitting the limit mid-task, with a reset hours away, are the single most common complaint. The Max plans remove the problem at five to ten times the price.",
+        "Research. Web search exists and works, but Perplexity is built around citations and shows sources more clearly. Writers who need to cite usually run research separately and hand Claude the notes.",
+        "Hedging. Left to its defaults it sometimes wraps a clear answer in qualifications. A line in the Project instructions asking for a direct answer first is the standard fix."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Anyone whose income depends on writing: freelancers, newsletter operators, people running content for clients. Pro at $20 is the plan most of them use.",
+        "It is a poor fit for people who mainly need images, voice or one tool for everything. Pairing it with <a href=\"/tools/midjourney/\">Midjourney</a> or <a href=\"/tools/canva/\">Canva</a> for visuals is the common setup."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "Current model, capped messages per session. Enough to evaluate, not to run a workload on." },
+    { "plan": "Pro", "price": "$20/mo, $17/mo billed yearly", "notes": "Roughly five times the free usage, Projects, file uploads, priority access." },
+    { "plan": "Max", "price": "From $100/mo", "notes": "Five to twenty times Pro usage. Only sensible for daily heavy use." },
+    { "plan": "Team", "price": "From $25/user/mo", "notes": "Shared Projects and admin controls. Minimum seats apply." }
+  ],
+  "alternatives": ["chatgpt", "perplexity", "jasper"]
+}

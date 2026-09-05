@@ -1,0 +1,170 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/go/chatgpt",
+      "destination": "https://chatgpt.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/chatgpt/",
+      "destination": "https://chatgpt.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/claude",
+      "destination": "https://claude.ai/",
+      "permanent": false
+    },
+    {
+      "source": "/go/claude/",
+      "destination": "https://claude.ai/",
+      "permanent": false
+    },
+    {
+      "source": "/go/jasper",
+      "destination": "https://www.jasper.ai/",
+      "permanent": false
+    },
+    {
+      "source": "/go/jasper/",
+      "destination": "https://www.jasper.ai/",
+      "permanent": false
+    },
+    {
+      "source": "/go/midjourney",
+      "destination": "https://www.midjourney.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/midjourney/",
+      "destination": "https://www.midjourney.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/runway",
+      "destination": "https://runwayml.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/runway/",
+      "destination": "https://runwayml.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/descript",
+      "destination": "https://www.descript.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/descript/",
+      "destination": "https://www.descript.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/heygen",
+      "destination": "https://www.heygen.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/heygen/",
+      "destination": "https://www.heygen.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/opus-clip",
+      "destination": "https://www.opus.pro/",
+      "permanent": false
+    },
+    {
+      "source": "/go/opus-clip/",
+      "destination": "https://www.opus.pro/",
+      "permanent": false
+    },
+    {
+      "source": "/go/elevenlabs",
+      "destination": "https://elevenlabs.io/",
+      "permanent": false
+    },
+    {
+      "source": "/go/elevenlabs/",
+      "destination": "https://elevenlabs.io/",
+      "permanent": false
+    },
+    {
+      "source": "/go/perplexity",
+      "destination": "https://www.perplexity.ai/",
+      "permanent": false
+    },
+    {
+      "source": "/go/perplexity/",
+      "destination": "https://www.perplexity.ai/",
+      "permanent": false
+    },
+    {
+      "source": "/go/zapier",
+      "destination": "https://zapier.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/zapier/",
+      "destination": "https://zapier.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/canva",
+      "destination": "https://www.canva.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/canva/",
+      "destination": "https://www.canva.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/surfer-seo",
+      "destination": "https://surferseo.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/surfer-seo/",
+      "destination": "https://surferseo.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/cursor",
+      "destination": "https://cursor.com/",
+      "permanent": false
+    },
+    {
+      "source": "/go/cursor/",
+      "destination": "https://cursor.com/",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

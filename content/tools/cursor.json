@@ -1,0 +1,73 @@
+{
+  "slug": "cursor",
+  "name": "Cursor",
+  "category": "coding",
+  "headline": "Cursor review: the editor that turns side projects into paid ones",
+  "tagline": "The most widely recommended way to build small tools and client sites quickly. Usage limits on Pro arrive sooner than expected.",
+  "dek": "Cursor is a code editor with an AI that understands the whole project. For a freelancer building landing pages, scripts and small apps it compresses days into hours, by most accounts. It is not for people who cannot read code, and the Pro plan's request limit is real.",
+  "score": 8.6,
+  "bestFor": "Freelance developers, technical creators building tools and client sites",
+  "priceFrom": "Free · Pro $20/mo",
+  "freeTier": "Yes, limited completions and requests",
+  "worthPaying": "Yes, for anyone who writes code for money. One client job covers a year.",
+  "date": "2026-06-24",
+  "featured": false,
+  "pros": [
+    "Agent mode makes multi-file changes that generally work",
+    "Reads the whole codebase, so suggestions fit the project",
+    "Familiar editor: a fork of VS Code with extensions intact",
+    "Tab completions are fast and usually right"
+  ],
+  "cons": [
+    "Pro's request allowance runs out in a heavy week",
+    "Confidently wrong at times; you must be able to review its output",
+    "Costs stack if you also pay for model usage beyond the plan",
+    "Pricing and plan names have changed several times"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Cursor is a code editor built on VS Code with AI woven through it. It autocompletes as you type, answers questions about your code, and in agent mode takes a task like \"add a contact form that emails me\" and edits the files needed. It works with the major models and includes access to them in the plan.",
+        "It is for people who write code. Someone who has never touched a codebase will not get value from it, and this overview is not aimed at them."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Client landing pages, small web apps, scheduling and scraping scripts, theme fixes for Shopify or WordPress, and maintenance work that used to be slow and boring. Static site generators like the one behind this site are a typical weekend build.",
+        "The economic case freelancers describe: a landing page with a form, analytics and a couple of integrations used to be a two-day job and is now an afternoon, while the quote to the client stays the same."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Whole-project awareness. Ask for a change and it knows the naming conventions, the components, where the config lives. Pasting snippets into <a href=\"/tools/chatgpt/\">ChatGPT</a> or <a href=\"/tools/claude/\">Claude</a> cannot match that, because they only see what you paste.",
+        "Agent mode. Given a clear task it creates files, edits others, runs tests and reports back. Not flawless; good enough that many developers start every feature with it and hand-finish the last stretch.",
+        "No learning curve. It is VS Code. Extensions, keybindings and themes carry over."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Limits. Pro includes a monthly allowance of requests to the stronger models, and a busy week of agent work can use most of it. After that you are on slower models or paying per use. Pro+ and Ultra exist for this and they are not cheap. Track usage in the first month before committing.",
+        "Confidence. It writes code that looks right, passes a glance, and fails on an edge case. Anyone who cannot review it will ship it. That is the main risk for people learning to code through it.",
+        "Pricing churn. The plan structure has changed several times in the past year. What is listed below was accurate on the date at the top; check before subscribing."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Any freelancer or creator who writes code for clients or their own tools. Pro at $20 is the obvious plan.",
+        "Non-coders should not start here. Build with a no-code tool and use Claude to explain what you are doing. Come to Cursor when you can read what it writes."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Hobby", "price": "$0", "notes": "Limited completions and a small allowance of requests. For evaluation." },
+    { "plan": "Pro", "price": "$20/mo", "notes": "Unlimited completions and a monthly allowance of requests to premium models, extended in slower mode afterwards. Most freelancers." },
+    { "plan": "Pro+", "price": "$60/mo", "notes": "Roughly three times the Pro allowance. Daily agent-heavy work." },
+    { "plan": "Ultra", "price": "$200/mo", "notes": "Around twenty times Pro. Full-time engineers shipping constantly." }
+  ],
+  "alternatives": ["claude", "chatgpt"]
+}

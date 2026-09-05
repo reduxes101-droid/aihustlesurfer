@@ -1,0 +1,72 @@
+{
+  "slug": "canva",
+  "name": "Canva",
+  "category": "design",
+  "headline": "Canva review: the AI features are good because the rest already was",
+  "tagline": "Magic Studio makes an already fast design tool faster. The AI images alone would not be worth paying for.",
+  "dek": "Canva Pro is where most creators' pins, thumbnails and client social posts get finished. The AI tools (background removal, Magic Resize, text generation) shave minutes off every design. The image generator is the weakest part; Midjourney remains the standard advice for that.",
+  "score": 7.8,
+  "bestFor": "Pinterest pins, thumbnails, social posts, printables and client-ready graphics",
+  "priceFrom": "Free · Pro $15/mo",
+  "freeTier": "Yes, and it is good enough to earn with",
+  "worthPaying": "Yes. Pro pays for itself in background removals alone.",
+  "date": "2026-07-08",
+  "featured": false,
+  "pros": [
+    "Background remover and Magic Resize save time on every design",
+    "Brand Kit keeps a client's fonts and colours one click away",
+    "Bulk Create turns a spreadsheet into a batch of pins in minutes",
+    "Scheduler posts to Pinterest and social accounts directly"
+  ],
+  "cons": [
+    "Built-in AI image generator is well behind Midjourney and ChatGPT",
+    "Magic Write copy is generic and needs a rewrite",
+    "Templates are recognisable; pins can look like everyone else's",
+    "Performance drops on designs with many pages or large images"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "Canva is a browser-based design tool with templates for everything: pins, thumbnails, slides, ebooks, printables. Magic Studio is the umbrella for its AI features: image generation, background removal, Magic Resize (one design into every format), Magic Write (text), Magic Eraser, and automatic photo edits.",
+        "The free tier is real. Pro adds the Brand Kit, premium assets, background removal, Magic Resize and scheduling."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Pinterest pins, YouTube thumbnails, client social graphics, and printable products for Etsy. The common pin workflow ends here: a background from <a href=\"/tools/midjourney/\">Midjourney</a> goes in, text goes on, export at 1000 by 1500.",
+        "Bulk Create is the feature Pinterest operators cite most: a spreadsheet of titles and one template produces dozens of pins in minutes."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Speed to done. Canva is not the best at any one thing, and that is the point. Image, text, resize, schedule, in one tab, with nothing to install. For volume work that beats a better tool with a slower workflow.",
+        "Background removal is fast and clean, including on hair. Against per-image pricing from dedicated services, Pro pays for itself almost immediately.",
+        "Brand Kit and Magic Resize together turn a one-off design into a client deliverable pack: one post becomes a story, a pin and a LinkedIn image with the right fonts."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "The image generator. Convenient and not good. Output is soft, generic and dated next to <a href=\"/tools/midjourney/\">Midjourney</a>. The standard advice is to generate elsewhere and import.",
+        "Magic Write is similarly filler-grade. Placeholder text, not copy anyone will read.",
+        "Sameness. Because everyone uses the same templates, a Canva pin is recognisable as one. Boards that perform tend to use custom layouts built once and reused."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Almost everyone doing visual content for money. Pro at $15 is one of the easiest subscriptions on this site to justify.",
+        "The only people who should skip Pro are those who already own a full design suite and are comfortable in it. Even then, the free tier is a good hand-off point for client templates."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "Full editor, huge template library, limited AI credits, no background remover or Brand Kit. Genuinely usable." },
+    { "plan": "Pro", "price": "$15/mo, $120/yr", "notes": "Background remover, Magic Resize, Brand Kit, premium content, scheduler, more AI credits. The creator plan." },
+    { "plan": "Teams", "price": "From $10/person/mo, minimum three", "notes": "Everything in Pro plus shared brand controls and approvals. Agencies." }
+  ],
+  "alternatives": ["midjourney", "chatgpt", "descript"]
+}

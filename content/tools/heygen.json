@@ -1,0 +1,73 @@
+{
+  "slug": "heygen",
+  "name": "HeyGen",
+  "category": "video",
+  "headline": "HeyGen review: a convincing avatar, if your audience will accept one",
+  "tagline": "Avatar videos good enough for training and explainers. Still recognisably synthetic for anything that trades on trust.",
+  "dek": "HeyGen puts a person on screen and has them say your script. For product explainers, course modules and translated versions of existing videos, it is a genuine time saver. For audience-facing content, viewers tend to notice, and creators report it costing retention.",
+  "score": 7.4,
+  "bestFor": "Explainer videos, course modules, translating existing videos",
+  "priceFrom": "Free · Creator $24/mo billed yearly",
+  "freeTier": "Yes, a few short watermarked videos a month",
+  "worthPaying": "For client explainer work, yes. For a personal channel, usually not.",
+  "date": "2026-07-22",
+  "featured": false,
+  "pros": [
+    "Lip sync and facial motion are widely rated the best in the category",
+    "Video translation keeps the speaker's voice and re-syncs the mouth",
+    "Personal avatar from a short webcam recording is quick to set up",
+    "Templates and a script editor produce a video in minutes"
+  ],
+  "cons": [
+    "Avatars still read as synthetic in the hands, shoulders and eyes",
+    "Credit-based minutes run out fast on longer videos",
+    "Stock avatars appear on many other channels and get recognised",
+    "Personal-avatar quality depends heavily on your source lighting"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "HeyGen produces videos of a person speaking your script. Choose a stock avatar or build one from footage of yourself, paste text, pick a voice, and it renders a talking video. It also translates existing videos into other languages, cloning the speaker's voice and re-animating the mouth.",
+        "Plans are priced by minutes of rendered video per month, with add-ons for more."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Software onboarding and training videos are the core use: a dozen explainers in a day, updated whenever the product changes, without a reshoot. Course creators use it for modules and for producing Spanish or German versions of an English course with the same voice.",
+        "Some faceless channels have tried it as a recurring host. Published results are mixed, and several creators describe lower retention than narrated formats."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Lip sync. It is close enough that on a laptop screen at normal size most viewers stop noticing within seconds. Competing tools are often called out for visible mouth lag on consonants.",
+        "Translation. An existing English video becomes Spanish and German versions with the same voice and matching lips. For anyone selling a course internationally, that feature alone can justify the plan.",
+        "Speed. Script to finished explainer in around fifteen minutes, with no editing to speak of."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "The uncanny gap. The face is good; the body is not. Shoulders bob on a loop, hands repeat the same gesture, and the eyes do a thing. Viewers who watch a lot of video pick it up, and on content asking them to trust you, that costs.",
+        "Stock avatars are shared. Your presenter is on hundreds of other channels. For a channel with a recurring host, that undermines the point.",
+        "Minutes go quickly. A ten-minute module is a large slice of the Creator allowance. Anyone producing a full course should price the Team plan or an add-on first."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Freelancers making explainers and training content for clients, and course creators who need multilingual versions. Creator at $24 covers a few short videos a week.",
+        "If you are building an audience that follows a person, use your own face or a narrated format with <a href=\"/tools/elevenlabs/\">ElevenLabs</a>. For B-roll rather than a presenter, see <a href=\"/tools/runway/\">Runway</a>."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "A handful of short videos a month, watermarked, limited avatars. Enough to see whether an audience accepts it." },
+    { "plan": "Creator", "price": "$24/mo yearly, $29 monthly", "notes": "Unlimited short videos with a monthly length limit, 1080p, personal avatar, no watermark. The freelancer plan." },
+    { "plan": "Team", "price": "From $69/seat/mo", "notes": "Longer videos, 4K, brand kit, collaboration. Agencies producing at volume." },
+    { "plan": "Enterprise", "price": "Custom", "notes": "API, studio-quality custom avatars, SSO." }
+  ],
+  "alternatives": ["elevenlabs", "runway", "descript"]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "faceless-youtube-elevenlabs-descript",
+    "title": "Building a faceless YouTube channel with ElevenLabs and Descript",
+    "dek": "The full pipeline from script to upload, including the parts that take longer than the tutorials admit.",
+    "youtubeId": "YOUTUBE_ID_1",
+    "duration": "18:42",
+    "date": "2026-08-30",
+    "tools": ["elevenlabs", "descript", "claude"],
+    "notes": [
+      "This is the pipeline that faceless-channel operators most commonly describe: the script drafted in Claude, read by an ElevenLabs voice, assembled in Descript. Operators who track their time typically report around 90 minutes per eight-minute video once templates are set up, and closer to three hours before that.",
+      "The part most tutorials skip is the edit. AI voice on top of stock footage is no longer enough to get recommended. On-screen text and clips cut under four seconds are the two editing changes channel owners credit most often for improving early retention.",
+      "Costs for the stack shown: ElevenLabs Creator, Descript Creator, Claude Pro. Roughly $60 a month at current pricing. The free tiers are enough to start, but ElevenLabs' free tier is non-commercial and its quota runs out fast."
+    ]
+  },
+  {
+    "slug": "midjourney-pinterest-pins",
+    "title": "Making Pinterest pins with Midjourney that people actually save",
+    "dek": "Prompt structure, aspect ratios, and how to get text on the pin without it looking generated.",
+    "youtubeId": "YOUTUBE_ID_2",
+    "duration": "14:05",
+    "date": "2026-08-21",
+    "tools": ["midjourney", "canva"],
+    "notes": [
+      "Midjourney does the background image. Canva does the text. Keeping those jobs separate is the whole trick. Midjourney's text rendering has improved, but misspelled headlines remain the most common complaint from its users, and each retry costs credits.",
+      "The video generates at 2:3, the aspect ratio Pinterest's documentation recommends, with a style reference so every pin on a board looks like it belongs together. It walks through a prompt template and two Canva layouts that Pinterest publishers commonly use.",
+      "None of this replaces a good title. A beautiful pin with a vague title gets scrolled past."
+    ]
+  },
+  {
+    "slug": "claude-vs-chatgpt-client-writing",
+    "title": "Claude vs ChatGPT for paid client writing: a side-by-side comparison",
+    "dek": "Same brief, same edits, both tools. Which draft tends to need less work before it can be sent to a client.",
+    "youtubeId": "YOUTUBE_ID_3",
+    "duration": "22:17",
+    "date": "2026-08-12",
+    "tools": ["claude", "chatgpt"],
+    "notes": [
+      "The video takes a typical freelance brief, a 1,200-word B2B blog post, and runs it through both tools with the same prompt and the same rounds of edits, then looks at how far each draft is from something a client could receive.",
+      "The pattern matches what published comparisons by working writers consistently find: Claude's first draft tends to need fewer structural changes and carry fewer filler sentences, while ChatGPT is quicker at the research-heavy parts and better at pulling in current examples. Both intros need a human rewrite.",
+      "If you only do this kind of work occasionally, either tool is fine. If it is your main income, the difference adds up over a month of pieces."
+    ]
+  },
+  {
+    "slug": "opus-clip-shorts-workflow",
+    "title": "Turning one long video into 20 shorts with Opus Clip",
+    "dek": "What the auto-clipping gets right, what it gets wrong, and the manual fixes worth doing every time.",
+    "youtubeId": "YOUTUBE_ID_4",
+    "duration": "11:33",
+    "date": "2026-07-29",
+    "tools": ["opus-clip", "descript"],
+    "notes": [
+      "Opus Clip finds the moments. It does not know which moments are good. Users of the tool commonly describe about a third of its picks as usable as-is, another third as fine after trimming the opening seconds, and the rest cut mid-sentence.",
+      "The captions are the strongest feature. They are accurate, styled sensibly, and export cleanly. The hook text on each clip still needs a human rewrite, because that line decides whether anyone watches past second one.",
+      "If you already edit in Descript, the round trip is awkward. The video shows the order of operations that wastes the least time."
+    ]
+  },
+  {
+    "slug": "zapier-perplexity-newsletter-automation",
+    "title": "Automating a weekly newsletter with Zapier and Perplexity",
+    "dek": "A research-and-draft pipeline that can save a couple of hours a week, and the two places it still needs a human.",
+    "youtubeId": "YOUTUBE_ID_5",
+    "duration": "16:58",
+    "date": "2026-07-15",
+    "tools": ["zapier", "perplexity", "chatgpt"],
+    "notes": [
+      "The Zap collects links from a saved folder and an RSS feed, sends them to Perplexity for a sourced summary, and drops a draft into a Google Doc on a set day. Then a person reads it, cuts half of it, and writes the intro.",
+      "The automation is not the hard part. The hard part is deciding what counts as newsworthy, and no prompt does that reliably. The video is honest about that.",
+      "Zapier's task pricing is the thing to watch. A setup like this uses roughly 200 tasks a month, which sits inside the entry paid plan. Add image generation and it will not."
+    ]
+  }
+]

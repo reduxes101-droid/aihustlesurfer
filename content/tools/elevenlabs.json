@@ -1,0 +1,73 @@
+{
+  "slug": "elevenlabs",
+  "name": "ElevenLabs",
+  "category": "voice",
+  "headline": "ElevenLabs review: the voice tool that made faceless channels viable",
+  "tagline": "The most natural text-to-speech on the market by most accounts. Credits run out faster than the pricing page suggests.",
+  "dek": "ElevenLabs is the text-to-speech service creators point to when they want a voice audiences will not comment on. The recurring caveat is the quota: character-based credits go quickly once you factor in regenerations, so weekly publishers usually need the Creator tier.",
+  "score": 8.8,
+  "bestFor": "Faceless YouTube, audiobooks, podcast intros, course narration",
+  "priceFrom": "Free · Starter $5/mo",
+  "freeTier": "Yes, about ten minutes of audio a month, non-commercial",
+  "worthPaying": "Yes. For video income it is the closest thing to essential on this site.",
+  "date": "2026-08-31",
+  "featured": false,
+  "pros": [
+    "Voices with natural pauses and emphasis, consistently ranked first in comparisons",
+    "Voice cloning from a few minutes of audio, good enough for a personal channel",
+    "Dubbing and speech-to-speech extend it beyond narration",
+    "Pronunciation dictionaries fix brand names once"
+  ],
+  "cons": [
+    "Credits deplete fast; regenerations are the hidden cost users flag most",
+    "Free tier has no commercial licence, so it cannot back a monetised channel",
+    "Long scripts can drift in tone between paragraphs",
+    "The Studio long-form editor is capable but slower than a dedicated editor"
+  ],
+  "sections": [
+    {
+      "h": "What it is",
+      "p": [
+        "ElevenLabs converts text to speech. Pick a voice from a large library or clone your own, paste a script, download audio. It also dubs into other languages, converts one voice's delivery into another voice, generates sound effects, and has a Studio for long-form projects such as audiobooks.",
+        "Pricing is in characters. Each plan includes a monthly credit allowance; one character costs one credit on the standard model, and ten thousand characters is roughly ten minutes of speech."
+      ]
+    },
+    {
+      "h": "What it is used for",
+      "p": [
+        "Narration for faceless YouTube channels is the headline use. Audiobooks for self-publishers, podcast intros, course modules and explainer voiceovers follow. Cloned voices let a solo creator produce a consistent host without recording every episode.",
+        "Dubbing gets used by course sellers and channels going multilingual, since it preserves the original speaker's voice."
+      ]
+    },
+    {
+      "h": "Where it stands out",
+      "p": [
+        "Naturalness. Pauses land where a reader would pause and emphasis follows meaning. Numbers and abbreviations are read correctly most of the time. The voices bundled into <a href=\"/tools/descript/\">Descript</a> and cheaper TTS services are usable for drafts; reviewers rarely rank them alongside this.",
+        "Cloning. Fifteen minutes of clean audio yields a voice that most listeners accept as the person. That changes the economics of a one-person channel.",
+        "The pronunciation dictionary is small and important. Add brand names and jargon once and every future script reads them correctly."
+      ]
+    },
+    {
+      "h": "Where it falls short",
+      "p": [
+        "Quota. The Creator plan advertises around 100 minutes a month. Regenerating a paragraph that came out flat costs credits every time, and users consistently report doing that. Real finished output lands closer to 70 minutes. That covers two or three videos a week and little else.",
+        "Tone drift. On longer scripts the energy sometimes shifts between paragraphs. The documented workaround is to generate sections of about 2,000 characters separately.",
+        "Licensing. The free tier is non-commercial, so a monetised channel needs at least Starter. It is only $5, but people miss it."
+      ]
+    },
+    {
+      "h": "Who it suits",
+      "p": [
+        "Faceless-channel operators, course and audiobook narrators, and podcasters who want consistent intros. Creator at $22 is the working plan; Starter covers one short video a week.",
+        "If you only need an occasional explainer voice, the voices built into <a href=\"/tools/descript/\">Descript</a> or <a href=\"/tools/heygen/\">HeyGen</a> are adequate and already in your workflow."
+      ]
+    }
+  ],
+  "pricing": [
+    { "plan": "Free", "price": "$0", "notes": "About ten minutes a month, non-commercial licence only. For sampling voices." },
+    { "plan": "Starter", "price": "$5/mo", "notes": "Around 30 minutes, commercial licence, instant voice cloning. One short video a week." },
+    { "plan": "Creator", "price": "$22/mo, often discounted the first month", "notes": "Around 100 minutes on paper, less after regenerations. Professional cloning, higher-quality audio." },
+    { "plan": "Pro", "price": "$99/mo", "notes": "Around 500 minutes, audio API access. Daily publishing or client work at volume." }
+  ],
+  "alternatives": ["descript", "heygen"]
+}
