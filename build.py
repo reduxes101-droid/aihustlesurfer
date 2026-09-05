@@ -323,6 +323,8 @@ def page_home() -> str:
     videos_html = "".join(video_card(v) for v in VIDEOS[:3])
 
     body = f'''
+<div class="aurora">
+  <div class="aurora__bg" aria-hidden="true"><div class="aurora__layer"></div></div>
 <div class="container">
   <p class="masthead-line"><strong>{esc(SITE["tagline"])}</strong><span>Updated {esc(latest_update())}</span></p>
 </div>
@@ -339,6 +341,7 @@ def page_home() -> str:
     <div class="side-stories">{side_html}</div>
   </div>
 </section>
+</div>
 
 <section class="section section--tight container">
   <div class="section-head"><h2>Latest reviews</h2><a href="/tools/">All {len(TOOLS)} tools reviewed</a></div>
@@ -372,12 +375,15 @@ def page_tools_index() -> str:
     )
     cards = "".join(tool_card(t) for t in sorted(TOOLS, key=lambda t: -t["score"]))
     body = f'''
-<div class="container" data-tools-directory>
-  <div class="page-head">
+<div class="aurora">
+  <div class="aurora__bg" aria-hidden="true"><div class="aurora__layer"></div></div>
+  <div class="container"><div class="page-head">
     <span class="kicker">Directory</span>
     <h1>AI tools, reviewed</h1>
     <p class="dek">Each tool here is assessed from its documentation, current pricing and what users consistently report, then scored on one question: is it worth the money for someone earning with it? Sort, filter, then read the review before you pay for anything.</p>
-  </div>
+  </div></div>
+</div>
+<div class="container" data-tools-directory>
   <div class="toolbar">
     <div class="toolbar__row toolbar__row--between">
       <div class="field field--search">{ICON["search"]}<label class="visually-hidden" for="tool-search">Search tools</label><input id="tool-search" type="search" placeholder="Search by name or use case" autocomplete="off"></div>
@@ -677,7 +683,7 @@ def page_go(slug: str, url: str, name: str) -> str:
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="refresh" content="0; url={u}">
 <script>location.replace({json.dumps(url)})</script>
-<style>body{{font-family:system-ui,sans-serif;background:#0B0F1F;color:#F6F3EE;display:grid;place-items:center;min-height:100vh;margin:0}}a{{color:#7C6FEB}}</style>
+<style>body{{font-family:system-ui,sans-serif;background:#0B0F1F;color:#F6F3EE;display:grid;place-items:center;min-height:100vh;margin:0}}a{{color:#8579EC}}</style>
 </head>
 <body><p>Taking you to <a href="{u}" rel="sponsored nofollow noopener">{esc(name)}</a>…</p></body>
 </html>

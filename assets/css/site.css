@@ -6,7 +6,7 @@
 :root {
   /* Base colours */
   --navy: #0B0F1F;
-  --purple: #7C6FEB;
+  --purple: #8579EC;
   --cream: #F6F3EE;
   --ink: #16162A;
 
@@ -14,7 +14,7 @@
   --navy-2: #121834;           /* raised surface on dark */
   --navy-3: #1A2145;           /* hover surface on dark */
   --purple-ink: #5347D9;       /* links on light surfaces, 5.8:1 on cream */
-  --purple-soft: rgba(124, 111, 235, 0.14);
+  --purple-soft: rgba(133, 121, 236, 0.14);
   --cream-2: #EDE9E1;          /* raised surface on light */
   --ink-2: #4A4A63;            /* muted text on light, 7.6:1 */
   --on-dark: #F6F3EE;
@@ -72,7 +72,7 @@ p { margin: 0; }
 ul, ol { margin: 0; padding: 0; }
 table { border-collapse: collapse; width: 100%; }
 :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 2px; }
-::selection { background: var(--purple); color: #fff; }
+::selection { background: var(--purple); color: var(--navy); }
 
 /* Themes */
 .theme-dark { background: var(--navy); color: var(--on-dark); }
@@ -96,7 +96,7 @@ table { border-collapse: collapse; width: 100%; }
 .container--narrow { max-width: 52rem; }
 
 /* Skip link */
-.skip-link { position: absolute; left: 1rem; top: -3rem; z-index: 100; background: var(--purple); color: #fff; padding: 0.6rem 1rem; border-radius: var(--radius); font-weight: 500; text-decoration: none; }
+.skip-link { position: absolute; left: 1rem; top: -3rem; z-index: 100; background: var(--purple); color: var(--navy); padding: 0.6rem 1rem; border-radius: var(--radius); font-weight: 500; text-decoration: none; }
 .skip-link:focus { top: 1rem; }
 
 /* --------------------------------------------------------------------------
@@ -223,8 +223,8 @@ main { flex: 1 0 auto; }
 }
 .btn:active { transform: translateY(1px); }
 .btn svg { width: 1rem; height: 1rem; }
-.btn--primary { background: var(--purple); color: #fff; }
-.btn--primary:hover { background: #6C5FE0; }
+.btn--primary { background: var(--purple); color: var(--navy); }
+.btn--primary:hover { background: color-mix(in srgb, var(--purple) 86%, #fff); }
 .btn--ghost { border-color: var(--line-dark); color: var(--on-dark); }
 .btn--ghost:hover { background: rgba(246,243,238,0.06); }
 .theme-light .btn--ghost { border-color: var(--line-light); color: var(--ink); }
@@ -287,10 +287,10 @@ main { flex: 1 0 auto; }
 }
 .card::before {
   content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
-  background: radial-gradient(28rem circle at var(--mx) var(--my), rgba(124,111,235,0.16), transparent 42%);
+  background: radial-gradient(28rem circle at var(--mx) var(--my), rgba(133,121,236,0.16), transparent 42%);
   transition: opacity var(--dur-slow) var(--ease-out);
 }
-.card:hover { border-color: rgba(124,111,235,0.45); }
+.card:hover { border-color: rgba(133,121,236,0.45); }
 .card:hover::before { opacity: 1; }
 .card > * { position: relative; }
 .card > .pill { align-self: flex-start; }
@@ -303,7 +303,7 @@ main { flex: 1 0 auto; }
 .card__meta { margin-top: auto; padding-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 0.8125rem; color: var(--on-dark-2); font-family: var(--font-mono); }
 .card__meta a { position: relative; z-index: 1; }
 .theme-light .card { background: #fff; border-color: var(--line-light); }
-.theme-light .card::before { background: radial-gradient(28rem circle at var(--mx) var(--my), rgba(124,111,235,0.10), transparent 42%); }
+.theme-light .card::before { background: radial-gradient(28rem circle at var(--mx) var(--my), rgba(133,121,236,0.10), transparent 42%); }
 .theme-light .card p, .theme-light .card__meta { color: var(--ink-2); }
 
 .pill {
@@ -386,7 +386,7 @@ main { flex: 1 0 auto; }
   touch-action: manipulation;
 }
 .chip:hover { color: var(--on-dark); border-color: rgba(246,243,238,0.3); }
-.chip[aria-pressed="true"] { background: var(--purple); border-color: var(--purple); color: #fff; }
+.chip[aria-pressed="true"] { background: var(--purple); border-color: var(--purple); color: var(--navy); }
 .field { display: flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; padding-inline: 0.75rem; background: var(--navy-2); border: 1px solid var(--line-dark); border-radius: var(--radius); }
 .field svg { width: 1rem; height: 1rem; color: var(--on-dark-2); flex: none; }
 .field input, .field select { background: transparent; border: 0; color: inherit; font: inherit; min-width: 0; width: 100%; min-height: 2.5rem; }
@@ -619,5 +619,43 @@ main { flex: 1 0 auto; }
 .prose .video-card { color: inherit; }
 .prose .video-card h3 { margin-top: 0; font-size: 1.1rem; }
 .prose .video-card p { margin-top: 0; font-size: 0.9rem; }
-.prose .btn--primary { color: #fff; }
+.prose .btn--primary { color: var(--navy); }
 .prose .btn--ghost { color: var(--ink); }
+
+/* --------------------------------------------------------------------------
+   Aurora — slow, low-contrast depth on dark surfaces only.
+   Adapted from Aceternity's Aurora Background: two repeating 100° gradients
+   masked to the top-right corner. Rebuilt without blur and animated with a
+   transform so it stays on the compositor thread.
+   -------------------------------------------------------------------------- */
+.aurora { position: relative; isolation: isolate; }
+.aurora > .container, .aurora > .hero { position: relative; z-index: 1; }
+.aurora__bg {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  opacity: 0.14;
+  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, #000 10%, transparent 70%);
+          mask-image: radial-gradient(ellipse at 100% 0%, #000 10%, transparent 70%);
+}
+.aurora__layer {
+  position: absolute; top: -20%; bottom: -20%; left: -50%; width: 200%;
+  background-image:
+    repeating-linear-gradient(100deg, var(--navy) 0%, var(--navy) 7%, transparent 10%, transparent 12%, var(--navy) 16%),
+    repeating-linear-gradient(100deg,
+      var(--purple) 10%,
+      color-mix(in srgb, var(--purple) 60%, var(--navy)) 15%,
+      color-mix(in srgb, var(--purple) 25%, var(--navy)) 20%,
+      var(--purple) 25%,
+      color-mix(in srgb, var(--purple) 45%, var(--navy)) 30%);
+  background-size: 300% 100%, 200% 100%;
+  background-position: 50% 50%, 50% 50%;
+  animation: aurora-drift 40s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes aurora-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-25%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora__layer { animation: none; transform: translate3d(-12%, 0, 0); }
+}
+

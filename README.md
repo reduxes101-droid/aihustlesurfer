@@ -55,7 +55,7 @@ Push to GitHub, import the repository in Vercel, leave the build command empty a
 ## Design
 
 - Fonts: Fraunces (headlines), IBM Plex Sans (body), IBM Plex Mono (labels and scores), loaded from Google Fonts.
-- Palette: navy `#0B0F1F`, purple `#7C6FEB`, cream `#F6F3EE`, ink `#16162A`. Tints are derived in `assets/css/site.css`.
+- Palette: navy `#0B0F1F`, purple `#8579EC`, cream `#F6F3EE`, ink `#16162A`. Tints are derived in `assets/css/site.css`.
 - Home and index pages are dark. Reading pages are light.
 - Motion is limited to scroll reveals, a pointer-tracking highlight on cards and a reading progress bar. All of it respects `prefers-reduced-motion`.
 
