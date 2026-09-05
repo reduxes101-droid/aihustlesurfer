@@ -22,13 +22,13 @@
     "Drafts run long and lean on recognisable phrasing unless constrained",
     "Formatting instructions are followed less reliably than in Claude",
     "Free and Go tiers have carried ads since February 2026",
-    "The $100 and $200 Pro tiers are aimed at technical users, not content work"
+    "The Pro tiers at $100 and $200 are aimed at technical users, not content work"
   ],
   "sections": [
     {
       "h": "What it is",
       "p": [
-        "ChatGPT is OpenAI's assistant and the product most people mean when they say \"AI\". It writes, codes, generates images, talks in voice mode, searches the web and reads uploaded files. The free tier includes most of that with caps and, since February 2026, ads. Go is a cheap ad-supported step up. Plus lifts the caps, removes ads and unlocks the stronger models. The Pro tiers at $100 and $200 are built for heavy reasoning and technical workloads.",
+        "ChatGPT is OpenAI's assistant and the product most people mean when they say \"AI\". It writes, codes, generates images, talks in voice mode, searches the web and reads uploaded files. The free tier includes most of that with caps and, since February 2026, ads. Go is a cheap ad-supported step up. Plus lifts the caps, removes ads and unlocks the stronger models. Pro is one plan sold in two usage tiers, $100 and $200 a month, built for heavy reasoning and technical workloads.",
         "This overview looks at it for one purpose: earning with it. That means writing, images for pins and thumbnails, research, and the admin tasks that fill a freelancer's day."
       ]
     },
@@ -80,14 +80,14 @@
       "notes": "Higher limits, best models, more image generation, voice with video, no ads. The plan most creators should be on."
     },
     {
-      "plan": "Pro",
+      "plan": "Pro — $100/mo",
       "price": "$100/mo",
-      "notes": "Expanded access and the heavier reasoning models. Built for engineers and researchers."
+      "notes": "About 5x Plus limits. A usage tier of the same Pro plan, launched April 2026. Built for engineers and researchers."
     },
     {
-      "plan": "Pro (top tier)",
+      "plan": "Pro — $200/mo",
       "price": "$200/mo",
-      "notes": "The largest allowances. Not relevant to content work."
+      "notes": "About 20x Plus limits, larger context and higher Deep Research caps. The top usage tier of Pro. Not relevant to content work."
     },
     {
       "plan": "Team",
