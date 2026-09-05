@@ -119,6 +119,34 @@ def latest_update() -> str:
     return fmt_date(max(dates))
 
 
+
+def slugify(text: str) -> str:
+    s = re.sub(r"[^a-z0-9]+", "-", re.sub(r"<[^>]+>", "", text).lower()).strip("-")
+    return s[:60] or "section"
+
+
+def label_tables(html_body: str) -> str:
+    """Add class=stack and data-label attributes so tables can stack on phones."""
+    def fix(m: re.Match) -> str:
+        table = m.group(0)
+        heads = [re.sub(r"<[^>]+>", "", h).strip() for h in re.findall(r"<th[^>]*>(.*?)</th>", table, re.S)]
+        if not heads:
+            return table
+        def row(rm: re.Match) -> str:
+            cells = re.findall(r"<td([^>]*)>(.*?)</td>", rm.group(0), re.S)
+            out = "<tr>"
+            for i, (attrs, inner) in enumerate(cells):
+                lab = esc(heads[i]) if i < len(heads) else ""
+                out += f'<td data-label="{lab}"{attrs}>{inner}</td>'
+            return out + "</tr>"
+        body = re.sub(r"<tr>\s*<td.*?</tr>", row, table, flags=re.S)
+        return body.replace("<table>", '<table class="stack">', 1)
+    return re.sub(r"<table>.*?</table>", fix, html_body, flags=re.S)
+
+
+def rail(inner: str) -> str:
+    return f'<div class="rail" data-rail aria-label="Reading position">{inner}</div>'
+
 # --------------------------------------------------------------------------
 # Chrome: head, header, footer
 # --------------------------------------------------------------------------
@@ -413,7 +441,7 @@ def page_tool(t: dict) -> str:
     pros = "".join(f"<li>{ICON['check']}<span>{esc(p)}</span></li>" for p in t["pros"])
     cons = "".join(f"<li>{ICON['x']}<span>{esc(c)}</span></li>" for c in t["cons"])
     sections = "".join(
-        f"<h2>{esc(s['h'])}</h2>" + "".join(f"<p>{p}</p>" for p in s["p"]) for s in t["sections"]
+        f'<h2 id="{slugify(s["h"])}">{esc(s["h"])}</h2>' + "".join(f"<p>{p}</p>" for p in s["p"]) for s in t["sections"]
     )
     pricing = ('<div class="table-scroll"><table class="pricing-table"><thead><tr><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">What you get</th></tr></thead><tbody>'
                + "".join(f'<tr><td>{esc(p["plan"])}</td><td>{esc(p["price"])}</td><td>{esc(p["notes"])}</td></tr>' for p in t["pricing"])
@@ -435,20 +463,22 @@ def page_tool(t: dict) -> str:
   <header class="article-head">
     <span class="kicker">{esc(CATS[t["category"]])} · Review</span>
     <h1>{esc(t["headline"])}</h1>
-    <p class="dek">{esc(t["dek"])}</p>
+    <p class="dek" data-clamp id="dek">{esc(t["dek"])}</p>
+    <button class="dek-more" type="button" aria-expanded="false" aria-controls="dek" hidden>Read more</button>
     {byline([f"<b>{esc(SITE['byline'])}</b>", f"Updated {esc(fmt_date(t['date']))}", f"{minutes} min read"])}
   </header>
   <div class="review-layout">
+    {rail(f'<span class="rail__score score-badge"><b>{t["score"]:.1f}</b><small>/10</small></span><span class="rail__section" aria-live="polite">{esc(t["name"])}</span><a href="#pricing">Pricing</a><a href="{go_href(t["slug"])}" rel="sponsored nofollow noopener" target="_blank">Visit</a>')}
     <div class="prose" data-article>
       <div class="proscons">
         <div class="pros"><h3>What works</h3><ul>{pros}</ul></div>
         <div class="cons"><h3>What doesn't</h3><ul>{cons}</ul></div>
       </div>
       {sections}
-      <h2>Pricing</h2>
+      <h2 id="pricing">Pricing</h2>
       <p>Prices checked {esc(fmt_date(t["date"]))}. Vendors change plans often, so confirm on their site before you pay.</p>
       {pricing}
-      {"<h2>Alternatives we would consider</h2><div class='related'>" + alts + "</div>" if alts else ""}
+      {"<h2 id='alternatives'>Alternatives we would consider</h2><div class='related'>" + alts + "</div>" if alts else ""}
       <div class="article-foot">
         {vids_html}
         {newsletter()}
@@ -567,10 +597,12 @@ def page_guide(g: dict) -> str:
         toc_items.append((slug, text))
         return f'<h2 id="{slug}">{m.group(1)}</h2>'
     body_html = re.sub(r"<h2>(.*?)</h2>", add_id, body_html, flags=re.S)
-    toc = ""
+    toc = ""; toc_inline = ""
     if len(toc_items) >= 3:
-        toc = ('<nav class="toc" aria-label="On this page"><span class="kicker">On this page</span><ol>'
-               + "".join(f'<li><a href="#{s}">{esc(x)}</a></li>' for s, x in toc_items) + '</ol></nav>')
+        items = "".join(f'<li><a href="#{s}">{esc(x)}</a></li>' for s, x in toc_items)
+        toc = f'<nav class="toc" aria-label="On this page"><span class="kicker">On this page</span><ol>{items}</ol></nav>'
+        toc_inline = f'<details class="toc-inline"><summary>On this page</summary><ol>{items}</ol></details>'
+    body_html = label_tables(body_html)
     body = f'''
 <div class="container container--narrow">
   <header class="article-head">
@@ -578,8 +610,10 @@ def page_guide(g: dict) -> str:
     <h1>{esc(g["title"])}</h1>
     <p class="dek">{esc(g["dek"])}</p>
     {byline([f"<b>{esc(SITE['byline'])}</b>", esc(fmt_date(g["date"])), f"{read_time(g['body'])} min read"])}
+    {toc_inline}
   </header>
   <div class="guide-layout">
+    {rail(f'<span class="kicker">{esc(g["kicker"])}</span><span class="rail__section" aria-live="polite">{esc(g["title"])}</span><a href="#main">Top</a>')}
     <div class="prose" data-article>
       {body_html}
       <div class="article-foot">{newsletter()}</div>

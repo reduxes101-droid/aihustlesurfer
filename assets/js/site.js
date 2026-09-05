@@ -198,27 +198,44 @@
     }
   }
 
-  /* Guide table of contents: highlight the section being read */
+  /* Section tracker: highlights the TOC link and updates the mobile rail */
   var toc = document.querySelector('.toc');
-  if (toc) {
-    var links = {}, heads = [], current = null, ticking = false;
-    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
-      var h = document.getElementById(a.getAttribute('href').slice(1));
-      if (h) { links[h.id] = a; heads.push(h); }
-    });
+  var railLabel = document.querySelector('[data-rail] .rail__section');
+  var heads = Array.prototype.slice.call(document.querySelectorAll('.prose > h2[id]'));
+  if ((toc || railLabel) && heads.length) {
+    var links = {}, current = null, ticking = false, railDefault = railLabel ? railLabel.textContent : '';
+    if (toc) toc.querySelectorAll('a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
     var update = function () {
       ticking = false;
-      var line = window.innerHeight * 0.3, best = heads[0];
+      var line = window.innerHeight * 0.3, best = null;
       for (var i = 0; i < heads.length; i++) { if (heads[i].getBoundingClientRect().top <= line) best = heads[i]; }
-      if (!best || best.id === current) return;
+      var id = best ? best.id : (toc ? heads[0].id : null);
+      if (id === current) return;
       if (current && links[current]) links[current].removeAttribute('aria-current');
-      current = best.id; links[current].setAttribute('aria-current', 'true');
+      current = id;
+      if (id && links[id]) links[id].setAttribute('aria-current', 'true');
+      if (railLabel) railLabel.textContent = best ? best.textContent : railDefault;
     };
     var onScroll = function () { if (!ticking) { ticking = true; setTimeout(update, 80); } };
-    if (heads.length) {
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll, { passive: true });
-      update();
-    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+
+  /* Dek clamp toggle (phones): only shown when the text is actually clamped */
+  var dek = document.querySelector('.dek[data-clamp]');
+  var more = document.querySelector('.dek-more');
+  if (dek && more) {
+    var check = function () {
+      if (dek.classList.contains('is-open')) return;
+      more.hidden = !(dek.scrollHeight > dek.clientHeight + 2);
+    };
+    more.addEventListener('click', function () {
+      var open = dek.classList.toggle('is-open');
+      more.setAttribute('aria-expanded', String(open));
+      more.textContent = open ? 'Show less' : 'Read more';
+    });
+    check();
+    window.addEventListener('resize', check, { passive: true });
   }
 })();
