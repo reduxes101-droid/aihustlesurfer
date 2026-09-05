@@ -160,8 +160,8 @@ def header(current: str) -> str:
   <div class="container site-header__inner">
     <a class="brand" href="/" aria-label="{esc(SITE["name"])} home">
       <picture>
-        <source srcset="/assets/img/logo-sm.webp" type="image/webp">
-        <img class="brand__logo" src="/assets/img/logo-sm.png" width="280" height="192" alt="" decoding="async">
+        <source srcset="/assets/img/logo-header.webp" type="image/webp">
+        <img class="brand__logo" src="/assets/img/logo-header.png" width="186" height="128" alt="" decoding="async">
       </picture>
       <span class="brand__name">AIHustle<span>Surfer</span></span>
     </a>
@@ -202,7 +202,7 @@ def footer() -> str:
   <div class="container">
     <div class="site-footer__grid">
       <div>
-        <a class="brand" href="/"><picture><source srcset="/assets/img/logo-sm.webp" type="image/webp"><img class="brand__logo" src="/assets/img/logo-sm.png" width="280" height="192" alt="" loading="lazy" decoding="async"></picture><span class="brand__name">AIHustle<span>Surfer</span></span></a>
+        <a class="brand" href="/"><picture><source srcset="/assets/img/logo-header.webp" type="image/webp"><img class="brand__logo" src="/assets/img/logo-header.png" width="186" height="128" alt="" loading="lazy" decoding="async"></picture><span class="brand__name">AIHustle<span>Surfer</span></span></a>
         <p class="site-footer__about">{esc(SITE["description"])}</p>
       </div>
       <div>
@@ -238,12 +238,18 @@ def layout(*, title: str, description: str, path: str, body: str, theme: str, cu
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{esc(canonical)}">
-<meta property="og:image" content="{SITE["url"].rstrip("/")}/assets/img/favicon-512.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{SITE["url"].rstrip("/")}/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{esc(SITE["name"])} logo: a purple wave with an upward arrow">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{SITE["url"].rstrip("/")}/assets/img/og-image.png">
 <meta name="theme-color" content="#0B0F1F">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/assets/img/favicon-192.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+<link rel="icon" href="/assets/img/favicon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/img/favicon-180.png" sizes="180x180">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">

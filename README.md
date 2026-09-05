@@ -61,4 +61,4 @@ Push to GitHub, import the repository in Vercel, leave the build command empty a
 
 ## Source assets
 
-`logo1.png` is the original logo. `assets/img/` holds the trimmed, resized copies the site uses.
+`brand/` holds the regenerated logo set (favicons at every size, header logos, OG image, avatars). `assets/img/` holds the copies the site actually serves; `logo1.png` is the original source artwork.
