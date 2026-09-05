@@ -193,7 +193,7 @@ def footer() -> str:
 
 
 def layout(*, title: str, description: str, path: str, body: str, theme: str, current: str = "",
-           affiliate: bool = False, article: bool = False, og_type: str = "website") -> str:
+           affiliate: bool = False, article: bool = False, og_type: str = "website", extra_head: str = "") -> str:
     canonical = SITE["url"].rstrip("/") + path
     full_title = f"{title} | {SITE['name']}" if path != "/" else f"{SITE['name']} — {title}"
     progress = '<div class="progress" aria-hidden="true"></div>' if article else ""
@@ -220,7 +220,7 @@ def layout(*, title: str, description: str, path: str, body: str, theme: str, cu
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
 <link rel="stylesheet" href="/assets/css/site.css">
-<script>document.documentElement.classList.add('js')</script>
+{extra_head}<script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="theme-{theme}">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -324,6 +324,13 @@ def page_home() -> str:
 
     body = f'''
 <div class="aurora">
+  <div class="hero-art" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 60rem)" srcset="/assets/img/hero-wave.webp" type="image/webp">
+      <source media="(min-width: 60rem)" srcset="/assets/img/hero-wave.png" type="image/png">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="1920" height="1081" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
   <div class="aurora__bg" aria-hidden="true"><div class="aurora__layer"></div></div>
 <div class="container">
   <p class="masthead-line"><strong>{esc(SITE["tagline"])}</strong><span>Updated {esc(latest_update())}</span></p>
@@ -365,7 +372,8 @@ def page_home() -> str:
 
 <section class="section container">{newsletter()}</section>
 '''
-    return layout(title=SITE["tagline"], description=SITE["description"], path="/", body=body, theme="dark", current="home")
+    preload = '<link rel="preload" as="image" href="/assets/img/hero-wave.webp" type="image/webp" media="(min-width: 60rem)" fetchpriority="high">\n'
+    return layout(title=SITE["tagline"], description=SITE["description"], path="/", body=body, theme="dark", current="home", extra_head=preload)
 
 
 def page_tools_index() -> str:
@@ -392,7 +400,7 @@ def page_tools_index() -> str:
     <div class="toolbar__row"><div class="chips" role="group" aria-label="Filter by category">{chips}</div></div>
     <p class="results-count" data-results-count aria-live="polite">{len(TOOLS)} tools</p>
   </div>
-  <div class="grid grid--3" data-tools-grid>{cards}</div>
+  <div class="grid grid--3 reveal-group" data-tools-grid>{cards}</div>
   <p class="empty-state" data-empty hidden>Nothing matches that. Try a broader search or clear the category.</p>
   <section class="section">{newsletter()}</section>
 </div>'''
@@ -407,10 +415,9 @@ def page_tool(t: dict) -> str:
     sections = "".join(
         f"<h2>{esc(s['h'])}</h2>" + "".join(f"<p>{p}</p>" for p in s["p"]) for s in t["sections"]
     )
-    pricing = "".join(
-        f'<div class="pricing-card"><b>{esc(p["plan"])}</b><span class="price">{esc(p["price"])}</span><p>{esc(p["notes"])}</p></div>'
-        for p in t["pricing"]
-    )
+    pricing = ('<div class="table-scroll"><table class="pricing-table"><thead><tr><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">What you get</th></tr></thead><tbody>'
+               + "".join(f'<tr><td>{esc(p["plan"])}</td><td>{esc(p["price"])}</td><td>{esc(p["notes"])}</td></tr>' for p in t["pricing"])
+               + '</tbody></table></div>')
     alts = "".join(
         f'<a href="/tools/{a}/">{score_badge(TOOL_BY_SLUG[a]["score"])}<div><b>{esc(TOOL_BY_SLUG[a]["name"])}</b><span>{esc(TOOL_BY_SLUG[a]["tagline"])}</span></div></a>'
         for a in t.get("alternatives", []) if a in TOOL_BY_SLUG
@@ -440,7 +447,7 @@ def page_tool(t: dict) -> str:
       {sections}
       <h2>Pricing</h2>
       <p>Prices checked {esc(fmt_date(t["date"]))}. Vendors change plans often, so confirm on their site before you pay.</p>
-      <div class="pricing-cards">{pricing}</div>
+      {pricing}
       {"<h2>Alternatives we would consider</h2><div class='related'>" + alts + "</div>" if alts else ""}
       <div class="article-foot">
         {vids_html}
@@ -553,6 +560,17 @@ def page_guide(g: dict) -> str:
         t = TOOL_BY_SLUG.get(m.group(1))
         return mentioned_item(t) if t else ""
     body_html = re.sub(r"<!--tool:([a-z0-9-]+)-->", replace_tool, g["body"])
+    toc_items = []
+    def add_id(m: re.Match) -> str:
+        text = re.sub(r"<[^>]+>", "", m.group(1))
+        slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:60] or f"section-{len(toc_items)+1}"
+        toc_items.append((slug, text))
+        return f'<h2 id="{slug}">{m.group(1)}</h2>'
+    body_html = re.sub(r"<h2>(.*?)</h2>", add_id, body_html, flags=re.S)
+    toc = ""
+    if len(toc_items) >= 3:
+        toc = ('<nav class="toc" aria-label="On this page"><span class="kicker">On this page</span><ol>'
+               + "".join(f'<li><a href="#{s}">{esc(x)}</a></li>' for s, x in toc_items) + '</ol></nav>')
     body = f'''
 <div class="container container--narrow">
   <header class="article-head">
@@ -561,9 +579,12 @@ def page_guide(g: dict) -> str:
     <p class="dek">{esc(g["dek"])}</p>
     {byline([f"<b>{esc(SITE['byline'])}</b>", esc(fmt_date(g["date"])), f"{read_time(g['body'])} min read"])}
   </header>
-  <div class="prose" data-article>
-    {body_html}
-    <div class="article-foot">{newsletter()}</div>
+  <div class="guide-layout">
+    <div class="prose" data-article>
+      {body_html}
+      <div class="article-foot">{newsletter()}</div>
+    </div>
+    {toc}
   </div>
 </div>'''
     return layout(title=g["title"], description=g["dek"], path=f"/guides/{g['slug']}/", body=body,

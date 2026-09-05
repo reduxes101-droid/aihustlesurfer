@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css">
+<link rel="preload" as="image" href="/assets/img/hero-wave.webp" type="image/webp" media="(min-width: 60rem)" fetchpriority="high">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="theme-dark">
@@ -41,6 +42,13 @@
 </header>
 <main id="main" tabindex="-1">
 <div class="aurora">
+  <div class="hero-art" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 60rem)" srcset="/assets/img/hero-wave.webp" type="image/webp">
+      <source media="(min-width: 60rem)" srcset="/assets/img/hero-wave.png" type="image/png">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="1920" height="1081" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
   <div class="aurora__bg" aria-hidden="true"><div class="aurora__layer"></div></div>
 <div class="container">
   <p class="masthead-line"><strong>Independent reviews of AI tools, for people who want to earn with them.</strong><span>Updated Sep 2, 2026</span></p>

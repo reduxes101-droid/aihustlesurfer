@@ -659,3 +659,88 @@ main { flex: 1 0 auto; }
   .aurora__layer { animation: none; transform: translate3d(-12%, 0, 0); }
 }
 
+
+/* Home hero artwork: static image under the aurora, masked so text zones stay navy */
+.hero-art { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.hero-art img { position: absolute; left: 0; top: 58%; width: 100%; height: auto; display: block; }
+.hero-art::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, var(--navy) 0%, var(--navy) 30%, rgba(11, 15, 31, 0.15) 100%),
+    linear-gradient(180deg, var(--navy) 0%, rgba(11, 15, 31, 0.6) 55%, rgba(11, 15, 31, 0.15) 100%);
+}
+@media (max-width: 59.99rem) { .hero-art { display: none; } }
+
+/* ==========================================================================
+   Motion pass
+   ========================================================================== */
+
+/* 1. Nav links: underline draws left to right (desktop nav only) */
+@media (min-width: 48rem) {
+  .site-nav a { position: relative; }
+  .site-nav a::after {
+    content: ""; position: absolute; left: 0.85rem; right: 0.85rem; bottom: 0.3rem; height: 2px;
+    background: var(--purple); border-radius: 2px;
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform var(--dur) var(--ease-out);
+  }
+  .site-nav a:hover::after, .site-nav a:focus-visible::after, .site-nav a[aria-current="page"]::after { transform: scaleX(1); }
+}
+
+/* 2. Scores count up (JS sets the text; CSS only reserves width so nothing shifts) */
+.score-badge b, .score__num { font-variant-numeric: tabular-nums; min-width: 2ch; display: inline-block; }
+
+/* 3. Staggered reveal: per-item delay from --i, set by JS, capped in JS at 10 */
+.js .reveal-group.is-visible > * { transition-delay: calc(var(--i, 0) * 45ms); }
+
+/* 4. Pricing table: row highlight follows the cursor */
+.pricing-table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.pricing-table th, .pricing-table td { text-align: left; vertical-align: top; padding: 0.75rem 0.85rem; border-bottom: 1px solid var(--line-light); }
+.pricing-table th { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+.pricing-table td:first-child { font-weight: 600; white-space: nowrap; }
+.pricing-table td:nth-child(2) { font-family: var(--font-mono); font-size: 0.9rem; white-space: nowrap; }
+.pricing-table td:nth-child(3) { color: var(--ink-2); }
+.pricing-table tbody tr { transition: background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
+.pricing-table tbody tr:hover { background-color: #fff; box-shadow: inset 3px 0 0 var(--purple); }
+@media (max-width: 39.99rem) {
+  .pricing-table thead { display: none; }
+  .pricing-table, .pricing-table tbody, .pricing-table tr, .pricing-table td { display: block; }
+  .pricing-table tr { padding: 0.75rem 0; border-bottom: 1px solid var(--line-light); }
+  .pricing-table td { padding: 0.15rem 0; border: 0; white-space: normal !important; }
+}
+
+/* 5. Guides: sticky table of contents */
+.guide-layout { display: grid; gap: 2rem; align-items: start; }
+.toc { display: none; }
+@media (min-width: 64rem) {
+  .guide-layout { grid-template-columns: minmax(0, 1fr) 13rem; gap: 3.5rem; }
+  .toc { display: block; position: sticky; top: 1.5rem; }
+  .toc ol { list-style: none; padding: 0; margin: 0.5rem 0 0; border-left: 1px solid var(--line-light); }
+  .toc li { position: relative; }
+  .toc a {
+    display: block; padding: 0.35rem 0 0.35rem 0.9rem; font-size: 0.85rem; line-height: 1.35;
+    color: var(--ink-2); text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .toc a::before {
+    content: ""; position: absolute; left: -1px; top: 0.35rem; bottom: 0.35rem; width: 2px;
+    background: var(--purple-ink); transform: scaleY(0); transform-origin: center;
+    transition: transform var(--dur) var(--ease-out);
+  }
+  .toc a:hover { color: var(--ink); }
+  .toc a[aria-current="true"] { color: var(--ink); font-weight: 500; }
+  .toc a[aria-current="true"]::before { transform: scaleY(1); }
+}
+
+/* 6. Story lists (Guides index, home): title underline draws in on hover */
+.story-row h3 a, .side-story h3 a {
+  background-image: linear-gradient(var(--purple), var(--purple));
+  background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 2px;
+  transition: background-size var(--dur) var(--ease-out);
+}
+.story-row h3 a:hover, .side-story h3 a:hover { text-decoration: none; background-size: 100% 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav a::after, .toc a::before, .pricing-table tbody tr, .story-row h3 a, .side-story h3 a { transition: none; }
+  .js .reveal-group.is-visible > * { transition-delay: 0ms; }
+}
