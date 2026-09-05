@@ -84,12 +84,12 @@
     },
     {
       "source": "/go/elevenlabs",
-      "destination": "https://elevenlabs.io/",
+      "destination": "https://try.elevenlabs.io/r66xe6lrhinh",
       "permanent": false
     },
     {
       "source": "/go/elevenlabs/",
-      "destination": "https://elevenlabs.io/",
+      "destination": "https://try.elevenlabs.io/r66xe6lrhinh",
       "permanent": false
     },
     {

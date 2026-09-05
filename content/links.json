@@ -9,7 +9,7 @@
   "descript":   { "url": "https://www.descript.com/", "affiliate": false },
   "heygen":     { "url": "https://www.heygen.com/", "affiliate": false },
   "opus-clip":  { "url": "https://www.opus.pro/", "affiliate": false },
-  "elevenlabs": { "url": "https://elevenlabs.io/", "affiliate": false },
+  "elevenlabs": { "url": "https://try.elevenlabs.io/r66xe6lrhinh", "affiliate": true },
   "perplexity": { "url": "https://www.perplexity.ai/", "affiliate": false },
   "zapier":     { "url": "https://zapier.com/", "affiliate": false },
   "canva":      { "url": "https://www.canva.com/", "affiliate": false },
