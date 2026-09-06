@@ -451,15 +451,17 @@ def usecase_card(u: dict) -> str:
     with a single review names it rather than implying a shelf of options."""
     tools = sorted((t for t in TOOLS if t["category"] == u["category"]), key=lambda t: -t["score"])
     n = len(tools)
+    href = f"/tools/?category={u['category']}"
     if n == 0:
         count = "No reviews yet"
     elif n == 1:
         count = f"1 review · {esc(tools[0]['name'])}"
+        href = f"/tools/{tools[0]['slug']}/"   # one review: go straight to it, not to a one-card filter
     else:
         count = f"{n} reviews"
     return f'''
 <article class="card usecase-card">
-  <h3><a href="/tools/?category={u["category"]}">{esc(u["title"])} {ICON["arrow"]}</a></h3>
+  <h3><a href="{href}">{esc(u["title"])} {ICON["arrow"]}</a></h3>
   <p>{esc(u["description"])}</p>
   <div class="card__meta"><span>{count}</span><span>{esc(CATS[u["category"]])}</span></div>
 </article>'''
