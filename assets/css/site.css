@@ -686,12 +686,14 @@ main { flex: 1 0 auto; }
   .site-nav a:hover::after, .site-nav a:focus-visible::after, .site-nav a[aria-current="page"]::after { transform: scaleX(1); }
 }
 
-/* 2. Scores count up. The text node always holds the true score; while counting, JS paints the
-      running figure into ::after from data-display and hides the real glyphs with a transparent fill.
-      Reserve width so nothing shifts. */
+/* 2. Scores count up. The text node always holds the true score. While data-display is present
+      (JS sets it only for the 700ms count-up and removes it on every exit), the real glyphs get a
+      transparent fill and ::after paints the running figure from the attribute. With no attribute,
+      as when the script is blocked, late or throws, the rules below never match and the true score
+      renders as plain text. Reserve width so nothing shifts. */
 .score-badge b, .score__num { font-variant-numeric: tabular-nums; min-width: 2ch; display: inline-block; position: relative; }
-.score-badge b.is-counting, .score__num.is-counting { -webkit-text-fill-color: transparent; }
-.score-badge b.is-counting::after, .score__num.is-counting::after {
+.score-badge b[data-display], .score__num[data-display] { -webkit-text-fill-color: transparent; }
+.score-badge b[data-display]::after, .score__num[data-display]::after {
   content: attr(data-display); position: absolute; left: 0; top: 0; white-space: nowrap;
   -webkit-text-fill-color: currentColor;
 }

@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 __pycache__/
+
+# Hero source art; the site serves the WebP/JPEG derivatives in assets/img/
+hero image.png
