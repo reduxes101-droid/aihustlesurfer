@@ -557,6 +557,8 @@ def page_home() -> str:
 <section class="section container">{newsletter()}</section>
 '''
     preload = '<link rel="preload" as="image" href="/assets/img/hero-beach-1672.webp" imagesrcset="/assets/img/hero-beach-1200.webp 1200w, /assets/img/hero-beach-1672.webp 1672w" imagesizes="100vw" type="image/webp" media="(min-width: 60rem)" fetchpriority="high">\n'
+    # Impact.com site verification: home page only, quotes and attribute order kept exactly as issued.
+    preload += "<meta name='impact-site-verification' value='f74b2363-f21e-4600-9143-2260b178ba02'>" + chr(10)
     return layout(title=SITE["tagline"], description=SITE["description"], path="/", body=body, theme="dark", current="home", extra_head=preload,
                   jsonld=ld(org_node(), website_node()))
 
