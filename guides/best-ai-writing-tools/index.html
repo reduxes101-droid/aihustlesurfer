@@ -132,8 +132,9 @@
 <section class="newsletter reveal" aria-labelledby="nl-title">
   <h2 id="nl-title">New reviews, by email</h2>
   <p>One email when we publish something worth your time. No sequences, no upsells.</p>
-  <form data-newsletter action="#" method="post">
+  <form data-newsletter action="/api/subscribe" method="post">
     <label><span class="visually-hidden">Email address</span><input type="email" name="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></label>
+    <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
     <button class="btn btn--primary" type="submit">Subscribe</button>
   </form>
   <small>Unsubscribe with one click. We do not sell or share the list.</small>

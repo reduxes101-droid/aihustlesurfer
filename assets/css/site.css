@@ -851,3 +851,7 @@ main { flex: 1 0 auto; }
 .prose .shot { margin: 0 0 1.75em; }
 .prose .shot img { width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--line-light); background: var(--cream-2); }
 .prose .shot figcaption { font-size: 0.8rem; line-height: 1.45; color: var(--ink-2); margin-top: 0.6rem; }
+
+/* Newsletter: honeypot stays out of sight and out of the tab order; error state */
+.hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.newsletter__msg.is-error { color: #A83A31; }

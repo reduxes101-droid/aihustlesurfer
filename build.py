@@ -220,6 +220,7 @@ def newsletter() -> str:
   <p>One email when we publish something worth your time. No sequences, no upsells.</p>
   <form data-newsletter action="{esc(action)}" method="post">
     <label><span class="visually-hidden">Email address</span><input type="email" name="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></label>
+    <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
     <button class="btn btn--primary" type="submit">Subscribe</button>
   </form>
   <small>Unsubscribe with one click. We do not sell or share the list.</small>
@@ -839,6 +840,30 @@ def page_disclosure() -> str:
                   path="/disclosure/", body=body, theme="light", current="disclosure", article=True)
 
 
+
+def page_subscribed(ok: bool) -> str:
+    if ok:
+        head, dek, extra = ("You are on the list",
+                            "One email when we publish something worth your time. No sequences, no upsells, and one click to leave.",
+                            "")
+    else:
+        head, dek, extra = ("That did not go through",
+                            "We could not add that address. Either it was not a valid email, or our email service was unavailable for a moment.",
+                            f'<p>Try again from any page, or email <a href="mailto:{esc(SITE["contactEmail"])}">{esc(SITE["contactEmail"])}</a> and we will add you by hand.</p>')
+    body = f'''
+<div class="container container--narrow">
+  <header class="article-head">
+    <span class="kicker">Newsletter</span>
+    <h1>{head}</h1>
+    <p class="dek">{dek}</p>
+    {extra}
+    <p><a class="btn btn--ghost" href="/tools/">Browse tool reviews</a> <a class="btn btn--ghost" href="/">Home</a></p>
+  </header>
+</div>'''
+    path = "/subscribed/" if ok else "/subscribed/problem/"
+    return layout(title=head, description=dek, path=path, body=body, theme="light",
+                  extra_head='<meta name="robots" content="noindex">' + chr(10))
+
 def page_404() -> str:
     body = f'''
 <div class="container container--narrow">
@@ -904,6 +929,8 @@ def main() -> None:
     write("about/index.html", page_about()); pages.append("/about/")
     write("disclosure/index.html", page_disclosure()); pages.append("/disclosure/")
     write("404.html", page_404())
+    write("subscribed/index.html", page_subscribed(True))
+    write("subscribed/problem/index.html", page_subscribed(False))
 
     for slug, link in LINKS.items():
         name = TOOL_BY_SLUG.get(slug, {}).get("name", slug)
@@ -927,6 +954,7 @@ def main() -> None:
         "redirects": redirects,
         "headers": [
             {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},
+            {"source": "/api/(.*)", "headers": [{"key": "Cache-Control", "value": "no-store"}]},
             {"source": "/(.*)", "headers": [
                 {"key": "X-Content-Type-Options", "value": "nosniff"},
                 {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
@@ -939,7 +967,7 @@ def main() -> None:
     today = dt.date.today().isoformat()
     urls = "".join(f"  <url><loc>{base}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /go/\nSitemap: {base}/sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /go/\nDisallow: /api/\nDisallow: /subscribed/\nSitemap: {base}/sitemap.xml\n")
 
     print(f"Built {len(pages)} pages, {len(LINKS)} redirects.")
 

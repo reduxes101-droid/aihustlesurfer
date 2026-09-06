@@ -146,14 +146,39 @@
   document.querySelectorAll('form[data-newsletter]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       var msg = form.parentElement.querySelector('.newsletter__msg');
+      var btn = form.querySelector('button[type="submit"]');
       var action = form.getAttribute('action') || '';
+      var say = function (text, ok) {
+        if (!msg) return;
+        msg.hidden = false; msg.textContent = text; msg.classList.toggle('is-error', !ok);
+      };
+      var reset = function () { if (btn) { btn.disabled = false; btn.textContent = 'Subscribe'; } };
       if (!action || action === '#') {
         e.preventDefault();
-        if (msg) { msg.hidden = false; msg.textContent = 'Signup is not connected yet. Add your form endpoint in content/site.json.'; }
+        say('Signup is not connected yet. Add your form endpoint in content/site.json.', false);
         return;
       }
-      var btn = form.querySelector('button[type="submit"]');
+      if (!window.fetch || !window.URLSearchParams) return; /* old browser: plain form post + redirect */
+      e.preventDefault();
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      var body = new URLSearchParams(new FormData(form)).toString();
+      fetch(action, {
+        method: 'POST', credentials: 'same-origin',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'fetch' },
+        body: body
+      }).then(function (r) { return r.json(); }).then(function (d) {
+        if (d && d.ok) {
+          say(d.message || 'You are on the list.', true);
+          form.reset();
+          if (btn) { btn.textContent = 'Subscribed'; }
+        } else {
+          say((d && d.message) || 'Something went wrong. Try again in a minute.', false);
+          reset();
+        }
+      }).catch(function () {
+        say('Could not reach the signup service. Try again in a minute.', false);
+        reset();
+      });
     });
   });
 })();
