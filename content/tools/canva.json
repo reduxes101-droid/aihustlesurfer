@@ -35,7 +35,7 @@
     {
       "h": "What it is used for",
       "p": [
-        "Pinterest pins, YouTube thumbnails, client social graphics, and printable products for Etsy. The common pin workflow ends here: a background from <a href=\"/tools/midjourney/\">Midjourney</a> goes in, text goes on, export at 1000 by 1500.",
+        "Pinterest pins, YouTube thumbnails, client social graphics, and printable products for Etsy. The common pin workflow ends here: a background from <a href=\"/tools/midjourney/\">Midjourney</a> goes in, text goes on, export at 1000 by 1500. Book covers work the same way: set the canvas to the dimensions from the <a href=\"/kdp/cover-calculator/\">KDP cover calculator</a> before you start, because a template at the wrong trim size is the most common reason KDP rejects a cover.",
         "Bulk Create is the feature Pinterest operators cite most: a spreadsheet of titles and one template produces dozens of pins in minutes."
       ]
     },

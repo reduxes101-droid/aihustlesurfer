@@ -277,6 +277,8 @@ main { flex: 1 0 auto; }
 .grid { display: grid; gap: 1rem; }
 .grid--2 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
 .grid--3 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 19.5rem), 1fr)); }
+/* Exactly two columns from tablet up: for sets of four cards, so no orphan on a third column. */
+@media (min-width: 48rem) { .grid--pairs { grid-template-columns: 1fr 1fr; } }
 
 .card {
   --mx: 50%; --my: 50%;

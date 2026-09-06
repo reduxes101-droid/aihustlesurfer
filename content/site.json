@@ -71,5 +71,32 @@
       0,
       "Hard to recommend"
     ]
-  ]
+  ],
+  "kdpTools": {
+    "base": "/kdp/",
+    "title": "Free KDP tools",
+    "intro": "Four calculators for Amazon KDP paperbacks, every number checked against KDP's published specifications. No login, no email gate.",
+    "items": [
+      {
+        "slug": "cover-calculator",
+        "name": "KDP cover calculator",
+        "description": "Spine width and full wraparound cover size from page count, paper and trim, in inches and millimetres."
+      },
+      {
+        "slug": "royalty-calculator",
+        "name": "KDP royalty calculator",
+        "description": "Printing cost, the 50% or 60% tier, royalty per sale and the minimum list price for every Amazon marketplace."
+      },
+      {
+        "slug": "trim-sizes",
+        "name": "KDP trim sizes",
+        "description": "Every paperback trim size with page limits by paper type, margin rules and bleed, as plain HTML tables."
+      },
+      {
+        "slug": "page-count-estimator",
+        "name": "KDP page count estimator",
+        "description": "Words to pages for a given trim, font, point size and line spacing, then straight into the cover calculator."
+      }
+    ]
+  }
 }

@@ -28,6 +28,7 @@ SITE = json.loads((CONTENT / "site.json").read_text("utf-8"))
 LINKS = {k: v for k, v in json.loads((CONTENT / "links.json").read_text("utf-8")).items() if not k.startswith("_")}
 CATS = SITE["categories"]
 USE_CASES = SITE["useCases"]
+KDP = SITE.get("kdpTools")  # the KDP calculators, a separate Next.js app mounted at /kdp/
 for _u in USE_CASES:
     assert _u["category"] in CATS, f"useCases: unknown category {_u['category']!r}"
 
@@ -186,7 +187,10 @@ def header(current: str) -> str:
     items = [("/tools/", "tools", "Tools")]
     if SHOW_VIDEOS:
         items.append(("/videos/", "videos", "Videos"))
-    items += [("/guides/", "guides", "Guides"), ("/about/", "about", "About")]
+    items.append(("/guides/", "guides", "Guides"))
+    if KDP:
+        items.append((KDP["base"], "kdp", "KDP tools"))   # the calculators, distinct from /tools/ reviews
+    items.append(("/about/", "about", "About"))
     nav = "".join(
         f'<a href="{href}"{" aria-current=\"page\"" if key == current else ""}>{label}</a>' for href, key, label in items
     )
@@ -446,6 +450,29 @@ def byline(parts: list[str]) -> str:
 # --------------------------------------------------------------------------
 # Pages
 # --------------------------------------------------------------------------
+def kdp_card(item: dict) -> str:
+    href = f"{KDP['base']}{item['slug']}/"
+    return f'''
+    <article class="card">
+      <span class="pill">Free tool</span>
+      <h3><a href="{href}">{esc(item["name"])}</a></h3>
+      <p>{esc(item["description"])}</p>
+    </article>'''
+
+
+def kdp_section() -> str:
+    if not KDP:
+        return ""
+    cards = "".join(kdp_card(i) for i in KDP["items"])
+    return f'''
+<section id="kdp-tools" class="section section--tight container" aria-labelledby="kdp-tools-title">
+  <div class="section-head"><h2 id="kdp-tools-title">{esc(KDP["title"])}</h2><a href="{KDP["base"]}">All KDP tools</a></div>
+  <p class="dek">{esc(KDP["intro"])}</p>
+  <div class="grid grid--pairs reveal-group">{cards}</div>
+</section>
+'''
+
+
 def usecase_card(u: dict) -> str:
     """One use-case card. The count comes from the reviews actually on disk, and a category
     with a single review names it rather than implying a shelf of options."""
@@ -543,6 +570,7 @@ def page_home() -> str:
   <div class="grid grid--3 reveal-group">{latest}</div>
 </section>
 
+{kdp_section()}
 <section class="section section--tight container">
   <div class="section-head"><h2>Roundups</h2><a href="/guides/">All guides</a></div>
   <div class="grid grid--2 reveal-group">{roundup_html}</div>
