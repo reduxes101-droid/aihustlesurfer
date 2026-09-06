@@ -847,10 +847,14 @@ main { flex: 1 0 auto; }
 @media (max-width: 63.99rem) { .review-layout, .guide-layout { grid-template-columns: minmax(0, 1fr); } }
 .review-layout > *, .guide-layout > * { min-width: 0; }
 
-/* Vendor-page screenshot on reviews */
-.prose .shot { margin: 0 0 1.75em; }
-.prose .shot img { width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--line-light); background: var(--cream-2); }
-.prose .shot figcaption { font-size: 0.8rem; line-height: 1.45; color: var(--ink-2); margin-top: 0.6rem; }
+/* Vendor-page screenshot on reviews: a reference figure, not a hero */
+.prose .shot { margin: 0.75em 0 1.5em; }
+.prose .shot img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line-light); background: var(--cream-2); }
+.prose .shot figcaption { font-size: 0.78rem; line-height: 1.45; color: var(--ink-2); margin-top: 0.5rem; }
+@media (min-width: 48rem) {
+  .prose .shot { float: right; width: 52%; margin: 0.35em 0 1em 1.75rem; }
+  .prose h2, .prose .article-foot, .prose .table-scroll { clear: both; }
+}
 
 /* Newsletter: honeypot stays out of sight and out of the tab order; error state */
 .hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }

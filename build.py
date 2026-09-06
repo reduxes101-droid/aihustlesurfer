@@ -562,9 +562,16 @@ def page_tool(t: dict) -> str:
     link = LINKS[t["slug"]]
     pros = "".join(f"<li>{ICON['check']}<span>{esc(p)}</span></li>" for p in t["pros"])
     cons = "".join(f"<li>{ICON['x']}<span>{esc(c)}</span></li>" for c in t["cons"])
-    sections = "".join(
-        f'<h2 id="{slugify(s["h"])}">{esc(s["h"])}</h2>' + "".join(f"<p>{p}</p>" for p in s["p"]) for s in t["sections"]
-    )
+    figure = screenshot_figure(t)
+    parts = []
+    for i, s in enumerate(t["sections"]):
+        parts.append(f'<h2 id="{slugify(s["h"])}">{esc(s["h"])}</h2>')
+        if i == 1 and figure:
+            parts.append(figure)  # reference figure sits inside the second section, after the opening one
+        parts.extend(f"<p>{p}</p>" for p in s["p"])
+    if figure and len(t["sections"]) < 2:
+        parts.append(figure)
+    sections = "".join(parts)
     pricing = ('<div class="table-scroll"><table class="pricing-table"><thead><tr><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">What you get</th></tr></thead><tbody>'
                + "".join(f'<tr><td>{esc(p["plan"])}</td><td>{esc(p["price"])}</td><td>{esc(p["notes"])}</td></tr>' for p in t["pricing"])
                + '</tbody></table></div>')
@@ -592,7 +599,6 @@ def page_tool(t: dict) -> str:
   <div class="review-layout">
     {rail(f'<span class="rail__score score-badge"><b>{t["score"]:.1f}</b><small>/10</small></span><span class="rail__section" aria-live="polite">{esc(t["name"])}</span><a href="#pricing">Pricing</a><a href="{go_href(t["slug"])}" rel="sponsored nofollow noopener" target="_blank">Visit</a>')}
     <div class="prose" data-article>
-      {screenshot_figure(t)}
       <div class="proscons">
         <div class="pros"><h3>What works</h3><ul>{pros}</ul></div>
         <div class="cons"><h3>What doesn't</h3><ul>{cons}</ul></div>
