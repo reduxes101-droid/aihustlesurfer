@@ -4,3 +4,4 @@ Disallow: /go/
 Disallow: /api/
 Disallow: /subscribed/
 Sitemap: https://aihustlesurfer.com/sitemap.xml
+Sitemap: https://aihustlesurfer.com/kdp/sitemap.xml

@@ -143,6 +143,16 @@
       "permanent": false
     }
   ],
+  "rewrites": [
+    {
+      "source": "/kdp",
+      "destination": "https://kdp-research-tool.vercel.app/kdp/"
+    },
+    {
+      "source": "/kdp/(.*)",
+      "destination": "https://kdp-research-tool.vercel.app/kdp/$1"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

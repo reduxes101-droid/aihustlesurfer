@@ -999,10 +999,18 @@ def main() -> None:
     for slug, link in LINKS.items():
         for src in (f"/go/{slug}", f"/go/{slug}/"):
             redirects.append({"source": src, "destination": link["url"], "permanent": False})
+    # The KDP Research Tool is a separate Next.js project (reduxes101-droid/
+    # kdp-research-tool, basePath /kdp) mounted here by rewrite. vercel.json is
+    # generated, so the rewrite lives in this block, not in the JSON file.
+    kdp_origin = "https://kdp-research-tool.vercel.app"
     vercel = {
         "cleanUrls": True,
         "trailingSlash": True,
         "redirects": redirects,
+        "rewrites": [
+            {"source": "/kdp", "destination": f"{kdp_origin}/kdp/"},
+            {"source": "/kdp/(.*)", "destination": f"{kdp_origin}/kdp/$1"},
+        ],
         "headers": [
             {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},
             {"source": "/api/(.*)", "headers": [{"key": "Cache-Control", "value": "no-store"}]},
@@ -1018,7 +1026,7 @@ def main() -> None:
     today = dt.date.today().isoformat()
     urls = "".join(f"  <url><loc>{base}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /go/\nDisallow: /api/\nDisallow: /subscribed/\nSitemap: {base}/sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /go/\nDisallow: /api/\nDisallow: /subscribed/\nSitemap: {base}/sitemap.xml\nSitemap: {base}/kdp/sitemap.xml\n")
 
     print(f"Built {len(pages)} pages, {len(LINKS)} redirects.")
 
