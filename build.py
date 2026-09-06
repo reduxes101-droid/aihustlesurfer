@@ -207,7 +207,7 @@ def disclosure_bar() -> str:
     return f'''
 <div class="disclosure-bar" role="note" aria-label="Affiliate disclosure">
   <div class="container disclosure-bar__inner">{ICON["info"]}
-    <p><span class="disclosure-bar__long">This page has affiliate links. If you buy through one, we may earn a commission at no extra cost to you. It does not affect scores or what we recommend.</span><span class="disclosure-bar__short">Some links here are affiliate links. They never affect scores.</span> <a href="/disclosure/">How we make money</a></p>
+    <p><span class="disclosure-bar__long">This page has affiliate links. If you buy through one, we may earn a commission at no extra cost to you. It does not affect scores or what we recommend.</span><span class="disclosure-bar__short">Contains affiliate links.</span> <a href="/disclosure/">How we make money</a></p>
   </div>
 </div>'''
 
@@ -594,8 +594,15 @@ def page_tool(t: dict) -> str:
     <h1>{esc(t["headline"])}</h1>
     <p class="dek" data-clamp id="dek">{esc(t["dek"])}</p>
     <button class="dek-more" type="button" aria-expanded="false" aria-controls="dek" hidden>Read more</button>
-    {byline([f"<b>{esc(SITE['byline'])}</b>", f"Updated {esc(fmt_date(t['date']))}", f"{minutes} min read"])}
+    {byline([f"<b>{esc(SITE['byline'])}</b>", f"Updated {esc(fmt_date(t['date']))}", f'<span class="byline__read">{minutes} min read</span>'])}
   </header>
+  <section class="verdict-top" aria-label="Verdict at a glance">
+    <div class="verdict-top__row">
+      {score_badge(t["score"])}
+      <div class="verdict-top__text"><b>{esc(t["name"])}</b> <span class="verdict-top__label">{esc(score_label(t["score"]))}</span><p>{esc(t["tagline"])}</p></div>
+    </div>
+    <div class="verdict-top__cta">{go_link(t["slug"], f"Visit {t['name']}")}<span class="verdict__fine">{esc(fine)} <a href="/disclosure/">Disclosure</a></span></div>
+  </section>
   <div class="review-layout">
     {rail(f'<span class="rail__score score-badge"><b>{t["score"]:.1f}</b><small>/10</small></span><span class="rail__section" aria-live="polite">{esc(t["name"])}</span><a href="#pricing">Pricing</a><a href="{go_href(t["slug"])}" rel="sponsored nofollow noopener" target="_blank">Visit</a>')}
     <div class="prose" data-article>
@@ -603,6 +610,7 @@ def page_tool(t: dict) -> str:
         <div class="pros"><h3>What works</h3><ul>{pros}</ul></div>
         <div class="cons"><h3>What doesn't</h3><ul>{cons}</ul></div>
       </div>
+      <p class="cta-inline">{go_link(t["slug"], f"Visit {t['name']}")}<span class="verdict__fine">{esc(fine)} <a href="/disclosure/">Disclosure</a></span></p>
       {sections}
       <h2 id="pricing">Pricing</h2>
       <p>Prices checked {esc(fmt_date(t["date"]))}. Vendors change plans often, so confirm on their site before you pay.</p>

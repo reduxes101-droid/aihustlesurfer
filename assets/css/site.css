@@ -597,7 +597,6 @@ main { flex: 1 0 auto; }
   .card { padding: 1.1rem; }
   .tool-card .card__top h3 { font-size: 1.3rem; }
   .prose { font-size: 1.0625rem; line-height: 1.65; }
-  .verdict { order: -1; }
   .verdict__score .score__num { font-size: 2.5rem; }
   .toolbar__row--between { flex-direction: column; align-items: stretch; }
   .field--search, .field--select { flex: none; width: 100%; }
@@ -774,7 +773,6 @@ main { flex: 1 0 auto; }
   .rail__score b { font-size: 1.05rem; }
   .rail__section { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-2); }
   .rail a { flex: none; color: var(--purple-ink); font-weight: 500; text-decoration: none; padding: 0.4rem 0; min-height: 2.25rem; display: inline-flex; align-items: center; }
-  .review-layout .verdict { order: -2; }
   html { scroll-padding-top: 3.5rem; }
 }
 
@@ -859,3 +857,35 @@ main { flex: 1 0 auto; }
 /* Newsletter: honeypot stays out of sight and out of the tab order; error state */
 .hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .newsletter__msg.is-error { color: #A83A31; }
+
+/* Verdict at a glance: sits under the article header, hidden on wide screens where the sticky card is already in view */
+.verdict-top {
+  max-width: 52rem; margin: 0 0 0.75rem; padding: 0.75rem 0.9rem 0.85rem;
+  background: #fff; border: 1px solid var(--line-light); border-radius: var(--radius-lg);
+  display: grid; gap: 0.55rem;
+}
+.verdict-top__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
+.verdict-top__row .score-badge b { font-size: 1.75rem; }
+.verdict-top__text { display: contents; }
+.verdict-top__text b { font-weight: 600; font-size: 1.05rem; }
+.verdict-top__label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--purple-ink); }
+.verdict-top__text p { flex-basis: 100%; margin: 0; font-size: 0.9rem; line-height: 1.4; color: var(--ink-2); }
+.verdict-top__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.9rem; }
+.verdict-top__cta .verdict__fine { font-size: 0.76rem; }
+.verdict-top__cta .btn { flex: none; }
+.verdict-top__cta .verdict__fine { flex: 1 1 14rem; }
+@media (min-width: 64rem) { .verdict-top { display: none; } }
+
+/* Inline CTA after the pros and cons */
+.prose .cta-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin: 0 0 2em; clear: both; }
+.prose .cta-inline .btn { flex: none; }
+.prose .cta-inline .verdict__fine { flex: 1 1 14rem; margin: 0; }
+
+/* Phones: keep the start of the article inside the first screen on review pages */
+@media (max-width: 47.99rem) {
+  .disclosure-bar svg { display: none; }
+  .byline__read, .byline span[aria-hidden]:has(+ .byline__read) { display: none; }
+  .article-head { padding-top: 1.25rem; padding-bottom: 1rem; }
+  .review-layout { gap: 1rem; }
+  .prose .proscons { margin-top: 0.5em; }
+}
