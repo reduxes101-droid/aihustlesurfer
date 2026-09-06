@@ -478,9 +478,9 @@ def page_home() -> str:
 <div class="aurora">
   <div class="hero-art" aria-hidden="true">
     <picture>
-      <source media="(min-width: 60rem)" srcset="/assets/img/hero-wave.webp" type="image/webp">
-      <source media="(min-width: 60rem)" srcset="/assets/img/hero-wave.png" type="image/png">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="1920" height="1081" fetchpriority="high" decoding="async">
+      <source media="(min-width: 60rem)" srcset="/assets/img/hero-beach-1200.webp 1200w, /assets/img/hero-beach-1672.webp 1672w" sizes="100vw" type="image/webp">
+      <source media="(min-width: 60rem)" srcset="/assets/img/hero-beach-1672.jpg" type="image/jpeg">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
     </picture>
   </div>
   <div class="aurora__bg" aria-hidden="true"><div class="aurora__layer"></div></div>
@@ -520,7 +520,7 @@ def page_home() -> str:
 
 <section class="section container">{newsletter()}</section>
 '''
-    preload = '<link rel="preload" as="image" href="/assets/img/hero-wave.webp" type="image/webp" media="(min-width: 60rem)" fetchpriority="high">\n'
+    preload = '<link rel="preload" as="image" href="/assets/img/hero-beach-1672.webp" imagesrcset="/assets/img/hero-beach-1200.webp 1200w, /assets/img/hero-beach-1672.webp 1672w" imagesizes="100vw" type="image/webp" media="(min-width: 60rem)" fetchpriority="high">\n'
     return layout(title=SITE["tagline"], description=SITE["description"], path="/", body=body, theme="dark", current="home", extra_head=preload,
                   jsonld=ld(org_node(), website_node()))
 
@@ -553,7 +553,7 @@ def page_tools_index() -> str:
   <p class="empty-state" data-empty hidden>Nothing matches that. Try a broader search or clear the category.</p>
   <section class="section">{newsletter()}</section>
 </div>'''
-    return layout(title="AI tool reviews and ratings", description="A filterable directory of AI tools with honest scores, real pricing, and pros and cons from weeks of use.",
+    return layout(title="AI tool reviews and ratings", description="A filterable directory of AI tools with honest scores, real pricing, and the pros and cons of each one.",
                   path="/tools/", body=body, theme="dark", current="tools",
                   jsonld=ld(breadcrumbs(("Home", "/"), ("Tools", "/tools/")), tool_list_node()))
 

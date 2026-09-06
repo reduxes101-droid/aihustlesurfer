@@ -194,7 +194,9 @@
     Array.prototype.forEach.call(group.children, function (el, i) { el.style.setProperty('--i', Math.min(i, 10)); });
   });
 
-  /* Scores count up once, on first view */
+  /* Scores count up once, on first view. The real value stays in the text node throughout:
+     the running figure is written to data-display and painted by a pseudo-element, so a crawler,
+     a JS-off reader or a mid-animation snapshot always reads the true score, never 0.0. */
   var nums = document.querySelectorAll('.score-badge b, .score__num');
   if (nums.length && !reduceMotion && hasIO) {
     var seen = {};
@@ -207,14 +209,18 @@
           io.unobserve(entry.target);
           var el = entry.target, target = parseFloat(el.textContent), start = null, dur = 700;
           if (isNaN(target)) return;
+          var finish = function () { el.classList.remove('is-counting'); el.removeAttribute('data-display'); };
+          el.setAttribute('data-display', '0.0');
+          el.classList.add('is-counting');
           var step = function (ts) {
+            if (!el.classList.contains('is-counting')) return;
             if (!start) start = ts;
             var p = Math.min(1, (ts - start) / dur), e = 1 - Math.pow(1 - p, 3);
-            el.textContent = (target * e).toFixed(1);
-            if (p < 1) requestAnimationFrame(step); else el.textContent = target.toFixed(1);
+            el.setAttribute('data-display', (target * e).toFixed(1));
+            if (p < 1) requestAnimationFrame(step); else finish();
           };
           requestAnimationFrame(step);
-          setTimeout(function () { el.textContent = target.toFixed(1); }, dur + 100); /* settles even if the tab is backgrounded */
+          setTimeout(finish, dur + 100); /* settles even if the tab is backgrounded */
         });
       }, { threshold: 0.6 });
       nums.forEach(function (el) { io.observe(el); });
