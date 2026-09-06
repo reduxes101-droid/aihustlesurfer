@@ -27,6 +27,9 @@ esc = html.escape
 SITE = json.loads((CONTENT / "site.json").read_text("utf-8"))
 LINKS = {k: v for k, v in json.loads((CONTENT / "links.json").read_text("utf-8")).items() if not k.startswith("_")}
 CATS = SITE["categories"]
+USE_CASES = SITE["useCases"]
+for _u in USE_CASES:
+    assert _u["category"] in CATS, f"useCases: unknown category {_u['category']!r}"
 
 TOOLS = sorted(
     (json.loads(p.read_text("utf-8")) for p in sorted((CONTENT / "tools").glob("*.json"))),
@@ -443,19 +446,38 @@ def byline(parts: list[str]) -> str:
 # --------------------------------------------------------------------------
 # Pages
 # --------------------------------------------------------------------------
+def usecase_card(u: dict) -> str:
+    """One use-case card. The count comes from the reviews actually on disk, and a category
+    with a single review names it rather than implying a shelf of options."""
+    tools = sorted((t for t in TOOLS if t["category"] == u["category"]), key=lambda t: -t["score"])
+    n = len(tools)
+    if n == 0:
+        count = "No reviews yet"
+    elif n == 1:
+        count = f"1 review · {esc(tools[0]['name'])}"
+    else:
+        count = f"{n} reviews"
+    return f'''
+<article class="card usecase-card">
+  <h3><a href="/tools/?category={u["category"]}">{esc(u["title"])} {ICON["arrow"]}</a></h3>
+  <p>{esc(u["description"])}</p>
+  <div class="card__meta"><span>{count}</span><span>{esc(CATS[u["category"]])}</span></div>
+</article>'''
+
+
 def page_home() -> str:
     lead = next((t for t in TOOLS if t.get("featured")), TOOLS[0])
     others = [t for t in TOOLS if t["slug"] != lead["slug"]]
-    side = []
-    if GUIDES:
-        g = GUIDES[0]
-        side.append(("Guide", f"/guides/{g['slug']}/", g["title"], g["dek"]))
-    for t in others[:2]:
-        side.append((f"Review · {t['score']:.1f}/10", f"/tools/{t['slug']}/", t["name"], t["tagline"]))
-    side_html = "".join(
-        f'<article class="side-story"><span class="kicker">{esc(k)}</span><h3><a href="{h}">{esc(ti)}</a></h3><p>{esc(d)}</p></article>'
-        for k, h, ti, d in side
-    )
+    guide = next((g for g in GUIDES if g.get("featured")), GUIDES[0]) if GUIDES else None
+    usecases = "".join(usecase_card(u) for u in USE_CASES)
+    trust = "".join(f'<li>{ICON["check"]}<b>{esc(label)}</b></li>' for label in ("Honest reviews", "Independent", "Built for earners"))
+    guide_html = f'''
+    <article class="card feature feature--guide">
+      <span class="kicker">Featured guide</span>
+      <h2><a href="/guides/{guide["slug"]}/">{esc(guide["title"])}</a></h2>
+      <p class="dek">{esc(guide["dek"])}</p>
+      {byline([esc(fmt_date(guide["date"])), f"{read_time(guide['body'])} min read"])}
+    </article>''' if guide else ""
     latest = "".join(tool_card(t) for t in others[:6])
     roundups = [g for g in GUIDES if g["type"] == "roundup"][:2]
     roundup_html = "".join(
@@ -484,23 +506,35 @@ def page_home() -> str:
     </picture>
   </div>
   <div class="aurora__bg" aria-hidden="true"><div class="aurora__layer"></div></div>
-<div class="container">
-  <p class="masthead-line"><strong>{esc(SITE["tagline"])}</strong><span>Updated {esc(latest_update())}</span></p>
-</div>
 <section class="hero container">
-  <div class="hero__grid">
-    <article class="lead-story">
-      <span class="kicker">Review · {esc(CATS[lead["category"]])}</span>
-      <h1><a href="/tools/{lead["slug"]}/">{esc(lead["headline"])}</a></h1>
-      <p class="dek">{esc(lead["dek"])}</p>
-      <span class="lead-story__score score"><span class="score__num">{lead["score"]:.1f}</span><span class="score__den">/10 · {esc(score_label(lead["score"]))}</span></span>
-      {byline([f"<b>{esc(SITE['byline'])}</b>", esc(fmt_date(lead["date"])), f"{read_time(tool_text(lead))} min read"])}
-      <a class="arrow-link" href="/tools/{lead["slug"]}/">Read the review {ICON["arrow"]}</a>
-    </article>
-    <div class="side-stories">{side_html}</div>
+  <div class="hero-intro">
+    <h1>AI tools that earn their subscription.</h1>
+    <p class="dek">Independent reviews for freelancers, creators and small businesses. See what each tool actually does, what it costs, and whether it can make or save you money.</p>
+    <div class="hero-intro__actions">
+      <a class="btn btn--primary" href="#use-cases">Find the right tool {ICON["arrow"]}</a>
+      <a class="btn btn--ghost" href="/tools/">See all reviews</a>
+    </div>
+    <ul class="trust" aria-label="What to expect">{trust}<li class="trust__updated">Updated {esc(latest_update())}</li></ul>
   </div>
 </section>
 </div>
+
+<section id="use-cases" class="section section--tight container">
+  <div class="section-head"><h2>What do you want to do?</h2><a href="/tools/">Browse every category</a></div>
+  <div class="grid grid--3 reveal-group">{usecases}</div>
+</section>
+
+<section class="section section--tight container">
+  <div class="feature-grid reveal-group">
+    <article class="card feature feature--review">
+      <span class="kicker">Latest review · {esc(CATS[lead["category"]])}</span>
+      <h2><a href="/tools/{lead["slug"]}/">{esc(lead["headline"])}</a></h2>
+      <p class="dek">{esc(lead["dek"])}</p>
+      <span class="feature__score score"><span class="score__num">{lead["score"]:.1f}</span><span class="score__den">/10 · {esc(score_label(lead["score"]))}</span></span>
+      {byline([f"<b>{esc(SITE['byline'])}</b>", esc(fmt_date(lead["date"])), f"{read_time(tool_text(lead))} min read"])}
+    </article>{guide_html}
+  </div>
+</section>
 
 <section class="section section--tight container">
   <div class="section-head"><h2>Latest reviews</h2><a href="/tools/">All {len(TOOLS)} tools reviewed</a></div>
@@ -523,7 +557,6 @@ def page_home() -> str:
     preload = '<link rel="preload" as="image" href="/assets/img/hero-beach-1672.webp" imagesrcset="/assets/img/hero-beach-1200.webp 1200w, /assets/img/hero-beach-1672.webp 1672w" imagesizes="100vw" type="image/webp" media="(min-width: 60rem)" fetchpriority="high">\n'
     return layout(title=SITE["tagline"], description=SITE["description"], path="/", body=body, theme="dark", current="home", extra_head=preload,
                   jsonld=ld(org_node(), website_node()))
-
 
 def page_tools_index() -> str:
     chips = '<button class="chip" type="button" data-category="all" aria-pressed="true">All</button>' + "".join(

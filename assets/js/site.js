@@ -84,8 +84,17 @@
     var grid = dir.querySelector('[data-tools-grid]');
     var state = { category: 'all', q: '', sort: 'score' };
 
+    /* Initial category from ?category=video or #category=video (or a bare #video). Anything that
+       is not a real chip falls back to the full directory rather than an empty grid. */
+    var known = Array.prototype.map.call(chips, function (chip) { return chip.dataset.category; });
+    function categoryFromUrl() {
+      var params = new URLSearchParams(location.search);
+      var hash = location.hash.replace(/^#/, '').replace(/^category=/, '');
+      var wanted = hash || params.get('category');   /* a hash is the newer signal, so it wins */
+      return known.indexOf(wanted) !== -1 ? wanted : 'all';
+    }
     var params = new URLSearchParams(location.search);
-    if (params.get('category')) state.category = params.get('category');
+    state.category = categoryFromUrl();
     if (params.get('q')) { state.q = params.get('q'); if (search) search.value = state.q; }
 
     function apply() {
@@ -111,8 +120,12 @@
       var url = new URL(location.href);
       if (state.category === 'all') url.searchParams.delete('category'); else url.searchParams.set('category', state.category);
       if (!q) url.searchParams.delete('q'); else url.searchParams.set('q', state.q);
+      url.hash = '';
       history.replaceState(null, '', url);
     }
+    window.addEventListener('hashchange', function () {
+      if (location.hash.length > 1) { state.category = categoryFromUrl(); apply(); }
+    });
 
     chips.forEach(function (chip) {
       chip.addEventListener('click', function () { state.category = chip.dataset.category; apply(); });

@@ -233,21 +233,16 @@ main { flex: 1 0 auto; }
 /* --------------------------------------------------------------------------
    Home hero (editorial)
    -------------------------------------------------------------------------- */
-.masthead-line {
-  padding-block: clamp(1.5rem, 4vw, 2.5rem) 0;
-  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 2rem;
-  color: var(--on-dark-2); font-size: 0.9rem;
-}
-.masthead-line strong { color: var(--on-dark); font-weight: 500; }
-
-.hero { padding-block: clamp(1.5rem, 4vw, 2.5rem) clamp(2.5rem, 6vw, 4rem); }
-.hero__grid { display: grid; gap: clamp(1.5rem, 4vw, 3rem); }
-@media (min-width: 60rem) { .hero__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); } }
-.lead-story { display: grid; gap: 1rem; align-content: start; }
-.lead-story h1 { font-size: var(--text-3xl); font-weight: 500; line-height: 1.0; letter-spacing: -0.02em; }
-.lead-story h1 a { text-decoration: none; }
-.lead-story h1 a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--purple); }
-.lead-story .dek { font-size: var(--text-lg); line-height: 1.45; color: var(--on-dark-2); max-width: 36rem; }
+.hero { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2.5rem, 6vw, 4rem); }
+.hero-intro { display: grid; gap: 1.25rem; max-width: 44rem; align-content: start; }
+.hero-intro h1 { font-size: var(--text-3xl); font-weight: 500; line-height: 1.0; letter-spacing: -0.02em; text-wrap: balance; }
+.hero-intro .dek { font-size: var(--text-lg); line-height: 1.45; color: var(--on-dark-2); max-width: 36rem; }
+.hero-intro__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.25rem; }
+.trust { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.9rem; color: var(--on-dark-2); }
+.trust li { display: inline-flex; align-items: center; gap: 0.4rem; }
+.trust svg { width: 1rem; height: 1rem; color: var(--purple); flex: none; }
+.trust b { color: var(--on-dark); font-weight: 500; }
+.trust__updated { margin-left: auto; }
 .byline { display: flex; flex-wrap: wrap; gap: 0.35rem 0.75rem; align-items: center; font-size: 0.85rem; color: var(--on-dark-2); }
 .byline b { color: var(--on-dark); font-weight: 500; }
 .theme-light .byline { color: var(--ink-2); }
@@ -257,15 +252,24 @@ main { flex: 1 0 auto; }
 .score__num { font-size: 1.75rem; font-weight: 500; line-height: 1; }
 .score__den { font-size: 0.8rem; color: var(--on-dark-2); }
 .theme-light .score__den { color: var(--ink-2); }
-.lead-story__score { display: inline-flex; align-items: baseline; gap: 0.35rem; margin-top: 0.25rem; }
-.lead-story__score .score__num { font-size: 2.25rem; }
 
-.side-stories { display: grid; gap: 0; align-content: start; border-top: 1px solid var(--line-dark); }
-.side-story { padding-block: 1rem; border-bottom: 1px solid var(--line-dark); display: grid; gap: 0.35rem; }
-.side-story h3 { font-size: 1.25rem; font-weight: 500; }
-.side-story h3 a { text-decoration: none; }
-.side-story h3 a:hover { text-decoration: underline; text-decoration-color: var(--purple); }
-.side-story p { font-size: 0.95rem; color: var(--on-dark-2); }
+/* Use-case cards (home): the category grid below the hero */
+.usecase-card h3 { font-size: 1.35rem; }
+.usecase-card h3 a { display: inline-flex; align-items: center; gap: 0.4rem; }
+.usecase-card h3 svg { width: 1em; height: 1em; color: var(--purple); transition: transform var(--dur) var(--ease-out); }
+.usecase-card:hover h3 svg { transform: translateX(3px); }
+
+/* Feature cards (home): latest review and featured guide, below the use-case grid */
+.feature-grid { display: grid; gap: 1rem; }
+@media (min-width: 60rem) { .feature-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); } }
+.feature { padding: clamp(1.25rem, 3vw, 2rem); gap: 0.85rem; }
+.feature h2 { font-size: var(--text-xl); font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
+.feature h2 a { text-decoration: none; }
+.feature h2 a::after { content: ""; position: absolute; inset: 0; }
+.feature h2 a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--purple); }
+.feature .dek { font-size: 1.05rem; line-height: 1.5; color: var(--on-dark-2); max-width: 36rem; }
+.feature__score { display: inline-flex; align-items: baseline; gap: 0.35rem; margin-top: 0.25rem; }
+.feature__score .score__num { font-size: 2.25rem; }
 
 /* --------------------------------------------------------------------------
    Cards
@@ -592,7 +596,7 @@ main { flex: 1 0 auto; }
 @media (max-width: 47.99rem) {
   .brand__logo { width: 2.5rem; }
   .brand__name { font-size: 1.15rem; }
-  .lead-story h1 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
+  .hero-intro h1 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
   .section-head { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
   .card { padding: 1.1rem; }
   .tool-card .card__top h3 { font-size: 1.3rem; }
@@ -741,15 +745,15 @@ main { flex: 1 0 auto; }
 }
 
 /* 6. Story lists (Guides index, home): title underline draws in on hover */
-.story-row h3 a, .side-story h3 a {
+.story-row h3 a {
   background-image: linear-gradient(var(--purple), var(--purple));
   background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 2px;
   transition: background-size var(--dur) var(--ease-out);
 }
-.story-row h3 a:hover, .side-story h3 a:hover { text-decoration: none; background-size: 100% 2px; }
+.story-row h3 a:hover { text-decoration: none; background-size: 100% 2px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .site-nav a::after, .toc a::before, .pricing-table tbody tr, .story-row h3 a, .side-story h3 a { transition: none; }
+  .site-nav a::after, .toc a::before, .pricing-table tbody tr, .story-row h3 a { transition: none; }
   .js .reveal-group.is-visible > * { transition-delay: 0ms; }
 }
 

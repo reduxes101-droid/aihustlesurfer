@@ -18,11 +18,58 @@
     "seo": "SEO",
     "coding": "Coding"
   },
+  "useCases": [
+    {
+      "category": "writing",
+      "title": "Write & sell",
+      "description": "Client copy, drafts and sales pages that need little cleanup before they ship."
+    },
+    {
+      "category": "video",
+      "title": "Create videos",
+      "description": "Edit, clip, dub and publish a channel without a studio or a crew."
+    },
+    {
+      "category": "image",
+      "title": "Make images",
+      "description": "Thumbnails, illustrations and product shots from a prompt."
+    },
+    {
+      "category": "automation",
+      "title": "Automate work",
+      "description": "Connect the apps you already pay for and hand off the busywork."
+    },
+    {
+      "category": "research",
+      "title": "Research faster",
+      "description": "Cited answers and summaries instead of forty open tabs."
+    },
+    {
+      "category": "coding",
+      "title": "Build & code",
+      "description": "Ship small tools and client sites without hiring a developer."
+    }
+  ],
   "scoreLabels": [
-    [9.0, "Exceptional"],
-    [8.0, "Recommended"],
-    [7.0, "Good, with caveats"],
-    [6.0, "Mixed"],
-    [0, "Hard to recommend"]
+    [
+      9.0,
+      "Exceptional"
+    ],
+    [
+      8.0,
+      "Recommended"
+    ],
+    [
+      7.0,
+      "Good, with caveats"
+    ],
+    [
+      6.0,
+      "Mixed"
+    ],
+    [
+      0,
+      "Hard to recommend"
+    ]
   ]
 }
