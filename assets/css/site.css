@@ -663,9 +663,16 @@ main { flex: 1 0 auto; }
 }
 
 
-/* Home hero artwork: static image under the aurora, masked so text zones stay navy */
+/* Home hero artwork: static image under the aurora, masked so text zones stay navy.
+   The image keeps its own aspect ratio and is never scaled past 1:1 (width caps at its 1672px
+   source), anchored bottom-right. When the hero is shorter than the image, max-height clips the
+   box and object-position chooses the band to show, so cover crops instead of magnifying. */
 .hero-art { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.hero-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; display: block; }
+.hero-art img {
+  position: absolute; right: 0; bottom: 0; display: block;
+  width: min(100%, 1672px); height: auto; aspect-ratio: 1672 / 941; max-height: 100%;
+  object-fit: cover; object-position: 50% 80%;
+}
 .hero-art::after {
   content: ""; position: absolute; inset: 0;
   background:
