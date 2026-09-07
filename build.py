@@ -251,7 +251,7 @@ def footer() -> str:
       </div>
       <div>
         <h2>Site</h2>
-        <ul><li><a href="/disclosure/">Affiliate disclosure</a></li><li><a href="/about/#corrections">Corrections</a></li><li><a href="mailto:{esc(SITE["contactEmail"])}">{esc(SITE["contactEmail"])}</a></li></ul>
+        <ul><li><a href="/disclosure/">Affiliate disclosure</a></li><li><a href="/privacy/">Privacy policy</a></li><li><a href="/terms/">Terms of service</a></li><li><a href="/about/#corrections">Corrections</a></li><li><a href="mailto:{esc(SITE["contactEmail"])}">{esc(SITE["contactEmail"])}</a></li></ul>
       </div>
     </div>
     <p class="site-footer__disclosure"><strong>Disclosure.</strong> {esc(SITE["name"])} is reader-supported. Some links to tools are affiliate links: if you sign up or buy through them, we may earn a commission at no extra cost to you. Affiliate status never influences a score, a ranking, or whether a tool gets reviewed at all. <a href="/disclosure/">Read the full disclosure</a>.</p>
@@ -920,6 +920,200 @@ def page_disclosure() -> str:
 
 
 
+# Effective date shown on the legal pages. Bump it by hand when the wording
+# changes; latest_update() tracks review content and would be misleading here.
+LEGAL_UPDATED = "2026-09-07"
+
+
+def page_privacy() -> str:
+    email = esc(SITE["contactEmail"])
+    body = f"""
+<div class="container container--narrow">
+  <header class="article-head">
+    <span class="kicker">Legal</span>
+    <h1>Privacy policy</h1>
+    <p class="dek">What we collect, who handles it, and how to get it deleted. Written to be read, not skimmed past.</p>
+  </header>
+  <div class="prose" data-article>
+    <p>This policy covers <strong>aihustlesurfer.com</strong>, including the KDP tools at <a href="/kdp/">/kdp/</a>. The site is operated by {esc(SITE["name"])} from the Philippines. If anything here is unclear, write to <a href="mailto:{email}">{email}</a>.</p>
+    <p>Effective {esc(fmt_date(LEGAL_UPDATED))}.</p>
+
+    <h2>The short version</h2>
+    <ul>
+      <li>Reading the site needs no account and sets no tracking cookies. There is no analytics script and no advertising network on any page.</li>
+      <li>If you subscribe to the newsletter, we keep your email address until you unsubscribe.</li>
+      <li>If you create a KDP tools account, we keep your email, your usage counts and your subscription status. Payments are handled by Lemon Squeezy; we never see your card.</li>
+      <li>We do not sell personal data, and we do not share it with anyone except the service providers listed below.</li>
+      <li>Email us and we will delete your account and its data.</li>
+    </ul>
+
+    <h2>What we collect, and when</h2>
+    <h3>Browsing the site</h3>
+    <p>Our host, Vercel, keeps standard server logs of each request: IP address, browser type, the page requested and the time. We use these only to keep the site running and to investigate abuse. We do not run analytics, and we do not use cookies on the review site. Page fonts load from Google Fonts, which means Google receives your IP address when a page loads, as it would for any site using that service.</p>
+
+    <h3>The newsletter</h3>
+    <p>The form asks for your email address and nothing else. It is added directly to our audience in Resend, the service we send from. Every email has a one-click unsubscribe link, and unsubscribing removes you from the list.</p>
+
+    <h3>A KDP tools account</h3>
+    <p>The keyword checker, category finder and niche scanner need an account. To run one we keep:</p>
+    <ul>
+      <li><strong>Your email address</strong>, used to sign you in and to send the emails described below.</li>
+      <li><strong>Your name and profile picture</strong>, only if you sign in with Google. See the Google section below.</li>
+      <li><strong>A session record</strong> for each sign-in, holding a session token, the IP address and browser it came from, and when it expires. This is what keeps you signed in.</li>
+      <li><strong>Trial and subscription status</strong>: when your trial ends, whether you have a paid subscription, its status and renewal date, and the customer and subscription identifiers Lemon Squeezy assigns to you.</li>
+      <li><strong>Daily usage counts</strong>: how many checks you ran each day, used to enforce plan limits.</li>
+      <li><strong>A log of the emails we sent you</strong> (sign-in links, trial reminders), so we can answer "did you email me?" support questions.</li>
+    </ul>
+    <p>The phrases you check are stored in a shared research database so they can be refreshed on schedule. They are kept as keywords, not as a record of who searched for what, and they are not shown to other users as yours.</p>
+
+    <h3>Payments</h3>
+    <p>Subscriptions are sold by <a href="https://www.lemonsqueezy.com/" rel="noopener">Lemon Squeezy</a> as merchant of record. When you subscribe, your card and billing details go directly to Lemon Squeezy and are covered by <a href="https://www.lemonsqueezy.com/privacy" rel="noopener">its privacy policy</a>. We receive the order status, the email address you paid with, and the identifiers needed to match the payment to your account. We never receive or store card numbers.</p>
+
+    <h2>Signing in with Google</h2>
+    <p>If you choose "Sign in with Google", we ask Google only for your basic profile: your name, email address and profile picture. We use these to create your account and sign you in. We do not request access to your Gmail, Drive, Calendar or any other Google data, and we do not use Google profile information for anything other than running your account. The sign-in tokens Google issues are stored so that your account stays linked; they are deleted with your account. You can also sign in without Google, using an emailed link, in which case Google receives nothing from us.</p>
+
+    <h2>Who processes your data</h2>
+    <p>We use a small number of service providers. Each one handles data only for the purpose listed and under its own contractual and legal obligations.</p>
+    <table>
+      <thead><tr><th>Provider</th><th>What it does for us</th><th>What it sees</th></tr></thead>
+      <tbody>
+        <tr><td>Vercel</td><td>Hosts the site and runs its server code</td><td>Request logs, and all data passing through the site</td></tr>
+        <tr><td>Neon</td><td>Stores the KDP tools database</td><td>Account, session, usage and subscription records</td></tr>
+        <tr><td>Lemon Squeezy</td><td>Merchant of record for subscriptions</td><td>Billing details, payment card, order history</td></tr>
+        <tr><td>Resend</td><td>Sends sign-in links, trial reminders and the newsletter</td><td>Email addresses and the emails sent</td></tr>
+        <tr><td>Google</td><td>Optional sign-in; page fonts</td><td>Sign-in events for accounts using Google; IP address for font requests</td></tr>
+      </tbody>
+    </table>
+    <p>These providers operate mainly in the United States, so your data is transferred there. Beyond them, we share personal data only if the law requires it, or if it is needed to protect the site or its users from abuse.</p>
+
+    <h2>What we do not do</h2>
+    <ul>
+      <li>We do not sell, rent or trade personal data.</li>
+      <li>We do not show advertising or place advertising trackers.</li>
+      <li>We do not build profiles of you from other sources.</li>
+      <li>We do not send marketing email to account holders beyond the trial and account emails described above, unless you also joined the newsletter.</li>
+    </ul>
+
+    <h2>Cookies</h2>
+    <p>The review site sets no cookies. The KDP tools set one strictly necessary session cookie when you sign in, so that you stay signed in; it is removed when you sign out or it expires. There are no analytics or advertising cookies, which is why there is no cookie banner.</p>
+
+    <h2>How long we keep it</h2>
+    <ul>
+      <li><strong>Account data</strong> is kept while your account exists and deleted when you ask us to delete it.</li>
+      <li><strong>Newsletter addresses</strong> are kept until you unsubscribe.</li>
+      <li><strong>Billing records</strong> held by Lemon Squeezy are kept for as long as tax and accounting law requires, even after your account is deleted.</li>
+      <li><strong>Server logs</strong> are kept for a short period by Vercel and then discarded.</li>
+    </ul>
+
+    <h2>Your rights and how to use them</h2>
+    <p>You can ask us to tell you what data we hold about you, to correct it, or to delete it. You can also object to a particular use of it. Depending on where you live, these rights come from the Philippine Data Privacy Act of 2012, the EU or UK GDPR, or other local law; we apply them to everyone regardless.</p>
+    <p><strong>To delete your account</strong>, email <a href="mailto:{email}">{email}</a> from the address on the account. We will delete your account, sessions, usage counts and email log from our database, cancel any active subscription, and ask our providers to remove what they hold, within 30 days. Lemon Squeezy keeps the invoice records it is legally required to keep. If you only want to stop the newsletter, use the unsubscribe link in any email.</p>
+    <p>If you are not satisfied with how we handled a request, you can complain to the data protection authority where you live. In the Philippines that is the <a href="https://privacy.gov.ph/" rel="noopener">National Privacy Commission</a>.</p>
+
+    <h2>Security</h2>
+    <p>The site is served over HTTPS only. Secrets and database credentials live in the hosting environment, never in the site's code, and no payment card data ever reaches our systems. No method is perfect; if we learn of a breach affecting your data we will tell you.</p>
+
+    <h2>Age</h2>
+    <p>The KDP tools are for people running a publishing business, and accounts are for adults aged 18 or over. We do not knowingly collect data from anyone younger; if you believe a minor has created an account, email us and we will delete it.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>When we change this policy we update the date at the top. If a change materially affects account holders, we will email them before it takes effect.</p>
+
+    <h2>Contact</h2>
+    <p>{esc(SITE["name"])}, operating from the Philippines. <a href="mailto:{email}">{email}</a>.</p>
+  </div>
+</div>"""
+    return layout(title="Privacy policy", description="What AIHustleSurfer collects from readers and KDP tools account holders, which providers process it, and how to request deletion.",
+                  path="/privacy/", body=label_tables(body), theme="light", current="privacy", article=True)
+
+
+def page_terms() -> str:
+    email = esc(SITE["contactEmail"])
+    body = f"""
+<div class="container container--narrow">
+  <header class="article-head">
+    <span class="kicker">Legal</span>
+    <h1>Terms of service</h1>
+    <p class="dek">The rules for using the site and the paid KDP tools, including the trial, the subscription, and what the data can and cannot promise.</p>
+  </header>
+  <div class="prose" data-article>
+    <p>These terms apply to <strong>aihustlesurfer.com</strong>, including the KDP tools at <a href="/kdp/">/kdp/</a>, operated by {esc(SITE["name"])} from the Philippines. By using the site or creating an account you agree to them. Our <a href="/privacy/">privacy policy</a> explains how we handle personal data and is part of these terms.</p>
+    <p>Effective {esc(fmt_date(LEGAL_UPDATED))}.</p>
+
+    <h2>What the site offers</h2>
+    <p>The reviews, guides and KDP calculators are free to read and use without an account. The KDP keyword checker, category finder and niche scanner are paid tools that need an account and, after the trial, a subscription.</p>
+
+    <h2>Accounts</h2>
+    <ul>
+      <li>You must be 18 or older to create an account.</li>
+      <li>One account per person. Do not share sign-in links or sessions with others.</li>
+      <li>Keep the email address on your account working; it is how we send sign-in links, trial notices and any required notices about these terms or pricing.</li>
+      <li>You are responsible for what is done through your account.</li>
+    </ul>
+
+    <h2>The free trial</h2>
+    <p>A new account gets full access to the paid tools for <strong>3 days</strong>, starting when the account is created. No payment details are needed to start the trial, and nothing is charged when it ends. When the trial ends, the paid tools pause until you subscribe; the free calculators stay open.</p>
+
+    <h2>The subscription</h2>
+    <p>The paid tools cost <strong>US$9 per month</strong>, billed monthly in advance. Subscriptions are sold and billed by Lemon Squeezy as merchant of record, so <a href="https://www.lemonsqueezy.com/terms" rel="noopener">Lemon Squeezy's terms</a> also apply to the purchase, and sales tax or VAT may be added at checkout depending on where you are. Your subscription renews automatically each month until you cancel.</p>
+
+    <h2>Cancelling</h2>
+    <p>You can cancel at any time from your <a href="/kdp/account/">account page</a>, which opens the Lemon Squeezy billing portal. Cancelling stops future charges. You keep access until the end of the period you have already paid for, and we do not refund the unused part of a billing period. If something has gone wrong, such as being charged after cancelling, or a tool being unavailable for most of a billing period, email <a href="mailto:{email}">{email}</a> and we will put it right. Nothing here limits refund rights you have under the consumer law where you live.</p>
+
+    <h2>Changes to pricing</h2>
+    <p>We may change the subscription price. Existing subscribers will be told by email at least <strong>30 days</strong> before a new price applies to their renewal, and can cancel before then to avoid it. A price change never applies to a period you have already paid for.</p>
+
+    <h2>Where the data comes from, and what it cannot promise</h2>
+    <p>The research tools show figures drawn from publicly available Amazon and Google sources, collected on a refresh schedule rather than live while you browse. Between refreshes, Amazon rankings, review counts, category listings and search suggestions change, and a phrase nobody has checked before is queued for the next refresh rather than fetched on the spot. As a result:</p>
+    <ul>
+      <li>Figures may be out of date, incomplete or wrong, and we do not guarantee their accuracy or currency.</li>
+      <li>Estimates such as demand, competition and sales figures are derived from those sources using our own models and are estimates only.</li>
+      <li>Sources can change how they present data or restrict access, which can delay or remove refreshes for some or all phrases.</li>
+    </ul>
+    <p>{esc(SITE["name"])} is not affiliated with, endorsed by or sponsored by Amazon, Google or any other data source. "Amazon", "KDP" and "Kindle" are trademarks of Amazon.com, Inc. or its affiliates.</p>
+
+    <h2>No guarantee of results</h2>
+    <p>Keyword, category and niche research helps you make decisions; it does not make them for you, and it does not guarantee sales, rankings or income. Publishing decisions, and their outcomes, are yours. Nothing on this site is financial, legal or professional advice.</p>
+
+    <h2>Acceptable use</h2>
+    <p>You may use the tools for your own publishing research, including research you do for clients. You may not:</p>
+    <ul>
+      <li>copy, scrape, export in bulk, resell or republish the research database or substantial parts of it;</li>
+      <li>access the tools by automated means or in a way that circumvents usage limits;</li>
+      <li>share an account, or let others use it in place of buying their own;</li>
+      <li>interfere with the site, probe its security, or use it for anything unlawful.</li>
+    </ul>
+    <p>We may suspend or close accounts that break these rules. Where a breach is serious we may do so without notice; otherwise we will tell you and give you a chance to fix it.</p>
+
+    <h2>Reviews, guides and links</h2>
+    <p>Reviews and guides are our editorial opinion at the time of writing. Prices and features of the tools we cover change without warning. Some links are affiliate links, as explained in our <a href="/disclosure/">disclosure</a>. Third-party sites we link to have their own terms, and we are not responsible for them.</p>
+
+    <h2>Our content</h2>
+    <p>The text, scores, images, calculators and the compiled research database are owned by {esc(SITE["name"])} or its licensors. You may quote short extracts with a link back. Anything more needs our written permission.</p>
+
+    <h2>No warranty</h2>
+    <p>The site and the tools are provided "as is" and "as available". To the extent the law allows, we make no warranties, express or implied, including about accuracy, fitness for a particular purpose, availability or that the tools will be error-free. We may change, pause or withdraw features, and we do our best to keep the tools running but do not promise uninterrupted service.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>To the extent the law allows, we are not liable for indirect or consequential losses, including lost sales, lost profits or lost data, arising from your use of the site or the tools, or from reliance on their figures. Our total liability to you for any claim is limited to the amount you paid us in the 12 months before the claim arose. Nothing in these terms excludes liability that cannot be excluded by law, including for fraud, or limits rights you have as a consumer under the law where you live.</p>
+
+    <h2>Ending your account</h2>
+    <p>You can stop using the site at any time, and you can have your account deleted by emailing us, as described in the privacy policy. Deleting an account cancels any active subscription.</p>
+
+    <h2>Changes to these terms</h2>
+    <p>We may update these terms. The date at the top shows the current version. For changes that materially affect account holders we will email them at least 14 days before the change takes effect; continuing to use the tools after that date means you accept the new terms.</p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of the Republic of the Philippines. If you are a consumer in a country whose law gives you protections that cannot be overridden by this choice, you keep them. We would much rather resolve any dispute by email first: <a href="mailto:{email}">{email}</a>.</p>
+
+    <h2>Contact</h2>
+    <p>{esc(SITE["name"])}, operating from the Philippines. <a href="mailto:{email}">{email}</a>.</p>
+  </div>
+</div>"""
+    return layout(title="Terms of service", description="Terms for using AIHustleSurfer and the paid KDP research tools: the 3-day trial, the $9/month subscription, cancellation, data accuracy and liability.",
+                  path="/terms/", body=body, theme="light", current="terms", article=True)
+
+
 def page_subscribed(ok: bool) -> str:
     if ok:
         head, dek, extra = ("You are on the list",
@@ -1007,6 +1201,8 @@ def main() -> None:
         write(f"guides/{g['slug']}/index.html", page_guide(g)); pages.append(f"/guides/{g['slug']}/")
     write("about/index.html", page_about()); pages.append("/about/")
     write("disclosure/index.html", page_disclosure()); pages.append("/disclosure/")
+    write("privacy/index.html", page_privacy()); pages.append("/privacy/")
+    write("terms/index.html", page_terms()); pages.append("/terms/")
     write("404.html", page_404())
     write("subscribed/index.html", page_subscribed(True))
     write("subscribed/problem/index.html", page_subscribed(False))
