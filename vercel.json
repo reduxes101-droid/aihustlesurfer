@@ -74,12 +74,12 @@
     },
     {
       "source": "/go/opus-clip",
-      "destination": "https://www.opus.pro/",
+      "destination": "https://opus.pro/?via=skeneth",
       "permanent": false
     },
     {
       "source": "/go/opus-clip/",
-      "destination": "https://www.opus.pro/",
+      "destination": "https://opus.pro/?via=skeneth",
       "permanent": false
     },
     {

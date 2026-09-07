@@ -8,7 +8,7 @@
   "runway":     { "url": "https://runwayml.com/", "affiliate": false },
   "descript":   { "url": "https://www.descript.com/", "affiliate": false },
   "heygen":     { "url": "https://www.heygen.com/", "affiliate": false },
-  "opus-clip":  { "url": "https://www.opus.pro/", "affiliate": false },
+  "opus-clip":  { "url": "https://opus.pro/?via=skeneth", "affiliate": true },
   "elevenlabs": { "url": "https://try.elevenlabs.io/r66xe6lrhinh", "affiliate": true },
   "perplexity": { "url": "https://www.perplexity.ai/", "affiliate": false },
   "zapier":     { "url": "https://zapier.com/", "affiliate": false },
